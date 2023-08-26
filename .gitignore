@@ -1,0 +1,8 @@
+/docs/_build/*
+/build/*
+/dist/*
+/holospy.egg-info/*
+*__pycache__*
+*pyd
+.spyproject/*
+.idea
