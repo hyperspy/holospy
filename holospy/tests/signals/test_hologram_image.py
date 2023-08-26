@@ -104,10 +104,8 @@ def test_reconstruct_phase_single(lazy):
     if lazy:
         ref_image = ref_image.as_lazy()
         holo_image = holo_image.as_lazy()
-    wave_image = holo_image.reconstruct_phase(
-        ref, store_parameters=True, plotting=True
-        )
-    plt.close('all')
+    wave_image = holo_image.reconstruct_phase(ref, store_parameters=True, plotting=True)
+    plt.close("all")
 
     metadata = wave_image.metadata.Signal.Holography.Reconstruction_parameters
     sb_pos_cc = metadata.sb_position * (-1) + [img_size, img_size]
@@ -159,9 +157,15 @@ def test_reconstruct_phase_nonstandard(lazy):
         holo_image2 = holo_image2.as_lazy()
 
     sb_position2 = ref_image2.estimate_sideband_position(sb="upper")
-    sb_position2_lower = ref_image2.estimate_sideband_position(sb="lower",)
-    sb_position2_left = ref_image2.estimate_sideband_position(sb="left",)
-    sb_position2_right = ref_image2.estimate_sideband_position(sb="right",)
+    sb_position2_lower = ref_image2.estimate_sideband_position(
+        sb="lower",
+    )
+    sb_position2_left = ref_image2.estimate_sideband_position(
+        sb="left",
+    )
+    sb_position2_right = ref_image2.estimate_sideband_position(
+        sb="right",
+    )
     np.testing.assert_allclose(sb_position2, sb_position2_left)
     np.testing.assert_allclose(sb_position2_lower, sb_position2_right)
 
@@ -194,7 +198,9 @@ def test_reconstruct_phase_nonstandard(lazy):
     # phase):
     interp_x = np.arange(output_shape[0])
     phase_interp0 = RectBivariateSpline(
-        interp_x, interp_x, wave_image2.inav[0].unwrapped_phase().data,
+        interp_x,
+        interp_x,
+        wave_image2.inav[0].unwrapped_phase().data,
     )
     phase_new0 = phase_interp0(
         np.linspace(0, output_shape[0], img_size),
@@ -202,7 +208,9 @@ def test_reconstruct_phase_nonstandard(lazy):
     )
 
     phase_interp1 = RectBivariateSpline(
-        interp_x, interp_x, wave_image2.inav[1].unwrapped_phase().data,
+        interp_x,
+        interp_x,
+        wave_image2.inav[1].unwrapped_phase().data,
     )
     phase_new1 = phase_interp1(
         np.linspace(0, output_shape[0], img_size),
@@ -243,7 +251,10 @@ def test_reconstruct_phase_multi(lazy):
         ref_image3 = ref_image3.as_lazy()
         holo_image3 = holo_image3.as_lazy()
 
-    wave_image3 = holo_image3.reconstruct_phase(ref_image3.inav[0, 0], sb="upper",)
+    wave_image3 = holo_image3.reconstruct_phase(
+        ref_image3.inav[0, 0],
+        sb="upper",
+    )
 
     # Cropping the reconstructed and original phase images and comparing:
     phase3_new_crop = wave_image3.unwrapped_phase()
@@ -269,7 +280,9 @@ def test_reconstruct_phase_multi(lazy):
             )
         ],
     )
-    sb_size3 = ref_image3.estimate_sideband_size(sb_position3,) * np.mean(f_sampling)
+    sb_size3 = ref_image3.estimate_sideband_size(
+        sb_position3,
+    ) * np.mean(f_sampling)
     sb_smoothness3 = sb_size3 * 0.05
     sb_units3 = "nm"
 

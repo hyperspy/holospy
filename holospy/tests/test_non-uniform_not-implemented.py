@@ -21,6 +21,7 @@ import pytest
 from holospy import __version__
 from holospy.signals import HologramImage
 
+
 def test_hologram_image():
     s = HologramImage([[10, 10], [10, 10]])
     s.axes_manager[0].convert_to_non_uniform_axis()

@@ -42,18 +42,19 @@ def calculate_carrier_frequency(holo_data, sb_position, scale):
     """
 
     shape = holo_data.shape
-    origins = [np.array((0, 0)),
-               np.array((0, shape[1])),
-               np.array((shape[0], shape[1])),
-               np.array((shape[0], 0))]
+    origins = [
+        np.array((0, 0)),
+        np.array((0, shape[1])),
+        np.array((shape[0], shape[1])),
+        np.array((shape[0], 0)),
+    ]
     origin_index = np.argmin(
-        [np.linalg.norm(origin - sb_position) for origin in origins])
-    return np.linalg.norm(np.multiply(
-        origins[origin_index] - sb_position, scale))
+        [np.linalg.norm(origin - sb_position) for origin in origins]
+    )
+    return np.linalg.norm(np.multiply(origins[origin_index] - sb_position, scale))
 
 
-def estimate_fringe_contrast_fourier(
-        holo_data, sb_position, apodization='hanning'):
+def estimate_fringe_contrast_fourier(holo_data, sb_position, apodization="hanning"):
     """
     Estimates average fringe contrast of a hologram  by dividing amplitude
     of maximum pixel of sideband by amplitude of FFT's origin.
@@ -77,10 +78,10 @@ def estimate_fringe_contrast_fourier(
     holo_shape = holo_data.shape
 
     if apodization:
-        if apodization == 'hanning':
+        if apodization == "hanning":
             window_x = np.hanning(holo_shape[0])
             window_y = np.hanning(holo_shape[1])
-        elif apodization == 'hamming':
+        elif apodization == "hamming":
             window_x = np.hamming(holo_shape[0])
             window_y = np.hamming(holo_shape[1])
         window_2d = np.sqrt(np.outer(window_x, window_y))

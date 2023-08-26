@@ -70,7 +70,7 @@ class TestStatistics:
                 + constants.elementary_charge
                 * ht
                 * 1000
-                / (2 * constants.m_e * constants.c ** 2)
+                / (2 * constants.m_e * constants.c**2)
             )
         )
         wavelength = constants.h / np.sqrt(momentum) * 1e9  # in nm
