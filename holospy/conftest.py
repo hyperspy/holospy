@@ -18,5 +18,6 @@
 
 import matplotlib
 
+
 def pytest_configure(config):
-    matplotlib.use('agg')
+    matplotlib.use("agg")

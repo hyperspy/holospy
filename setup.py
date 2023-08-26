@@ -71,7 +71,6 @@ setup(
         "Topic :: Scientific/Engineering :: Physics",
     ],
     entry_points={"hyperspy.extensions": "holospy = holospy"},
-
     packages=find_packages(),
     package_dir={"holospy": "holospy"},
     extras_require=extra_feature_requirements,
@@ -80,4 +79,5 @@ setup(
     package_data={
         "": ["LICENSE", "README.rst"],
         "holospy": ["*.py", "hyperspy_extension.yaml"],
-    },)
+    },
+)

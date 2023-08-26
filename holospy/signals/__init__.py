@@ -20,6 +20,7 @@
 
 from .hologram_image import HologramImage, LazyHologramImage
 
-__all__ = ["HologramImage",
-           "LazyHologramImage",
-           ]
+__all__ = [
+    "HologramImage",
+    "LazyHologramImage",
+]
