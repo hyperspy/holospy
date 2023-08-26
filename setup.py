@@ -38,9 +38,6 @@ extra_feature_requirements = {
     "tests": [
         "pytest     >= 5.0",
         "pytest-cov >= 2.8.1",
-        "pytest-xdist",
-        "coveralls  >= 1.10",
-        "coverage   >= 5.0",
     ],
     "dev": ["black", "pre-commit >=1.16"],
 }
@@ -52,19 +49,19 @@ setup(
     description="multi-dimensional diffraction microscopy",
     author=author,
     license=license,
-    url="https://github.com/pyxem/pyxem",
+    url="https://github.com/hyperspy/holospy",
     long_description=open("README.rst").read(),
     keywords=[
         "data analysis",
         "microscopy",
-        "electron microscopy",
+        "holography",
     ],
     classifiers=[
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3.10",
+        "Programming Language :: Python :: 3.11",
         "Development Status :: 4 - Beta",
         "Intended Audience :: Science/Research",
         "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
