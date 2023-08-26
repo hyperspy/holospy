@@ -1,0 +1,87 @@
+[build-system]
+requires = ["setuptools>=49.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "holospy"
+description = "Analysis of holography data with HyperSpy."
+requires-python = ">=3.8"
+readme = "README.rst"
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "Intended Audience :: Science/Research",
+  "Topic :: Software Development :: Libraries",
+  "Topic :: Scientific/Engineering",
+  "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Operating System :: Microsoft :: Windows",
+  "Operating System :: POSIX",
+  "Operating System :: Unix",
+  "Operating System :: MacOS",
+]
+dependencies = [
+  # Uncomment when hyperspy is released
+  #"hyperspy>=2.0",
+  "numpy>=1.20.0",
+  "scipy>=1.5.0",
+]
+dynamic = ["version"]
+
+[project.entry-points."hyperspy.extensions"]
+holospy = "holospy"
+
+[project.license]
+file = "COPYING.txt"
+
+[project.optional-dependencies]
+tests = [
+  "pytest",
+  "pytest-cov"
+]
+docs = [
+  "numpydoc",
+  "pydata-sphinx-theme>=0.13",
+  "sphinx",
+  "sphinx-favicon",
+]
+dev = [
+  "black",
+  "holospy[docs]",
+  "holospy[tests]"
+]
+
+[project.urls]
+"Homepage" = "https://hyperspy.org/holospy"
+"Bug Reports" = "https://github.com/hyperspy/holospy/issues"
+"Source" = "https://github.com/hyperspy/holospy"
+
+[tool.pytest.ini_options]
+#  "-ra",  # Display summary: "all except passes"
+addopts = "-ra"
+minversion = "6.0"
+testpaths = [
+  "rsciio/tests",
+]
+
+[tool.setuptools.dynamic]
+version = {attr = "holospy._version.__version__"}
+
+[tool.setuptools.packages.find]
+include = ["holospy*"]
+
+[tool.setuptools.package-data]
+"*" = ["*hyperspy_extension.yaml"]
+
+[tool.coverage.run]
+branch = true
+source = ["holospy"]
+omit = [
+  "holospy/tests/*",
+]
+
+[tool.coverage.report]
+precision = 2
