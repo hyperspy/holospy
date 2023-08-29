@@ -1,9 +1,7 @@
-:html_theme.sidebar_secondary.remove: true
-
 .. _bibliography:
 
 Bibliography
-============
+************
 
 .. _Joy1993:
 

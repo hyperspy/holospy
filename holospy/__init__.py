@@ -1,14 +1,11 @@
-from holospy import signals
-from holospy import misc
-from holospy import datasets
-
-from . import release_info
+from . import datasets, release_info, signals, reconstruct, tools
 
 __all__ = [
     "__version__",
     "datasets",
-    "misc",
     "signals",
+    "reconstruct",
+    "tools",
 ]
 
 
