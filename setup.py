@@ -78,6 +78,10 @@ setup(
     python_requires=">=3.7",
     package_data={
         "": ["LICENSE", "README.rst"],
-        "holospy": ["*.py", "hyperspy_extension.yaml"],
+        "holospy": [
+            "datasets/01_holo_Vbp_130V_0V_bin2_crop.hdf5",
+            "datasets/00_ref_Vbp_130V_0V_bin2_crop.hdf5",
+            "hyperspy_extension.yaml",
+        ],
     },
 )
