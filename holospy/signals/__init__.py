@@ -20,7 +20,12 @@
 
 from .hologram_image import HologramImage, LazyHologramImage
 
+
 __all__ = [
     "HologramImage",
     "LazyHologramImage",
 ]
+
+
+def __dir__():
+    return sorted(__all__)
