@@ -75,6 +75,7 @@ setup(
     install_requires=[
         # Uncomment when hyperspy is released
         # "hyperspy>=2.0",
+        "hyperspy @ https://github.com/hyperspy/hyperspy/archive/refs/heads/RELEASE_next_major.zip",
         "numpy>=1.20.0",
         "scipy>=1.5.0",
     ],

@@ -34,11 +34,6 @@ jobs:
           python --version
           pip --version
 
-      - name: Install (HyperSpy dev)
-        # Need to install hyperspy dev until hyperspy 2.0 is released
-        run: |
-          pip install https://github.com/hyperspy/hyperspy/archive/refs/heads/RELEASE_next_major.zip
-
       - name: Install
         shell: bash
         run: |
