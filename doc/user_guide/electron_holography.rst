@@ -4,7 +4,7 @@ Electron Holography
 *******************
 
 HoloSpy provides the user with a signal class which can be used to process
-electron holography data:
+(off-axis) electron holography data:
 
 * :py:class:`~.signals.hologram_image.HologramImage`
 

@@ -1,7 +1,7 @@
 
 HoloSpy is a Python package extending the functionality for multi-dimensional
 data analysis provided by the [HyperSpy](https://hyperspy.org) library. It is
-aimed at helping with the analysis of electron holography data.
+aimed at helping with the analysis of (off-axis) electron holography data.
 
 Go to the documentation for instructions on how to install HoloSpy and start an
 analysis: [Read the docs](https://holospy.readthedocs.io).

@@ -23,7 +23,7 @@ Besides directly accessing the metadata tree structure, e.g.
 can be used to add to, search for and read from items in the metadata tree,
 respectively.
 
-The holography specific metadata structure is represented in the following
+The holography-specific metadata structure is represented in the following
 tree diagram. The default units are given in parentheses. Details about the
 leaves can be found in the following sections of this chapter. Note that not
 all types of leaves will apply to every type of measurement.
