@@ -22,7 +22,8 @@ import pytest
 import scipy.constants as constants
 
 import hyperspy.api as hs
-from hyperspy.datasets.example_signals import reference_hologram
+
+import holospy as holo
 
 
 # Set parameters outside the tests
@@ -44,7 +45,8 @@ Y_STOP = IMG_SIZE3Y - 1 - int(IMG_SIZE3Y / 9)
 class TestStatistics:
     def setup_method(self, method):
         # Set the stack
-        self.ref_holo = hs.stack([reference_hologram()] * 2)
+        s = holo.datasets.Fe_needle_reference_hologram()
+        self.ref_holo = hs.stack([s] * 2)
         self.ref_holo = hs.stack([self.ref_holo] * 3)
 
         # Parameters measured using Gatan HoloWorks:

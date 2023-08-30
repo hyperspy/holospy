@@ -225,9 +225,8 @@ class HologramImage(Signal2D):
 
         Examples
         --------
-
-        >>> import hyperspy.api as hs
-        >>> s = hs.datasets.example_signals.object_hologram()
+        >>> import holospy as holo
+        >>> s = holo.datasets.Fe_needle_hologram()
         >>> sb_position = s.estimate_sideband_position()
         >>> sb_position.data
 
@@ -293,8 +292,8 @@ class HologramImage(Signal2D):
 
         Examples
         --------
-        >>> import hyperspy.api as hs
-        >>> s = hs.datasets.example_signals.object_hologram()
+        >>> import holospy as holo
+        >>> s = holo.datasets.Fe_needle_hologram()
         >>> sb_position = s.estimate_sideband_position()
         >>> sb_size = s.estimate_sideband_size(sb_position)
         >>> sb_size.data
@@ -399,8 +398,8 @@ class HologramImage(Signal2D):
 
         Examples
         --------
-        >>> import hyperspy.api as hs
-        >>> s = hs.datasets.example_signals.object_hologram()
+        >>> import holospy as holo
+        >>> s = holo.datasets.Fe_needle_hologram()
         >>> sb_position = s.estimate_sideband_position()
         >>> sb_size = s.estimate_sideband_size(sb_position)
         >>> wave = s.reconstruct_phase(sb_position=sb_position, sb_size=sb_size)
@@ -785,8 +784,8 @@ class HologramImage(Signal2D):
 
         Examples
         --------
-        >>> import hyperspy.api as hs
-        >>> s = hs.datasets.example_signals.reference_hologram()
+        >>> import holospy as holo
+        >>> s = holo.datasets.Fe_needle_reference_hologram()
         >>> sb_position = s.estimate_sideband_position(high_cf=True)
         >>> s.statistics(sb_position=sb_position)
         {'Fringe spacing (nm)': 3.4860442674236256,
