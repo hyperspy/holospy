@@ -56,10 +56,6 @@ jobs:
         run: |
           ls -R
 
-      - name: Install HyperSpy (dev)
-        run: |
-          pip install https://github.com/hyperspy/hyperspy/archive/refs/heads/RELEASE_next_major.zip
-
       - name: Install distribution
         run: |
           pip install --pre --find-links dist holospy[tests]

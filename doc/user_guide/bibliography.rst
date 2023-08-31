@@ -1,9 +1,13 @@
-:html_theme.sidebar_secondary.remove: true
-
 .. _bibliography:
 
 Bibliography
-============
+************
+
+.. _Gabor1948:
+
+:ref:`[Gabor1948] <Gabor1948>`
+   D. Gabor, "A new microscopic principle,"
+   *Nature* 161 (1948): 777-778 [`<https://doi.org/10.1038/161777a0>`_].
 
 .. _Joy1993:
 

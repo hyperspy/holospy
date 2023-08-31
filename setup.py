@@ -27,13 +27,11 @@ exec(open("holospy/release_info.py").read())  # grab version info
 
 extra_feature_requirements = {
     "doc": [
-        "furo",
-        "nbsphinx                   >= 0.7",
-        "sphinx                     >= 3.0.2",
-        "sphinx-copybutton          >= 0.2.5",
-        "sphinx-autodoc-typehints   >= 1.10.3",
-        "sphinx-gallery             >= 0.6",
-        "sphinxcontrib-bibtex       >= 1.0",
+        "numpydoc",
+        "pydata-sphinx-theme>=0.13",
+        "sphinx",
+        "sphinx-copybutton",
+        "sphinx-favicon",
     ],
     "tests": [
         "pytest     >= 5.0",
@@ -46,11 +44,11 @@ extra_feature_requirements = {
 setup(
     name=name,
     version=version,
-    description="multi-dimensional diffraction microscopy",
+    description="Electron holography analysis with the HyperSpy framework",
     author=author,
     license=license,
     url="https://github.com/hyperspy/holospy",
-    long_description=open("README.rst").read(),
+    long_description=open("README.md").read(),
     keywords=[
         "data analysis",
         "microscopy",
@@ -74,8 +72,14 @@ setup(
     packages=find_packages(),
     package_dir={"holospy": "holospy"},
     extras_require=extra_feature_requirements,
-    install_requires=[],
-    python_requires=">=3.7",
+    install_requires=[
+        # Uncomment when hyperspy is released
+        # "hyperspy>=2.0",
+        "hyperspy @ https://github.com/hyperspy/hyperspy/archive/refs/heads/RELEASE_next_major.zip",
+        "numpy>=1.20.0",
+        "scipy>=1.5.0",
+    ],
+    python_requires=">=3.8",
     package_data={
         "": ["LICENSE", "README.rst"],
         "holospy": [

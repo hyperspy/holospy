@@ -1,22 +1,14 @@
 .. _user_guide:
 
 ##########
-User guide
+User Guide
 ##########
 
 .. toctree::
-    :caption: Getting started
-    :maxdepth: 2
+   :caption: User Guide
+   :maxdepth: 2
 
-    install.rst
-
-.. toctree::
-    :caption: Fundamentals and Usage
-    :maxdepth: 2
-
-    electron_holography.rst
-
-.. toctree::
-    :caption: Bibliography
-
-    bibliography.rst
+   installation
+   electron_holography
+   metadata_structure
+   bibliography
