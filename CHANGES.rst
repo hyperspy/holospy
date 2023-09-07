@@ -10,6 +10,7 @@ https://holospy.readthedocs.io/en/latest/changes.html
 - Add pre-commit configuration file (`#4 <https://github.com/hyperspy/holospy/pull/4>`_)
 - Format code using ``black`` and add workflow to check formatting (`#3 <https://github.com/hyperspy/holospy/pull/3>`_).
 - Add GitHub workflows to tests and build packages (`#2 <https://github.com/hyperspy/holospy/pull/2>`_).
+- Rename the ``max_workers`` argument to ``num_workers`` (`#9 <https://github.com/hyperspy/holospy/pull/9>`_)
 
 Initiation (2023-07-23)
 =======================
