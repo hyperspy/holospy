@@ -39,8 +39,7 @@ from holospy.tools import (
 )
 from hyperspy.docstrings.signal import (
     SHOW_PROGRESSBAR_ARG,
-    PARALLEL_ARG,
-    MAX_WORKERS_ARG,
+    NUM_WORKERS_ARG,
     LAZYSIGNAL_DOC,
 )
 
@@ -51,7 +50,7 @@ def _first_nav_pixel_data(s):
     return s._data_aligned_with_axes[(0,) * s.axes_manager.navigation_dimension]
 
 
-def _parse_sb_position(s, reference, sb_position, sb, high_cf, parallel):
+def _parse_sb_position(s, reference, sb_position, sb, high_cf, num_workers=None):
     if sb_position is None:
         _logger.warning(
             "Sideband position is not specified. The sideband "
@@ -60,11 +59,13 @@ def _parse_sb_position(s, reference, sb_position, sb, high_cf, parallel):
         )
         if reference is None:
             sb_position = s.estimate_sideband_position(
-                sb=sb, high_cf=high_cf, parallel=parallel
+                sb=sb,
+                high_cf=high_cf,
+                num_workers=num_workers,
             )
         else:
             sb_position = reference.estimate_sideband_position(
-                sb=sb, high_cf=high_cf, parallel=parallel
+                sb=sb, high_cf=high_cf, num_workers=num_workers
             )
 
     else:
@@ -96,13 +97,15 @@ def _parse_sb_position(s, reference, sb_position, sb, high_cf, parallel):
     return sb_position, sb_position_temp
 
 
-def _parse_sb_size(s, reference, sb_position, sb_size, parallel):
+def _parse_sb_size(s, reference, sb_position, sb_size, num_workers=None):
     # Default value is 1/2 distance between sideband and central band
     if sb_size is None:
         if reference is None:
-            sb_size = s.estimate_sideband_size(sb_position, parallel=parallel)
+            sb_size = s.estimate_sideband_size(sb_position, num_workers=num_workers)
         else:
-            sb_size = reference.estimate_sideband_size(sb_position, parallel=parallel)
+            sb_size = reference.estimate_sideband_size(
+                sb_position, num_workers=num_workers
+            )
     else:
         if not isinstance(sb_size, BaseSignal):
             if isinstance(sb_size, (np.ndarray, daArray)) and sb_size.size > 1:
@@ -195,8 +198,7 @@ class HologramImage(Signal2D):
         sb="lower",
         high_cf=True,
         show_progressbar=False,
-        parallel=None,
-        max_workers=None,
+        num_workers=None,
     ):
         """
         Estimates the position of the sideband and returns its position.
@@ -206,11 +208,10 @@ class HologramImage(Signal2D):
         ap_cb_radius: float, None
             The aperture radius used to mask out the centerband.
         sb : str, optional
-            Chooses which sideband is taken. 'lower' or 'upper'
+            Chooses which sideband is taken. ``'lower'`` or ``'upper'``
         high_cf : bool, optional
             If False, the highest carrier frequency allowed for the sideband location is equal to
             half of the Nyquist frequency (Default: True).
-        %s
         %s
         %s
 
@@ -249,8 +250,7 @@ class HologramImage(Signal2D):
             high_cf=high_cf,
             show_progressbar=show_progressbar,
             inplace=False,
-            parallel=parallel,
-            max_workers=max_workers,
+            num_workers=num_workers,
             ragged=False,
         )
 
@@ -258,16 +258,14 @@ class HologramImage(Signal2D):
 
     estimate_sideband_position.__doc__ %= (
         SHOW_PROGRESSBAR_ARG,
-        PARALLEL_ARG,
-        MAX_WORKERS_ARG,
+        NUM_WORKERS_ARG,
     )
 
     def estimate_sideband_size(
         self,
         sb_position,
         show_progressbar=False,
-        parallel=None,
-        max_workers=None,
+        num_workers=None,
     ):
         """
         Estimates the size of the sideband and returns its size.
@@ -276,7 +274,6 @@ class HologramImage(Signal2D):
         ----------
         sb_position : BaseSignal
             The sideband position (y, x), referred to the non-shifted FFT.
-        %s
         %s
         %s
 
@@ -310,8 +307,7 @@ class HologramImage(Signal2D):
             holo_shape=self.axes_manager.signal_shape[::-1],
             show_progressbar=show_progressbar,
             inplace=False,
-            parallel=parallel,
-            max_workers=max_workers,
+            num_workers=num_workers,
             ragged=False,
         )
 
@@ -319,8 +315,7 @@ class HologramImage(Signal2D):
 
     estimate_sideband_size.__doc__ %= (
         SHOW_PROGRESSBAR_ARG,
-        PARALLEL_ARG,
-        MAX_WORKERS_ARG,
+        NUM_WORKERS_ARG,
     )
 
     def reconstruct_phase(
@@ -336,8 +331,7 @@ class HologramImage(Signal2D):
         plotting=False,
         store_parameters=True,
         show_progressbar=False,
-        parallel=None,
-        max_workers=None,
+        num_workers=None,
     ):
         """Reconstruct electron holograms. Operates on multidimensional
         hyperspy signals. There are several usage schemes:
@@ -381,7 +375,6 @@ class HologramImage(Signal2D):
             Shows details of the reconstruction (i.e. SB selection).
         store_parameters : bool
             Store reconstruction parameters in metadata
-        %s
         %s
         %s
 
@@ -465,12 +458,21 @@ class HologramImage(Signal2D):
 
         # Parsing sideband position:
         (sb_position, sb_position_temp) = _parse_sb_position(
-            self, reference, sb_position, sb, high_cf, parallel
+            self,
+            reference,
+            sb_position,
+            sb,
+            high_cf,
+            num_workers=num_workers,
         )
 
         # Parsing sideband size:
         (sb_size, sb_size_temp) = _parse_sb_size(
-            self, reference, sb_position, sb_size, parallel
+            self,
+            reference,
+            sb_position,
+            sb_size,
+            num_workers=num_workers,
         )
 
         # Standard edge smoothness of sideband aperture 5% of sb_size
@@ -597,8 +599,7 @@ class HologramImage(Signal2D):
             plotting=plotting,
             show_progressbar=show_progressbar,
             inplace=False,
-            parallel=parallel,
-            max_workers=max_workers,
+            num_workers=num_workers,
             ragged=False,
         )
 
@@ -652,8 +653,7 @@ class HologramImage(Signal2D):
                 plotting=plotting,
                 show_progressbar=show_progressbar,
                 inplace=False,
-                parallel=parallel,
-                max_workers=max_workers,
+                num_workers=num_workers,
                 ragged=False,
             )
 
@@ -671,8 +671,7 @@ class HologramImage(Signal2D):
                 plotting=plotting,
                 show_progressbar=show_progressbar,
                 inplace=False,
-                parallel=parallel,
-                max_workers=max_workers,
+                num_workers=num_workers,
                 ragged=False,
             )
 
@@ -713,7 +712,7 @@ class HologramImage(Signal2D):
 
         return wave_image
 
-    reconstruct_phase.__doc__ %= (SHOW_PROGRESSBAR_ARG, PARALLEL_ARG, MAX_WORKERS_ARG)
+    reconstruct_phase.__doc__ %= (SHOW_PROGRESSBAR_ARG, NUM_WORKERS_ARG)
 
     def statistics(
         self,
@@ -724,8 +723,7 @@ class HologramImage(Signal2D):
         apodization="hanning",
         single_values=True,
         show_progressbar=False,
-        parallel=None,
-        max_workers=None,
+        num_workers=None,
     ):
         """
         Calculates following statistics for off-axis electron holograms:
@@ -770,7 +768,6 @@ class HologramImage(Signal2D):
             returns the values as single floats (Default: True)
         %s
         %s
-        %s
 
         Returns
         -------
@@ -806,7 +803,7 @@ class HologramImage(Signal2D):
 
         # Parsing sideband position:
         (sb_position, sb_position_temp) = _parse_sb_position(
-            self, None, sb_position, sb, high_cf, parallel
+            self, None, sb_position, sb, high_cf
         )
 
         # Calculate carrier frequency in 1/px and fringe sampling:
@@ -825,8 +822,7 @@ class HologramImage(Signal2D):
                 inplace=False,
                 ragged=False,
                 show_progressbar=show_progressbar,
-                parallel=parallel,
-                max_workers=max_workers,
+                num_workers=num_workers,
             )
         fringe_sampling = np.divide(1.0, carrier_freq_px)
 
@@ -863,8 +859,7 @@ class HologramImage(Signal2D):
                 inplace=False,
                 ragged=False,
                 show_progressbar=show_progressbar,
-                parallel=parallel,
-                max_workers=max_workers,
+                num_workers=num_workers,
             )
         fringe_spacing = np.divide(1.0, carrier_freq_units)
 
@@ -914,8 +909,7 @@ class HologramImage(Signal2D):
                     inplace=False,
                     ragged=False,
                     show_progressbar=show_progressbar,
-                    parallel=parallel,
-                    max_workers=max_workers,
+                    num_workers=num_workers,
                 )
         elif fringe_contrast_algorithm == "statistical":
             if single_values:
@@ -939,7 +933,7 @@ class HologramImage(Signal2D):
             "Carrier frequency (mrad)": carrier_freq_mrad,
         }
 
-    statistics.__doc__ %= (SHOW_PROGRESSBAR_ARG, PARALLEL_ARG, MAX_WORKERS_ARG)
+    statistics.__doc__ %= (SHOW_PROGRESSBAR_ARG, NUM_WORKERS_ARG)
 
 
 class LazyHologramImage(LazySignal, HologramImage):
