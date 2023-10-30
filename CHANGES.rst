@@ -12,6 +12,7 @@ https://holospy.readthedocs.io/en/latest/changes.html
 - Add GitHub workflows to tests and build packages (`#2 <https://github.com/hyperspy/holospy/pull/2>`_).
 - Rename the ``max_workers`` argument to ``num_workers`` (`#9 <https://github.com/hyperspy/holospy/pull/9>`_)
 - Setup codecov to measure coverage (`#10 <https://github.com/hyperspy/holospy/pull/10>`_)
+- Add badges for tests, codecov and docs (`#11 <https://github.com/hyperspy/holospy/pull/11>`_)
 
 Initiation (2023-07-23)
 =======================
