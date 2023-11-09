@@ -83,8 +83,7 @@ setup(
     package_data={
         "": ["LICENSE", "README.rst"],
         "holospy": [
-            "datasets/01_holo_Vbp_130V_0V_bin2_crop.hdf5",
-            "datasets/00_ref_Vbp_130V_0V_bin2_crop.hdf5",
+            "data/*.hdf5",
             "hyperspy_extension.yaml",
         ],
     },
