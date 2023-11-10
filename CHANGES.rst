@@ -13,6 +13,7 @@ https://holospy.readthedocs.io/en/latest/changes.html
 - Rename the ``max_workers`` argument to ``num_workers`` (`#9 <https://github.com/hyperspy/holospy/pull/9>`_)
 - Setup codecov to measure coverage (`#10 <https://github.com/hyperspy/holospy/pull/10>`_)
 - Add badges for tests, codecov and docs (`#11 <https://github.com/hyperspy/holospy/pull/11>`_)
+- Add workflow to build and push documentation (`#13 <https://github.com/hyperspy/holospy/pull/13>`_)
 
 Initiation (2023-07-23)
 =======================

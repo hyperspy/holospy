@@ -8,7 +8,7 @@ Reference
    :caption: API Reference
    :maxdepth: 2
 
-   datasets
+   data
    reconstruct
    signals
    tools
