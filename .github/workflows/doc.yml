@@ -1,0 +1,11 @@
+name: Documentation
+
+on: [push, pull_request]
+
+jobs:
+  Documentation:
+    permissions:
+      # needs write permission to push the docs to gh-pages
+      contents: write
+    # Use the "reusable workflow" from the hyperspy organisation
+    uses: hyperspy/.github/.github/workflows/doc.yml@main
