@@ -1,8 +1,8 @@
-from . import datasets, release_info, signals, reconstruct, tools
+from . import data, release_info, signals, reconstruct, tools
 
 __all__ = [
     "__version__",
-    "datasets",
+    "data",
     "signals",
     "reconstruct",
     "tools",

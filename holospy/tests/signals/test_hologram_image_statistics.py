@@ -45,7 +45,7 @@ Y_STOP = IMG_SIZE3Y - 1 - int(IMG_SIZE3Y / 9)
 class TestStatistics:
     def setup_method(self, method):
         # Set the stack
-        s = holo.datasets.Fe_needle_reference_hologram()
+        s = holo.data.Fe_needle_reference_hologram()
         self.ref_holo = hs.stack([s] * 2)
         self.ref_holo = hs.stack([self.ref_holo] * 3)
 
