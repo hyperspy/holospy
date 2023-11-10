@@ -80,7 +80,7 @@ entered into an anaconda prompt (from scratch):
 Installation using pip
 ========================
 
-Alternatively, you can also find HoloSpy in the `Python Package Index (PyPI) <pypi.org>`_
+Alternatively, you can also find HoloSpy in the `Python Package Index (PyPI) <https://pypi.org>`_
 and install it using (requires ``pip``):
 
 .. code-block:: bash
