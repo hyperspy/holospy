@@ -14,6 +14,11 @@ https://holospy.readthedocs.io/en/latest/changes.html
 - Setup codecov to measure coverage (`#10 <https://github.com/hyperspy/holospy/pull/10>`_)
 - Add badges for tests, codecov and docs (`#11 <https://github.com/hyperspy/holospy/pull/11>`_)
 - Add workflow to build and push documentation (`#13 <https://github.com/hyperspy/holospy/pull/13>`_)
+- Consolidate package metadata in ``pyproject.toml`` (`#14 <https://github.com/hyperspy/holospy/pull/14>`_)
+- Use ``setuptools_scm`` to set holospy version at build time (`#14 <https://github.com/hyperspy/holospy/pull/14>`_)
+- Add package and test workflow (`#14 <https://github.com/hyperspy/holospy/pull/14>`_)
+- Add python 3.12 (`#14 <https://github.com/hyperspy/holospy/pull/14>`_)
+- Add release workflow (`#14 <https://github.com/hyperspy/holospy/pull/14>`_)
 
 Initiation (2023-07-23)
 =======================
