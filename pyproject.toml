@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=49.0", "wheel"]
+requires = ["setuptools>=64", "setuptools_scm>=8", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -45,7 +45,8 @@ file = "LICENSE"
 [project.optional-dependencies]
 tests = [
   "pytest",
-  "pytest-cov"
+  "pytest-cov",
+  "setuptools-scm",
 ]
 doc = [
   "numpydoc",
@@ -64,6 +65,16 @@ dev = [
 "Bug Reports" = "https://github.com/hyperspy/holospy/issues"
 "Source" = "https://github.com/hyperspy/holospy"
 
+[tool.coverage.run]
+branch = true
+source = ["holospy"]
+omit = [
+  "holospy/tests/*",
+]
+
+[tool.coverage.report]
+precision = 2
+
 [tool.pytest.ini_options]
 #  "-ra",  # Display summary: "all except passes"
 addopts = "-ra"
@@ -71,9 +82,6 @@ minversion = "6.0"
 testpaths = [
   "holospy/tests",
 ]
-
-[tool.setuptools.dynamic]
-version = {attr = "holospy._version.__version__"}
 
 [tool.setuptools.packages.find]
 include = ["holospy*"]
@@ -84,12 +92,5 @@ include = ["holospy*"]
   "*.yaml"
   ]
 
-[tool.coverage.run]
-branch = true
-source = ["holospy"]
-omit = [
-  "holospy/tests/*",
-]
-
-[tool.coverage.report]
-precision = 2
+[tool.setuptools_scm]
+# Presence enables setuptools_scm, the version will be determine at build time from git
