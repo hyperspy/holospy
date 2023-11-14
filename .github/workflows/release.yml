@@ -10,76 +10,14 @@ on:
     - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
 
 jobs:
-  build_wheels:
-    name: Build wheels
-    runs-on: ubuntu-latest
-    env:
-      CIBW_TEST_COMMAND: "pytest --pyargs holospy"
-      CIBW_TEST_EXTRAS: "tests"
-
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Build wheels
-        uses: pypa/cibuildwheel@v2.14.0
-
-      - uses: actions/upload-artifact@v3
-        with:
-          name: wheels
-          path: ./wheelhouse/*.whl
-          if-no-files-found: error
-
-  make_sdist:
-    name: Make SDist
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
-
-    - name: Build SDist
-      run: pipx run build --sdist
-
-    - uses: actions/upload-artifact@v3
-      with:
-        path: dist/*.tar.gz
-
-  upload_to_pypi:
-    needs: [build_wheels, make_sdist]
-    runs-on: ubuntu-latest
+  release_and_upload:
+    name: Release and Upload
     permissions:
-      # IMPORTANT: this permission is mandatory for trusted publishing
-      id-token: write
-    steps:
-    - name: Download dist
-      uses: actions/download-artifact@v3
-      with:
-        name: artifact
-        path: dist
-
-    - name: Download wheels
-      uses: actions/download-artifact@v3
-      with:
-        name: wheels
-        path: dist
-
-    - name: Display structure of downloaded files
-      run: ls -R
-      working-directory: dist
-
-    - uses: pypa/gh-action-pypi-publish@release/v1
-      if: github.repository_owner == 'hyperspy'
-      # See https://docs.pypi.org/trusted-publishers/using-a-publisher/
-
-  create_release:
-    # TODO: once we are happy with the workflow
-    # setup zenodo to create a DOI automatically
-    needs: upload_to_pypi
-    permissions:
+      # needs write permission to create the GitHub release
       contents: write
-    name: Create Release
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-      - name: Create Release
-        id: create_release
-        uses: softprops/action-gh-release@de2c0eb89ae2a093876385947365aca7b0e5f844
+      # This permission is mandatory for trusted publishing on pypi
+      id-token: write
+    # Use the "reusable workflow" from the hyperspy organisation
+    uses: hyperspy/.github/.github/workflows/release_pure_python.yml@main
+    with:
+      repository_owner: 'hyperspy'
