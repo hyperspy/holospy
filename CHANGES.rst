@@ -1,5 +1,5 @@
-Changelog
-*********
+Release Notes
+*************
 
 Changelog entries for the development version are available at
 https://holospy.readthedocs.io/en/latest/changes.html
