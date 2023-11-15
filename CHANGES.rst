@@ -4,6 +4,10 @@ Release Notes
 Changelog entries for the development version are available at
 https://holospy.readthedocs.io/en/latest/changes.html
 
+0.2 (UNRELEASED)
+================
+
+
 0.1 (2023-11-15)
 ================
 
