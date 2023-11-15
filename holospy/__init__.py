@@ -25,7 +25,7 @@ if Path(__file__).parent.parent.name == "site-packages":  # pragma: no cover
     # Tested in the "Package & Test" workflow on GitHub CI
     from importlib.metadata import version
 
-    __version__ = version("rosettasciio")
+    __version__ = version("holospy")
 else:
     # Editable install
     from setuptools_scm import get_version
