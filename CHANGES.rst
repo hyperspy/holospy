@@ -1,11 +1,15 @@
-Changelog
-*********
+Release Notes
+*************
 
 Changelog entries for the development version are available at
 https://holospy.readthedocs.io/en/latest/changes.html
 
-0.1.dev0 (UNRELEASED)
-=====================
+0.2 (UNRELEASED)
+================
+
+
+0.1 (2023-11-15)
+================
 
 - Add pre-commit configuration file (`#4 <https://github.com/hyperspy/holospy/pull/4>`_)
 - Format code using ``black`` and add workflow to check formatting (`#3 <https://github.com/hyperspy/holospy/pull/3>`_).

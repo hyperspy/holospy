@@ -20,7 +20,11 @@ Contents
 
    user_guide/index.rst
    api/index.rst
-   changes.rst
-   citing.rst
    contributing.rst
-   license.rst
+   changes.rst
+
+
+.. include:: citing.rst
+
+.. include:: license.rst
+
