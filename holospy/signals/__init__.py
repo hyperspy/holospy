@@ -16,7 +16,15 @@
 # You should have received a copy of the GNU General Public License
 # along with holospy.  If not, see <http://www.gnu.org/licenses/>.
 
-"""Signals to be operated on. The basic unit of data"""
+"""
+Modules containing the HoloSpy signals and their lazy counterparts.
+
+HologramImage
+    For holography data
+LazyHologramImage
+    For holography data processed lazily
+
+"""
 
 from .hologram_image import HologramImage, LazyHologramImage
 

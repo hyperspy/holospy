@@ -106,9 +106,7 @@ favicons = [
 ]
 
 # Check links to API when building documentation
-nitpicky = False
-# Remove when fixed in hyperspy
-nitpick_ignore_regex = [(r"py:.*", r"hyperspy.api.*")]
+nitpicky = True
 
 # -- Options for numpydoc extension -----------------------------------
 
@@ -116,8 +114,12 @@ numpydoc_show_class_members = False
 numpydoc_xref_param_type = True
 numpydoc_xref_ignore = {"type", "optional", "default", "of"}
 
-if Version(numpydoc.__version__) >= Version("1.6.0rc0"):
-    numpydoc_validation_checks = {"all", "ES01", "EX01", "GL02", "GL03", "SA01", "SS06"}
+autoclass_content = "both"
+
+autodoc_default_options = {
+    "show-inheritance": True,
+}
+toc_object_entries_show_parents = "hide"
 
 # -- Options for towncrier_draft extension -----------------------------------
 
