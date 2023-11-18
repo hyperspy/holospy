@@ -129,24 +129,25 @@ def _parse_sb_size(s, reference, sb_position, sb_size, num_workers=None):
     return sb_size, sb_size_temp
 
 
-def _estimate_fringe_contrast_statistical(holo):
+def _estimate_fringe_contrast_statistical(signal):
     """
     Estimates average fringe contrast of a hologram using statistical definition:
     V = STD / MEAN.
 
     Parameters
     ----------
-    holo_data: ndarray
-        The data of the hologram.
+    signal : HologramImage
+        The hologram signal.
 
     Returns
     -------
-    Fringe contrast as a float
+    HologramImage
+        Fringe contrast as a float
     """
 
-    axes = holo.axes_manager.signal_axes
+    axes = signal.axes_manager.signal_axes
 
-    return holo.std(axes) / holo.mean(axes)
+    return signal.std(axes) / signal.mean(axes)
 
 
 class HologramImage(Signal2D):
@@ -164,7 +165,7 @@ class HologramImage(Signal2D):
 
         Parameters
         ----------
-        beam_energy: float
+        beam_energy : float
             The energy of the electron beam in keV
         biprism_voltage : float
             In volts
@@ -204,7 +205,7 @@ class HologramImage(Signal2D):
 
         Parameters
         ----------
-        ap_cb_radius: float, None
+        ap_cb_radius : float, None
             The aperture radius used to mask out the centerband.
         sb : str, optional
             Chooses which sideband is taken. ``'lower'`` or ``'upper'``
@@ -216,7 +217,8 @@ class HologramImage(Signal2D):
 
         Returns
         -------
-        Signal1D instance of sideband positions (y, x), referred to the unshifted FFT.
+        hyperspy.api.signals.Signal1D
+            Sideband positions (y, x), referred to the unshifted FFT.
 
         Raises
         ------
@@ -240,7 +242,7 @@ class HologramImage(Signal2D):
 
         sb_position = self.map(
             estimate_sideband_position,
-            holo_sampling=(
+            sampling=(
                 self.axes_manager.signal_axes[0].scale,
                 self.axes_manager.signal_axes[1].scale,
             ),
@@ -271,14 +273,14 @@ class HologramImage(Signal2D):
 
         Parameters
         ----------
-        sb_position : BaseSignal
+        sb_position : hyperspy.api.signals.BaseSignal
             The sideband position (y, x), referred to the non-shifted FFT.
         %s
         %s
 
         Returns
         -------
-        sb_size : Signal1D
+        hyperspy.api.signals.Signal1D
             Sideband size referred to the unshifted FFT.
 
         Raises
@@ -303,7 +305,7 @@ class HologramImage(Signal2D):
 
         sb_size = sb_position.map(
             estimate_sideband_size,
-            holo_shape=self.axes_manager.signal_shape[::-1],
+            shape=self.axes_manager.signal_shape[::-1],
             show_progressbar=show_progressbar,
             inplace=False,
             num_workers=num_workers,
@@ -335,23 +337,23 @@ class HologramImage(Signal2D):
         """Reconstruct electron holograms. Operates on multidimensional
         hyperspy signals. There are several usage schemes:
 
-         * Reconstruct 1d or Nd hologram without reference
-         * Reconstruct 1d or Nd hologram using single reference hologram
-         * Reconstruct Nd hologram using Nd reference hologram (applies each
-           reference to each hologram in Nd stack)
+        * Reconstruct 1d or Nd hologram without reference
+        * Reconstruct 1d or Nd hologram using single reference hologram
+        * Reconstruct Nd hologram using Nd reference hologram (applies each
+          reference to each hologram in Nd stack)
 
         The reconstruction parameters (sb_position, sb_size, sb_smoothness)
         have to be 1d or to have same dimensionality as the hologram.
 
         Parameters
         ----------
-        reference : ndarray, Signal2D, None
+        reference : ndarray, hyperspy.api.signals.Signal2D, None
             Vacuum reference hologram.
-        sb_size : float, ndarray, BaseSignal, None
+        sb_size : float, ndarray, hyperspy.api.signals.BaseSignal, None
             Sideband radius of the aperture in corresponding unit (see
             'sb_unit'). If None, the radius of the aperture is set to 1/3 of
             the distance between sideband and center band.
-        sb_smoothness : float, ndarray, BaseSignal, None
+        sb_smoothness : float, ndarray, hyperspy.api.signals.BaseSignal, None
             Smoothness of the aperture in the same unit as sb_size.
         sb_unit : str, None
             Unit of the two sideband parameters 'sb_size' and 'sb_smoothness'.
@@ -360,7 +362,7 @@ class HologramImage(Signal2D):
             'mrad': Size and smoothness of the aperture are given in mrad.
         sb : str, None
             Select which sideband is selected. 'upper' or 'lower'.
-        sb_position : tuple, Signal1D, None
+        sb_position : tuple, hyperspy.api.signals.Signal1D, None
             The sideband position (y, x), referred to the non-shifted FFT. If
             None, sideband is determined automatically from FFT.
         high_cf : bool, optional
@@ -379,7 +381,7 @@ class HologramImage(Signal2D):
 
         Returns
         -------
-        wave : ComplexSignal2D
+        hyperspy.api.signals.ComplexSignal2D
             Reconstructed electron wave. By default object wave is divided by
             reference wave.
 
@@ -587,7 +589,7 @@ class HologramImage(Signal2D):
         # parameters as a nparray to avoid iteration trough those:
         wave_object = self.map(
             reconstruct,
-            holo_sampling=(
+            sampling=(
                 self.axes_manager.signal_axes[0].scale,
                 self.axes_manager.signal_axes[1].scale,
             ),
@@ -641,7 +643,7 @@ class HologramImage(Signal2D):
 
             wave_reference = reference.map(
                 reconstruct,
-                holo_sampling=(
+                sampling=(
                     self.axes_manager.signal_axes[0].scale,
                     self.axes_manager.signal_axes[1].scale,
                 ),
@@ -659,7 +661,7 @@ class HologramImage(Signal2D):
         else:
             wave_reference = reference.map(
                 reconstruct,
-                holo_sampling=(
+                sampling=(
                     self.axes_manager.signal_axes[0].scale,
                     self.axes_manager.signal_axes[1].scale,
                 ),
@@ -735,7 +737,7 @@ class HologramImage(Signal2D):
 
         Parameters
         ----------
-        sb_position : tuple, Signal1D, None
+        sb_position : tuple, hyperspy.api.signals.Signal1D, None
             The sideband position (y, x), referred to the non-shifted FFT.
             It has to be tuple or to have the same dimensionality as the hologram.
             If None, sideband is determined automatically from FFT.
@@ -747,18 +749,18 @@ class HologramImage(Signal2D):
         fringe_contrast_algorithm : str
             Select fringe contrast algorithm between:
 
-            * 'fourier': fringe contrast is estimated as 2 * <I(k_0)> / <I(0)>,
+            * ``'fourier'``: fringe contrast is estimated as 2 * <I(k_0)> / <I(0)>,
               where I(k_0) is intensity of sideband and I(0) is the intensity of central band (FFT origin).
               This method delivers also reasonable estimation if the
               interference pattern do not cover full field of view.
-            * 'statistical': fringe contrast is estimated by dividing the
+            * ``'statistical'``: fringe contrast is estimated by dividing the
               standard deviation by the mean of the hologram intensity in real
               space. This algorithm relies on regularly spaced fringes and
               covering the entire field of view.
 
             (Default: 'statistical')
-        apodization: str or None, optional
-            Used with `fringe_contrast_algorithm='fourier'`. If 'hanning' or 'hamming' apodization window
+        apodization : str or None, optional
+            Used with ``fringe_contrast_algorithm='fourier'``. If ``'hanning'`` or ``'hamming'`` apodization window
             will be applied in real space before FFT for estimation of fringe contrast.
             Apodization is typically needed to suppress striking  due to sharp edges of the image,
             which often results in underestimation of the fringe contrast. (Default: 'hanning')
@@ -770,7 +772,7 @@ class HologramImage(Signal2D):
 
         Returns
         -------
-        statistics_dict :
+        dict
             Dictionary with the statistics
 
         Raises
@@ -941,4 +943,6 @@ class LazyHologramImage(LazySignal, HologramImage):
     holography.
     """
 
-    __doc__ += LAZYSIGNAL_DOC.replace("__BASECLASS__", "HologramImage")
+    __doc__ += LAZYSIGNAL_DOC.replace("__BASECLASS__", "HologramImage").replace(
+        "hs", "holospy"
+    )

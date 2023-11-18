@@ -23,25 +23,26 @@ import logging
 _logger = logging.getLogger(__name__)
 
 
-def calculate_carrier_frequency(holo_data, sb_position, scale):
+def calculate_carrier_frequency(data, sb_position, scale):
     """
     Calculates fringe carrier frequency of a hologram
 
     Parameters
     ----------
-    holo_data: ndarray
+    data : numpy.ndarray
         The data of the hologram.
-    sb_position: tuple
+    sb_position : tuple
         Position of the sideband with the reference to non-shifted FFT
-    scale: tuple
+    scale : tuple
         Scale of the axes that will be used for the calculation.
 
     Returns
     -------
-    Carrier frequency
+    numpy.ndarray
+        Carrier frequency
     """
 
-    shape = holo_data.shape
+    shape = data.shape
     origins = [
         np.array((0, 0)),
         np.array((0, shape[1])),
@@ -54,40 +55,41 @@ def calculate_carrier_frequency(holo_data, sb_position, scale):
     return np.linalg.norm(np.multiply(origins[origin_index] - sb_position, scale))
 
 
-def estimate_fringe_contrast_fourier(holo_data, sb_position, apodization="hanning"):
+def estimate_fringe_contrast_fourier(data, sb_position, apodization="hanning"):
     """
     Estimates average fringe contrast of a hologram  by dividing amplitude
     of maximum pixel of sideband by amplitude of FFT's origin.
 
     Parameters
     ----------
-    holo_data: ndarray
+    data : numpy.ndarray
         The data of the hologram.
-    sb_position: tuple
+    sb_position : tuple
         Position of the sideband with the reference to non-shifted FFT
-    apodization: string, None
+    apodization : string, None
         Use 'hanning', 'hamming' or None to apply apodization window in real space before FFT
         Apodization is typically needed to suppress the striking  due to sharp edges
         of the which often results in underestimation of the fringe contrast. (Default: 'hanning')
 
     Returns
     -------
-    Fringe contrast as a float
+    numpy.ndarray
+        Fringe contrast as a float
     """
 
-    holo_shape = holo_data.shape
+    shape = data.shape
 
     if apodization:
         if apodization == "hanning":
-            window_x = np.hanning(holo_shape[0])
-            window_y = np.hanning(holo_shape[1])
+            window_x = np.hanning(shape[0])
+            window_y = np.hanning(shape[1])
         elif apodization == "hamming":
-            window_x = np.hamming(holo_shape[0])
-            window_y = np.hamming(holo_shape[1])
+            window_x = np.hamming(shape[0])
+            window_y = np.hamming(shape[1])
         window_2d = np.sqrt(np.outer(window_x, window_y))
-        data = holo_data * window_2d
+        data = data * window_2d
     else:
-        data = holo_data
+        data = data
 
     fft_exp = fft2(data)
 
