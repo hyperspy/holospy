@@ -38,7 +38,7 @@ author = "HyperSpy Developers"
 extensions = [
     # numpydoc is necessary to parse the docstring using sphinx
     # otherwise the nitpicky option will raise many warnings
-    # "numpydoc",
+    "numpydoc",
     "sphinx_design",
     "sphinx_favicon",
     "sphinx.ext.autodoc",
@@ -112,6 +112,7 @@ nitpick_ignore_regex = [(r"py:.*", r"hyperspy.api.*")]
 
 # -- Options for numpydoc extension -----------------------------------
 
+numpydoc_show_class_members = False
 numpydoc_xref_param_type = True
 numpydoc_xref_ignore = {"type", "optional", "default", "of"}
 
