@@ -7,6 +7,7 @@ https://holospy.readthedocs.io/en/latest/changes.html
 0.2 (UNRELEASED)
 ================
 
+- Fix getting version from metadata `#16 <https://github.com/hyperspy/holospy/pull/16>`_)
 
 0.1 (2023-11-15)
 ================
