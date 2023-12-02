@@ -54,6 +54,8 @@ doc = [
   "pydata-sphinx-theme>=0.13",
   "sphinx",
   "sphinx-favicon",
+  "sphinxcontrib-towncrier",
+  "towncrier",
 ]
 dev = [
   "black",
@@ -71,6 +73,7 @@ branch = true
 source = ["holospy"]
 omit = [
   "holospy/tests/*",
+  "prepare_release.py",
 ]
 
 [tool.coverage.report]
@@ -95,3 +98,47 @@ include = ["holospy*"]
 
 [tool.setuptools_scm]
 # Presence enables setuptools_scm, the version will be determine at build time from git
+# The version will be updated by the `prepare_release.py` script
+fallback_version = "0.2.dev0"
+
+[tool.towncrier]
+package_dir = "holospy"
+filename = "CHANGES.rst"
+directory = "upcoming_changes/"
+title_format = "{version} ({project_date})"
+issue_format = "`#{issue} <https://github.com/hyperspy/holospy/issues/{issue}>`_"
+
+  [[tool.towncrier.type]]
+  directory = "new"
+  name = "New features"
+  showcontent = true
+
+  [[tool.towncrier.type]]
+  directory = "bugfix"
+  name = "Bug Fixes"
+  showcontent = true
+
+  [[tool.towncrier.type]]
+  directory = "doc"
+  name = "Improved Documentation"
+  showcontent = true
+
+  [[tool.towncrier.type]]
+  directory = "deprecation"
+  name = "Deprecations"
+  showcontent = true
+
+  [[tool.towncrier.type]]
+  directory = "enhancements"
+  name = "Enhancements"
+  showcontent = true
+
+  [[tool.towncrier.type]]
+  directory = "api"
+  name = "API changes"
+  showcontent = true
+
+  [[tool.towncrier.type]]
+  directory = "maintenance"
+  name = "Maintenance"
+  showcontent = true
