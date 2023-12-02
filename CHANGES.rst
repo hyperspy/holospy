@@ -8,6 +8,21 @@ https://holospy.readthedocs.io/en/latest/changes.html
 
 .. towncrier release notes start
 
+0.1.1 (2023-12-02)
+==================
+
+Bug Fixes
+---------
+
+- Fix getting version from metadata (`#16 <https://github.com/hyperspy/holospy/issues/16>`_)
+
+
+Maintenance
+-----------
+
+- Use towncrier to manage release notes and improve setting dev version (`#17 <https://github.com/hyperspy/holospy/issues/17>`_)
+
+
 .. _changes_0.1:
 
 0.1 (2023-11-15)
