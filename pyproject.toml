@@ -8,8 +8,8 @@ description = "Analysis of (off-axis) electron holography data with HyperSpy."
 requires-python = ">=3.8"
 readme = "README.md"
 keywords=[
-    "python"
-    "hyperspy"
+    "python",
+    "hyperspy",
     "data analysis",
     "microscopy",
     "electron microscopy",
