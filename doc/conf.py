@@ -91,15 +91,17 @@ html_theme_options = {
         },
     ],
     "logo": {
-        "image_light": "_static/hyperspy_logo.png",
-        "image_dark": "_static/hyperspy_logo.png",
+        "image_light": "_static/holospy-banner-light.svg",
+        "image_dark": "_static/holospy-banner-dark.svg",
     },
     "header_links_before_dropdown": 6,
 }
 
 # -- Options for sphinx_favicon extension -----------------------------------
 
-favicons = {"rel": "icon", "href": "logo_sq.svg", "type": "image/svg+xml"}
+favicons = [
+    "holospy.ico",
+]
 
 # Check links to API when building documentation
 nitpicky = False
