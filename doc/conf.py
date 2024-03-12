@@ -53,6 +53,7 @@ linkcheck_ignore = [
 
 intersphinx_mapping = {
     "dask": ("https://docs.dask.org/en/latest", None),
+    "exspy": ("https://hyperspy.org/exspy", None),
     "hyperspy": ("https://hyperspy.org/hyperspy-doc/current/", None),
     "kikuchipy": ("https://kikuchipy.org/en/latest/", None),
     "matplotlib": ("https://matplotlib.org/stable", None),
