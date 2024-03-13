@@ -6,7 +6,7 @@ HoloSpy metadata structure
 HoloSpy extends the :external+hyperspy:ref:`HyperSpy metadata structure
 <metadata_structure>`
 with conventions for metadata specific to its signal types. Refer to the
-:external+hyperspy:doc:`HyperSpy metadata documentation <user_guide/metadata_structure>`
+:external+hyperspy:ref:`HyperSpy metadata documentation <metadata_structure>`
 for general metadata fields.
 
 The metadata of any **signal objects** is stored in the `metadata` attribute,
@@ -49,14 +49,14 @@ all types of leaves will apply to every type of measurement.
 General
 =======
 
-See `HyperSpy-Metadata-General
-<https://hyperspy.org/hyperspy-doc/current/user_guide/metadata_structure.html#general>`_.
+See :external+hyperspy:ref:`HyperSpy-Metadata-General
+<general-metadata>`.
 
 Sample
 ======
 
-See `HyperSpy-Metadata-Sample
-<https://hyperspy.org/hyperspy-doc/current/user_guide/metadata_structure.html#sample>`_.
+See :external+hyperspy:ref:`HyperSpy-Metadata-Sample
+<sample-metadata>`.
 
 Signal
 ======
@@ -67,9 +67,8 @@ signal_type
     String that describes the type of signal. Currently, the only HoloSpy
     specific signal class is ``hologram``.
 
-See `HyperSpy-Metadata-Signal
-<https://hyperspy.org/hyperspy-doc/current/user_guide/metadata_structure.html#signal>`__
-for additional fields.
+See :external+hyperspy:ref:`HyperSpy-Metadata-Signal <signal-metadata>` for
+additional fields.
 
 Acquisition Instrument
 ======================
@@ -98,5 +97,4 @@ voltage
 
     Voltage of electrostatic biprism in volts
 
-See `HyperSpy-Metadata-TEM <https://hyperspy.org/hyperspy-doc/current/user_guide/metadata_structure.html#tem>`_
-	for additional fields.
+See :external+exspy:ref:`eXSpy TEM metadata <source-metadata>` for additional fields.

@@ -150,7 +150,6 @@ def _estimate_fringe_contrast_statistical(holo):
 
 
 class HologramImage(Signal2D):
-
     """Signal class for holograms acquired via off-axis electron holography."""
 
     _signal_type = "hologram"
@@ -937,7 +936,6 @@ class HologramImage(Signal2D):
 
 
 class LazyHologramImage(LazySignal, HologramImage):
-
     """
     Lazy signal class for holograms acquired via off-axis electron
     holography.

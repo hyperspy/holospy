@@ -79,7 +79,7 @@ hologram should be provided to the method either as Hyperspy's
 Using the reconstructed wave, one can access its amplitude and phase (also
 unwrapped phase) using
 ``amplitude`` and ``phase`` properties
-(also the :external+hyperspy:py:meth:`hyperspy._signals.complex_signal.ComplexSignal.unwrapped_phase`
+(also the :external+hyperspy:meth:`hyperspy.api.signals.ComplexSignal.unwrapped_phase`
 method):
 
 .. code-block:: python
