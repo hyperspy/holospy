@@ -53,6 +53,7 @@ linkcheck_ignore = [
 
 intersphinx_mapping = {
     "dask": ("https://docs.dask.org/en/latest", None),
+    "exspy": ("https://hyperspy.org/exspy", None),
     "hyperspy": ("https://hyperspy.org/hyperspy-doc/current/", None),
     "kikuchipy": ("https://kikuchipy.org/en/latest/", None),
     "matplotlib": ("https://matplotlib.org/stable", None),
@@ -91,15 +92,17 @@ html_theme_options = {
         },
     ],
     "logo": {
-        "image_light": "_static/hyperspy_logo.png",
-        "image_dark": "_static/hyperspy_logo.png",
+        "image_light": "_static/holospy-banner-light.svg",
+        "image_dark": "_static/holospy-banner-dark.svg",
     },
     "header_links_before_dropdown": 6,
 }
 
 # -- Options for sphinx_favicon extension -----------------------------------
 
-favicons = {"rel": "icon", "href": "logo_sq.svg", "type": "image/svg+xml"}
+favicons = [
+    "holospy.ico",
+]
 
 # Check links to API when building documentation
 nitpicky = False
