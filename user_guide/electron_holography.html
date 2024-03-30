@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" href="../_static/logo_sq.svg" type="image/svg+xml">
+    <link href="../_static/holospy.ico" rel="icon" type="image/x-icon">
     <title>Electron Holography &#8212; HoloSpy  documentation</title>
   
   
@@ -18,22 +18,22 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
     <script src="../_static/documentation_options.js?v=5929fcd5"></script>
     <script src="../_static/doctools.js?v=888ff710"></script>
@@ -52,10 +52,9 @@
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>
@@ -96,7 +95,7 @@
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
 <div class="bd-header__inner bd-page-width">
   <label class="sidebar-toggle primary-toggle" for="__primary">
     <span class="fa-solid fa-bars"></span>
@@ -120,8 +119,8 @@
       
     
     
-    <img src="../_static/hyperspy_logo.png" class="logo__image only-light" alt="HoloSpy  documentation - Home"/>
-    <script>document.write(`<img src="../_static/hyperspy_logo.png" class="logo__image only-dark" alt="HoloSpy  documentation - Home"/>`);</script>
+    <img src="../_static/holospy-banner-light.svg" class="logo__image only-light" alt="HoloSpy  documentation - Home"/>
+    <script>document.write(`<img src="../_static/holospy-banner-dark.svg" class="logo__image only-dark" alt="HoloSpy  documentation - Home"/>`);</script>
   
   
 </a></div>
@@ -134,12 +133,6 @@
       
         <div class="navbar-item">
 <nav class="navbar-nav">
-  <p class="sidebar-header-items__title"
-     role="heading"
-     aria-level="1"
-     aria-label="Site Navigation">
-    Site Navigation
-  </p>
   <ul class="bd-navbar-elements navbar-nav">
     
                     <li class="nav-item current active">
@@ -258,10 +251,13 @@ document.write(`
   
 </div>
 
-    </nav>
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -274,12 +270,6 @@ document.write(`
         
           <div class="navbar-item">
 <nav class="navbar-nav">
-  <p class="sidebar-header-items__title"
-     role="heading"
-     aria-level="1"
-     aria-label="Site Navigation">
-    Site Navigation
-  </p>
   <ul class="bd-navbar-elements navbar-nav">
     
                     <li class="nav-item current active">
@@ -428,7 +418,7 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section id="electron-holography">
 <span id="electron-holography-label"></span><h1>Electron Holography<a class="headerlink" href="#electron-holography" title="Link to this heading">#</a></h1>
@@ -437,10 +427,10 @@ document.write(`
 <ul class="simple">
 <li><p><a class="reference internal" href="../api/signals.html#holospy.signals.hologram_image.HologramImage" title="holospy.signals.hologram_image.HologramImage"><code class="xref py py-class docutils literal notranslate"><span class="pre">HologramImage</span></code></a></p></li>
 </ul>
-<p>It inherits from <a class="reference external" href="https://hyperspy.org/hyperspy-doc/current/api/hyperspy._signals.signal2d.html#hyperspy._signals.signal2d.Signal2D" title="(in HyperSpy v1.7.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">hyperspy._signals.signal2d.Signal2D</span></code></a> class and thus can
+<p>It inherits from <a class="reference external" href="https://hyperspy.org/hyperspy-doc/current/reference/api.signals/Signal2D.html#hyperspy.api.signals.Signal2D" title="(in HyperSpy v2.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">hyperspy._signals.signal2d.Signal2D</span></code></a> class and thus can
 use all of its functionality. The usage of the class is explained in the
 following sections.</p>
-<p>To transform a <a class="reference external" href="https://hyperspy.org/hyperspy-doc/current/api/hyperspy._signals.signal2d.html#hyperspy._signals.signal2d.Signal2D" title="(in HyperSpy v1.7.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">hyperspy._signals.signal2d.Signal2D</span></code></a> (or subclass) into a
+<p>To transform a <a class="reference external" href="https://hyperspy.org/hyperspy-doc/current/reference/api.signals/Signal2D.html#hyperspy.api.signals.Signal2D" title="(in HyperSpy v2.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">hyperspy._signals.signal2d.Signal2D</span></code></a> (or subclass) into a
 <a class="reference internal" href="../api/signals.html#holospy.signals.hologram_image.HologramImage" title="holospy.signals.hologram_image.HologramImage"><code class="xref py py-class docutils literal notranslate"><span class="pre">HologramImage</span></code></a> use:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">im</span><span class="o">.</span><span class="n">set_signal_type</span><span class="p">(</span><span class="s1">&#39;hologram&#39;</span><span class="p">)</span>
 </pre></div>
@@ -456,7 +446,7 @@ Fourier based reconstruction of off-axis holograms (includes
 finding a side band in FFT, isolating and filtering it, recenter and
 calculate inverse Fourier transform) can be performed using the
 <a class="reference internal" href="../api/signals.html#holospy.signals.hologram_image.HologramImage.reconstruct_phase" title="holospy.signals.hologram_image.HologramImage.reconstruct_phase"><code class="xref py py-meth docutils literal notranslate"><span class="pre">reconstruct_phase()</span></code></a> method
-which returns a <a class="reference external" href="https://hyperspy.org/hyperspy-doc/current/api/hyperspy._signals.complex_signal2d.html#hyperspy._signals.complex_signal2d.ComplexSignal2D" title="(in HyperSpy v1.7.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">hyperspy._signals.complex_signal2d.ComplexSignal2D</span></code></a> class,
+which returns a <a class="reference external" href="https://hyperspy.org/hyperspy-doc/current/reference/api.signals/ComplexSignal2D.html#hyperspy.api.signals.ComplexSignal2D" title="(in HyperSpy v2.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">hyperspy._signals.complex_signal2d.ComplexSignal2D</span></code></a> class,
 containing the reconstructed electron wave.
 The <a class="reference internal" href="../api/signals.html#holospy.signals.hologram_image.HologramImage.reconstruct_phase" title="holospy.signals.hologram_image.HologramImage.reconstruct_phase"><code class="xref py py-meth docutils literal notranslate"><span class="pre">reconstruct_phase()</span></code></a> method
 takes sideband position and size as parameters:</p>
@@ -495,7 +485,7 @@ hologram should be provided to the method either as Hyperspy’s
 <p>Using the reconstructed wave, one can access its amplitude and phase (also
 unwrapped phase) using
 <code class="docutils literal notranslate"><span class="pre">amplitude</span></code> and <code class="docutils literal notranslate"><span class="pre">phase</span></code> properties
-(also the <a class="reference external" href="https://hyperspy.org/hyperspy-doc/current/api/hyperspy._signals.complex_signal.html#hyperspy._signals.complex_signal.ComplexSignal.unwrapped_phase" title="(in HyperSpy v1.7.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">hyperspy._signals.complex_signal.ComplexSignal.unwrapped_phase()</span></code></a>
+(also the <a class="reference external" href="https://hyperspy.org/hyperspy-doc/current/reference/api.signals/ComplexSignal.html#hyperspy.api.signals.ComplexSignal.unwrapped_phase" title="(in HyperSpy v2.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">hyperspy.api.signals.ComplexSignal.unwrapped_phase()</span></code></a>
 method):</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">wave_image</span><span class="o">.</span><span class="n">unwrapped_phase</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
@@ -540,7 +530,7 @@ methods. This, however, is not recommended for not experienced users.</p>
 </section>
 <section id="further-processing-of-complex-wave-and-phase">
 <span id="holography-stats-label"></span><h2>Further processing of complex wave and phase<a class="headerlink" href="#further-processing-of-complex-wave-and-phase" title="Link to this heading">#</a></h2>
-<p>Once the complex electron wave reconstructed it <a class="reference external" href="https://hyperspy.org/hyperspy-doc/current/user_guide/signal.html#complex-data-label" title="(in HyperSpy v1.7.6)"><span class="xref std std-ref">can be processed the same way as any other complex signal</span></a>. A useful tool to explore the complex data is <a class="reference external" href="https://hyperspy.org/hyperspy-doc/current/user_guide/signal.html#complex-argand" title="(in HyperSpy v1.7.6)"><span class="xref std std-ref">Argand plot</span></a>, which can be
+<p>Once the complex electron wave reconstructed it <a class="reference external" href="https://hyperspy.org/hyperspy-doc/current/user_guide/signal/complex_datatype.html#complex-data-label" title="(in HyperSpy v2.0)"><span class="xref std std-ref">can be processed the same way as any other complex signal</span></a>. A useful tool to explore the complex data is <a class="reference external" href="https://hyperspy.org/hyperspy-doc/current/user_guide/signal/complex_datatype.html#complex-argand" title="(in HyperSpy v2.0)"><span class="xref std std-ref">Argand plot</span></a>, which can be
 calculated and displayed as follows:</p>
 <div class="highlight-python notranslate" id="holo-argand-example"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ad</span> <span class="o">=</span> <span class="n">wave_image</span><span class="o">.</span><span class="n">argand_diagram</span><span class="p">(</span><span class="n">display_range</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ad</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">scalebar</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -626,12 +616,14 @@ the calculated fringe contrast provides only an estimate and the values may diff
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
-  <div class="sidebar-secondary-item">
 
-  <div class="page-toc tocsection onthispage">
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> On this page
   </div>
-  <nav class="bd-toc-nav page-toc">
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reconstruction-of-holograms">Reconstruction of holograms</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-processing-of-complex-wave-and-phase">Further processing of complex wave and phase</a></li>
@@ -661,8 +653,8 @@ the calculated fringe contrast provides only an estimate and the values may diff
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -695,7 +687,7 @@ the calculated fringe contrast provides only an estimate and the values may diff
       
         <div class="footer-item">
 <p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.14.4.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.2.
 </p></div>
       
     </div>
