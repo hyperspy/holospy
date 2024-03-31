@@ -39,6 +39,7 @@ extensions = [
     # numpydoc is necessary to parse the docstring using sphinx
     # otherwise the nitpicky option will raise many warnings
     # "numpydoc",
+    "sphinx_design",
     "sphinx_favicon",
     "sphinx.ext.autodoc",
     "sphinx.ext.githubpages",
