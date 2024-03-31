@@ -181,7 +181,6 @@ def reconstruct(
             int(holo_size[1] / 2) - sb_size / np.mean(f_sampling),
             int(holo_size[1] / 2) + sb_size / np.mean(f_sampling),
         )
-        plt.show()
 
     if output_shape is not None:
         y_min = int(holo_size[0] / 2 - output_shape[0] / 2)

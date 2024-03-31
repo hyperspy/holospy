@@ -171,8 +171,8 @@ def test_reconstruct_phase_nonstandard(lazy):
 
     sb_size2 = ref_image2.estimate_sideband_size(sb_position2)
     output_shape = (
-        int(sb_size2.inav[0].data * 2),
-        int(sb_size2.inav[0].data * 2),
+        int(sb_size2.inav[0].data[0] * 2),
+        int(sb_size2.inav[0].data[0] * 2),
     )
 
     wave_image2 = holo_image2.reconstruct_phase(

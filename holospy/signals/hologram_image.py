@@ -123,7 +123,7 @@ def _parse_sb_size(s, reference, sb_position, sb_size, num_workers=None):
             )
         # sb_position navdim=0, therefore map function should not iterate:
         else:
-            sb_size_temp = float(sb_size.data)
+            sb_size_temp = float(sb_size.data[0])
     else:
         sb_size_temp = sb_size.deepcopy()
     return sb_size, sb_size_temp
@@ -502,7 +502,7 @@ class HologramImage(Signal2D):
             # sb_position navdim=0, therefore map function should not iterate
             # it:
             else:
-                sb_smoothness_temp = float(sb_smoothness.data)
+                sb_smoothness_temp = float(sb_smoothness.data[0])
         else:
             sb_smoothness_temp = sb_smoothness.deepcopy()
 
