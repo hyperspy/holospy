@@ -1,0 +1,1 @@
+Use ruff for linting and formatting; check NPY2011.
