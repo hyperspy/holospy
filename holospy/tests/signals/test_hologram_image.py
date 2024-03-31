@@ -141,7 +141,7 @@ def test_reconstruct_phase_single(lazy):
 @pytest.mark.parametrize("lazy", [True, False])
 def test_reconstruct_phase_nonstandard(lazy):
     """Testing reconstruction with non-standard output size for stacked images"""
-    if lazy == True:
+    if lazy:
         pytest.skip("Dask array flags not supported")
     gc.collect()
     x2, z2, y2 = np.meshgrid(LS, np.array([0, 1]), LS)
@@ -229,7 +229,7 @@ def test_reconstruct_phase_nonstandard(lazy):
 
 @pytest.mark.parametrize("lazy", [True, False])
 def test_reconstruct_phase_multi(lazy):
-    if lazy == True:
+    if lazy:
         pytest.skip("Dask array flags not supported")
     x3, z3, y3 = np.meshgrid(
         np.linspace(-IMG_SIZE3X / 2, IMG_SIZE3X / 2, IMG_SIZE3X),
