@@ -15,8 +15,6 @@
 # sys.path.insert(0, os.path.abspath('.'))
 
 import hyperspy.api as hs
-import numpydoc
-from packaging.version import Version
 
 
 # Set logging level to `ERROR` to avoid exspy warning in documentation
