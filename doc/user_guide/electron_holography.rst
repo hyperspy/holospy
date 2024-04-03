@@ -6,14 +6,14 @@ Electron Holography
 HoloSpy provides the user with a signal class which can be used to process
 (off-axis) electron holography data:
 
-* :py:class:`~.signals.hologram_image.HologramImage`
+* :py:class:`~.signals.HologramImage`
 
-It inherits from :external+hyperspy:py:class:`hyperspy._signals.signal2d.Signal2D` class and thus can
+It inherits from :external+hyperspy:py:class:`hyperspy.api.signals.Signal2D` class and thus can
 use all of its functionality. The usage of the class is explained in the
 following sections.
 
-To transform a :external+hyperspy:py:class:`hyperspy._signals.signal2d.Signal2D` (or subclass) into a
-:py:class:`~.signals.hologram_image.HologramImage` use:
+To transform a :external+hyperspy:py:class:`hyperspy.api.signals.Signal2D` (or subclass) into a
+:py:class:`~.signals.HologramImage` use:
 
 .. code-block:: python
 
@@ -30,10 +30,10 @@ and :ref:`[Joy1993] <Joy1993>`.
 Fourier based reconstruction of off-axis holograms (includes
 finding a side band in FFT, isolating and filtering it, recenter and
 calculate inverse Fourier transform) can be performed using the
-:py:meth:`~.signals.hologram_image.HologramImage.reconstruct_phase` method
-which returns a :external+hyperspy:py:class:`hyperspy._signals.complex_signal2d.ComplexSignal2D` class,
+:py:meth:`~.signals.HologramImage.reconstruct_phase` method
+which returns a :external+hyperspy:py:class:`hyperspy.api.signals.ComplexSignal2D` class,
 containing the reconstructed electron wave.
-The :py:meth:`~.signals.hologram_image.HologramImage.reconstruct_phase` method
+The :py:meth:`~.signals.HologramImage.reconstruct_phase` method
 takes sideband position and size as parameters:
 
 .. code-block:: python
@@ -51,10 +51,10 @@ The parameters can be found automatically by calling following methods:
     ...                                             sb='lower')
     >>> sb_size = im.estimate_sideband_size(sb_position)
 
-:py:meth:`~.signals.hologram_image.HologramImage.estimate_sideband_position`
+:py:meth:`~.signals.HologramImage.estimate_sideband_position`
 method searches for maximum of intensity in upper or lower part of FFT pattern
 (parameter ``sb``) excluding the middle area defined by ``ap_cb_radius``.
-:py:meth:`~._signals.hologram_image.HologramImage.estimate_sideband_size` method
+:py:meth:`~.signals.HologramImage.estimate_sideband_size` method
 calculates the radius of the sideband filter as half of the distance to the
 central band which is commonly used for strong phase objects. Alternatively,
 the sideband filter radius can be recalculate as 1/3 of the distance
@@ -105,7 +105,7 @@ than pixels (by default) by setting ``sb_unit`` value either to ``mrad`` or
     ...                                   sb_position=sb_position, sb_size=30,
     ...                                   sb_smoothness=0.05*30,sb_unit='mrad')
 
-Also the :py:meth:`~.signals.hologram_image.HologramImage.reconstruct_phase`
+Also the :py:meth:`~.signals.HologramImage.reconstruct_phase`
 method can output wave images with desired size (shape). By default the shape
 of the original hologram is preserved. Though this leads to oversampling of the
 output wave images, since the information is limited by the size of the
@@ -121,11 +121,11 @@ diameter of the sideband as follows:
     ...                                   output_shape=(out_size, out_size))
 
 Note that the
-:py:meth:`~.signals.hologram_image.HologramImage.reconstruct_phase`
+:py:meth:`~.signals.HologramImage.reconstruct_phase`
 method can be called without parameters, which will cause their automatic
 assignment by
-:py:meth:`~.signals.hologram_image.HologramImage.estimate_sideband_position`
-and :py:meth:`~.signals.hologram_image.HologramImage.estimate_sideband_size`
+:py:meth:`~.signals.HologramImage.estimate_sideband_position`
+and :py:meth:`~.signals.HologramImage.estimate_sideband_size`
 methods. This, however, is not recommended for not experienced users.
 
 .. _holography.stats-label:
@@ -151,7 +151,7 @@ calculated and displayed as follows:
 Getting hologram statistics
 ---------------------------
 There are many reasons to have an access to some parameters of holograms which describe the quality of the data.
-:meth:`~.signals.hologram_image.HologramImage.statistics` can be used to calculate carrier frequency,
+:meth:`~.signals.HologramImage.statistics` can be used to calculate carrier frequency,
 fringe spacing and estimate fringe contrast. The method outputs dictionary with the values listed above calculated also
 in different units. In particular fringe spacing is calculated in pixels (fringe sampling) as well as in
 calibrated units. Carrier frequency is calculated in inverse pixels or calibrated units as well as radians.
@@ -186,4 +186,4 @@ By default ``apodization`` parameter is set to ``hanning`` which applies Hanning
 especially with extreme sampling of fringes and strong contrast variation due to Fresnel effects
 the calculated fringe contrast provides only an estimate and the values may differ strongly depending on apodization.
 
-For further information see documentation of :meth:`~.signals.hologram_image.HologramImage.statistics`.
+For further information see documentation of :meth:`~.signals.HologramImage.statistics`.

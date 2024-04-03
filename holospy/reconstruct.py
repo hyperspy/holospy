@@ -25,18 +25,18 @@ _logger = logging.getLogger(__name__)
 
 
 def estimate_sideband_position(
-    holo_data, holo_sampling, central_band_mask_radius=None, sb="lower", high_cf=True
+    data, sampling, central_band_mask_radius=None, sb="lower", high_cf=True
 ):
     """
     Finds the position of the sideband and returns its position.
 
     Parameters
     ----------
-    holo_data: ndarray
+    data : numpy.ndarray
         The data of the hologram.
-    holo_sampling: tuple
+    sampling : tuple
         The sampling rate in both image directions.
-    central_band_mask_radius: float, optional
+    central_band_mask_radius : float, optional
         The aperture radius used to mask out the centerband.
     sb : str, optional
         Chooses which sideband is taken. 'lower', 'upper', 'left', or 'right'.
@@ -46,10 +46,11 @@ def estimate_sideband_position(
 
     Returns
     -------
-    Tuple of the sideband position (y, x), referred to the unshifted FFT.
+    tuple
+        The sideband position (y, x), referred to the unshifted FFT.
     """
     sb_position = (0, 0)
-    f_freq = freq_array(holo_data.shape, holo_sampling)
+    f_freq = freq_array(data.shape, sampling)
     # If aperture radius of centerband is not given, it will be set to 5 % of
     # the Nyquist frequ.:
     if central_band_mask_radius is None:
@@ -59,7 +60,7 @@ def estimate_sideband_position(
     if not high_cf:  # Cut out higher frequencies, if necessary:
         ap_cb *= aperture_function(f_freq, np.max(f_freq) / (2 * np.sqrt(2)), 1e-6)
     # Imitates 0:
-    fft_holo = fft2(holo_data) / np.prod(holo_data.shape)
+    fft_holo = fft2(data) / np.prod(data.shape)
     fft_filtered = fft_holo * ap_cb
     # Sideband position in pixels referred to unshifted FFT
     cb_position = (
@@ -84,13 +85,13 @@ def estimate_sideband_position(
     return sb_position
 
 
-def estimate_sideband_size(sb_position, holo_shape, sb_size_ratio=0.5):
+def estimate_sideband_size(sb_position, shape, sb_size_ratio=0.5):
     """
     Estimates the size of sideband filter
 
     Parameters
     ----------
-    holo_shape : array_like
+    shape : array_like
             Holographic data array
     sb_position : tuple
         The sideband position (y, x), referred to the non-shifted FFT.
@@ -99,7 +100,7 @@ def estimate_sideband_size(sb_position, holo_shape, sb_size_ratio=0.5):
 
     Returns
     -------
-    sb_size : float
+    float
         Size of sideband filter
 
     """
@@ -108,9 +109,9 @@ def estimate_sideband_size(sb_position, holo_shape, sb_size_ratio=0.5):
         np.array(
             (
                 np.asarray(sb_position) - np.asarray([0, 0]),
-                np.asarray(sb_position) - np.asarray([0, holo_shape[1]]),
-                np.asarray(sb_position) - np.asarray([holo_shape[0], 0]),
-                np.asarray(sb_position) - np.asarray(holo_shape),
+                np.asarray(sb_position) - np.asarray([0, shape[1]]),
+                np.asarray(sb_position) - np.asarray([shape[0], 0]),
+                np.asarray(sb_position) - np.asarray(shape),
             )
         )
         * sb_size_ratio
@@ -119,8 +120,8 @@ def estimate_sideband_size(sb_position, holo_shape, sb_size_ratio=0.5):
 
 
 def reconstruct(
-    holo_data,
-    holo_sampling,
+    data,
+    sampling,
     sb_size,
     sb_position,
     sb_smoothness,
@@ -131,34 +132,34 @@ def reconstruct(
 
     Parameters
     ----------
-    holo_data : array_like
+    data : array_like
         Holographic data array
-    holo_sampling : tuple
+    sampling : tuple
         Sampling rate of the hologram in y and x direction.
     sb_size : float
         Size of the sideband filter in pixel.
     sb_position : tuple
         Sideband position in pixel.
-    sb_smoothness: float
+    sb_smoothness : float
         Smoothness of the aperture in pixel.
-    output_shape: tuple, optional
+    output_shape : tuple, optional
         New output shape.
     plotting : bool
         Plots the masked sideband used for reconstruction.
 
     Returns
     -------
-        wav : nparray
-            Reconstructed electron wave
+    numpy.ndarray
+        Reconstructed electron wave
 
     """
 
-    holo_size = holo_data.shape
-    f_sampling = np.divide(1, [a * b for a, b in zip(holo_size, holo_sampling)])
+    holo_size = data.shape
+    f_sampling = np.divide(1, [a * b for a, b in zip(holo_size, sampling)])
 
-    fft_exp = fft2(holo_data) / np.prod(holo_size)
+    fft_exp = fft2(data) / np.prod(holo_size)
 
-    f_freq = freq_array(holo_data.shape, holo_sampling)
+    f_freq = freq_array(data.shape, sampling)
 
     sb_size *= np.mean(f_sampling)
     sb_smoothness *= np.mean(f_sampling)
@@ -190,7 +191,7 @@ def reconstruct(
 
         fft_aperture = fftshift(fftshift(fft_aperture)[y_min:y_max, x_min:x_max])
 
-    wav = ifft2(fft_aperture) * np.prod(holo_data.shape)
+    wav = ifft2(fft_aperture) * np.prod(data.shape)
 
     return wav
 
@@ -207,6 +208,10 @@ def aperture_function(r, apradius, rsmooth):
         Radius (center) of the smooth aperture. Decay starts at apradius - rsmooth.
     rsmooth : float
         Smoothness in halfwidth. rsmooth = 1 will cause a decay from 1 to 0 over 2 pixel.
+
+    Returns
+    -------
+    numpy.ndarray
     """
 
     return 0.5 * (1.0 - np.tanh((abs(r) - apradius) / (0.5 * rsmooth)))
@@ -220,12 +225,13 @@ def freq_array(shape, sampling):
     ----------
     shape : tuple
         The shape of the array.
-    sampling: tuple
+    sampling : tuple
         The sampling rates of the array.
 
     Returns
     -------
-    Array of the frequencies.
+    numpy.ndarray
+        Frequencies
     """
     f_freq_1d_y = np.fft.fftfreq(shape[0], sampling[0])
     f_freq_1d_x = np.fft.fftfreq(shape[1], sampling[1])

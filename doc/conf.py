@@ -15,8 +15,6 @@
 # sys.path.insert(0, os.path.abspath('.'))
 
 import hyperspy.api as hs
-import numpydoc
-from packaging.version import Version
 
 
 # Set logging level to `ERROR` to avoid exspy warning in documentation
@@ -38,7 +36,7 @@ author = "HyperSpy Developers"
 extensions = [
     # numpydoc is necessary to parse the docstring using sphinx
     # otherwise the nitpicky option will raise many warnings
-    # "numpydoc",
+    "numpydoc",
     "sphinx_design",
     "sphinx_favicon",
     "sphinx.ext.autodoc",
@@ -106,17 +104,20 @@ favicons = [
 ]
 
 # Check links to API when building documentation
-nitpicky = False
-# Remove when fixed in hyperspy
-nitpick_ignore_regex = [(r"py:.*", r"hyperspy.api.*")]
+nitpicky = True
 
 # -- Options for numpydoc extension -----------------------------------
 
+numpydoc_show_class_members = False
 numpydoc_xref_param_type = True
 numpydoc_xref_ignore = {"type", "optional", "default", "of"}
 
-if Version(numpydoc.__version__) >= Version("1.6.0rc0"):
-    numpydoc_validation_checks = {"all", "ES01", "EX01", "GL02", "GL03", "SA01", "SS06"}
+autoclass_content = "both"
+
+autodoc_default_options = {
+    "show-inheritance": True,
+}
+toc_object_entries_show_parents = "hide"
 
 # -- Options for towncrier_draft extension -----------------------------------
 
