@@ -1,1 +1,0 @@
-Enable numpydoc and nitpicky; fix docstrings.

@@ -1,1 +1,0 @@
-The positional arguments ``holo_data`` and ``holo_sampling`` of :func:`~.reconstruct.reconstruct` have been renamed to ``data`` and ``sampling``, respectively.

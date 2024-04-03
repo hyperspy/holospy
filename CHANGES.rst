@@ -8,6 +8,29 @@ https://holospy.readthedocs.io/en/latest/changes.html
 
 .. towncrier release notes start
 
+0.2 (2024-04-04)
+================
+
+Deprecations
+------------
+
+- The positional arguments ``holo_data`` and ``holo_sampling`` of :func:`~.reconstruct.reconstruct` have been renamed to ``data`` and ``sampling``, respectively. (`#26 <https://github.com/hyperspy/holospy/issues/26>`_)
+
+
+Improved Documentation
+----------------------
+
+- Add holoSpy logo (`#26 <https://github.com/hyperspy/holospy/issues/26>`_)
+
+
+Maintenance
+-----------
+
+- Use ruff for linting and formatting; check NPY2011. (`#28 <https://github.com/hyperspy/holospy/issues/28>`_)
+- Fix numpy 1.25 deprecation. (`#29 <https://github.com/hyperspy/holospy/issues/29>`_)
+- Enable numpydoc and nitpicky; fix docstrings. (`#30 <https://github.com/hyperspy/holospy/issues/30>`_)
+
+
 0.1.1 (2023-12-02)
 ==================
 
