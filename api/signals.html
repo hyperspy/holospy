@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="../_static/holospy.ico" rel="icon" type="image/x-icon">
-    <title>holospy.signals.hologram_image &#8212; HoloSpy  documentation</title>
+    <title>holospy.signals &#8212; HoloSpy  documentation</title>
   
   
   
@@ -363,7 +363,7 @@ document.write(`
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="data.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">holospy.data</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="reconstruct.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">holospy.reconstruct</span></code></a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">holospy.signals.hologram_image</span></code></a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">holospy.signals</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="tools.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">holospy.tools</span></code></a></li>
 </ul>
 </div>
@@ -422,34 +422,91 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="module-holospy.signals.hologram_image">
-<span id="holospy-signals-hologram-image"></span><h1><a class="reference internal" href="#module-holospy.signals.hologram_image" title="holospy.signals.hologram_image"><code class="xref py py-mod docutils literal notranslate"><span class="pre">holospy.signals.hologram_image</span></code></a><a class="headerlink" href="#module-holospy.signals.hologram_image" title="Link to this heading">#</a></h1>
-<dl class="py class">
-<dt class="sig sig-object py" id="holospy.signals.hologram_image.HologramImage">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">holospy.signals.hologram_image.</span></span><span class="sig-name descname"><span class="pre">HologramImage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#holospy.signals.hologram_image.HologramImage" title="Link to this definition">#</a></dt>
-<dd><p>Signal class for holograms acquired via off-axis electron holography.</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="holospy.signals.hologram_image.HologramImage.estimate_sideband_position">
-<span class="sig-name descname"><span class="pre">estimate_sideband_position</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ap_cb_radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sb</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'lower'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">high_cf</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_progressbar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_workers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#holospy.signals.hologram_image.HologramImage.estimate_sideband_position" title="Link to this definition">#</a></dt>
-<dd><p>Estimates the position of the sideband and returns its position.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>ap_cb_radius</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a><em>, </em><em>None</em>) – The aperture radius used to mask out the centerband.</p></li>
-<li><p><strong>sb</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a><em>, </em><em>optional</em>) – Chooses which sideband is taken. <code class="docutils literal notranslate"><span class="pre">'lower'</span></code> or <code class="docutils literal notranslate"><span class="pre">'upper'</span></code></p></li>
-<li><p><strong>high_cf</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a><em>, </em><em>optional</em>) – If False, the highest carrier frequency allowed for the sideband location is equal to
-half of the Nyquist frequency (Default: True).</p></li>
-<li><p><strong>show_progressbar</strong> (<em>None</em><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, display a progress bar. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, the default from
-the preferences settings is used.</p></li>
-<li><p><strong>num_workers</strong> (<em>None</em><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Number of worker used by dask. If None, default
-to dask default value.</p></li>
-</ul>
+  <section id="holospy-signals">
+<h1><a class="reference internal" href="#module-holospy.signals" title="holospy.signals"><code class="xref py py-mod docutils literal notranslate"><span class="pre">holospy.signals</span></code></a><a class="headerlink" href="#holospy-signals" title="Link to this heading">#</a></h1>
+<table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#holospy.signals.HologramImage" title="holospy.signals.HologramImage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HologramImage</span></code></a>(*args, **kwargs)</p></td>
+<td><p>Signal class for holograms acquired via off-axis electron holography.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#holospy.signals.LazyHologramImage" title="holospy.signals.LazyHologramImage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LazyHologramImage</span></code></a>(*args, **kwargs)</p></td>
+<td><p>Lazy signal class for holograms acquired via off-axis electron holography.</p></td>
+</tr>
+</tbody>
+</table>
+<p id="module-holospy.signals">Modules containing the HoloSpy signals and their lazy counterparts.</p>
+<dl class="simple">
+<dt>HologramImage</dt><dd><p>For holography data</p>
 </dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>Signal1D instance of sideband positions (y, x), referred to the unshifted FFT.</p>
+<dt>LazyHologramImage</dt><dd><p>For holography data processed lazily</p>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="holospy.signals.HologramImage">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">holospy.signals.</span></span><span class="sig-name descname"><span class="pre">HologramImage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#holospy.signals.HologramImage" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://hyperspy.org/hyperspy-doc/current/reference/api.signals/Signal2D.html#hyperspy.api.signals.Signal2D" title="(in HyperSpy v2.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Signal2D</span></code></a></p>
+<p>Signal class for holograms acquired via off-axis electron holography.</p>
+<p>Create a signal instance.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>data</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></span></dt><dd><p>The signal data. It can be an array of any dimensions.</p>
+</dd>
+<dt><strong>axes</strong><span class="classifier">[dict/axes], optional</span></dt><dd><p>List of either dictionaries or axes objects to define the axes (see
+the documentation of the <a class="reference external" href="https://hyperspy.org/hyperspy-doc/current/reference/base_classes/axes.html#hyperspy.axes.AxesManager" title="(in HyperSpy v2.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">AxesManager</span></code></a>
+class for more details).</p>
+</dd>
+<dt><strong>attributes</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">dict</span></code></a>, optional</span></dt><dd><p>A dictionary whose items are stored as attributes.</p>
+</dd>
+<dt><strong>metadata</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">dict</span></code></a>, optional</span></dt><dd><p>A dictionary containing a set of parameters
+that will to stores in the <code class="docutils literal notranslate"><span class="pre">metadata</span></code> attribute.
+Some parameters might be mandatory in some cases.</p>
+</dd>
+<dt><strong>original_metadata</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">dict</span></code></a>, optional</span></dt><dd><p>A dictionary containing a set of parameters
+that will to stores in the <code class="docutils literal notranslate"><span class="pre">original_metadata</span></code> attribute. It
+typically contains all the parameters that has been
+imported from the original data file.</p>
+</dd>
+<dt><strong>ragged</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.12)"><span class="xref std std-ref">bool</span></a> or <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">None</span></code></a>, optional</span></dt><dd><p>Define whether the signal is ragged or not. Overwrite the
+<code class="docutils literal notranslate"><span class="pre">ragged</span></code> value in the <code class="docutils literal notranslate"><span class="pre">attributes</span></code> dictionary. If None, it does
+nothing. Default is None.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="holospy.signals.HologramImage.estimate_sideband_position">
+<span class="sig-name descname"><span class="pre">estimate_sideband_position</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ap_cb_radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sb</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'lower'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">high_cf</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_progressbar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_workers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#holospy.signals.HologramImage.estimate_sideband_position" title="Link to this definition">#</a></dt>
+<dd><p>Estimates the position of the sideband and returns its position.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>ap_cb_radius</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">None</span></code></a></span></dt><dd><p>The aperture radius used to mask out the centerband.</p>
+</dd>
+<dt><strong>sb</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a>, optional</span></dt><dd><p>Chooses which sideband is taken. <code class="docutils literal notranslate"><span class="pre">'lower'</span></code> or <code class="docutils literal notranslate"><span class="pre">'upper'</span></code></p>
+</dd>
+<dt><strong>high_cf</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.12)"><span class="xref std std-ref">bool</span></a>, optional</span></dt><dd><p>If False, the highest carrier frequency allowed for the sideband location is equal to
+half of the Nyquist frequency (Default: True).</p>
+</dd>
+<dt><strong>show_progressbar</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">None</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.12)"><span class="xref std std-ref">bool</span></a></span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, display a progress bar. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, the default from
+the preferences settings is used.</p>
+</dd>
+<dt><strong>num_workers</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">None</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a></span></dt><dd><p>Number of worker used by dask. If None, default
+to dask default value.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><a class="reference external" href="https://hyperspy.org/hyperspy-doc/current/reference/api.signals/Signal1D.html#hyperspy.api.signals.Signal1D" title="(in HyperSpy v2.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hyperspy.api.signals.Signal1D</span></code></a></dt><dd><p>Sideband positions (y, x), referred to the unshifted FFT.</p>
+</dd>
+</dl>
 </dd>
 <dt class="field-odd">Raises<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#NotImplementedError" title="(in Python v3.12)"><strong>NotImplementedError</strong></a> – If the signal axes are non-uniform axes.</p>
+<dd class="field-odd"><dl class="simple">
+<dt><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#NotImplementedError" title="(in Python v3.12)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NotImplementedError</span></code></a></dt><dd><p>If the signal axes are non-uniform axes.</p>
+</dd>
+</dl>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
@@ -463,27 +520,33 @@ to dask default value.</p></li>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="holospy.signals.hologram_image.HologramImage.estimate_sideband_size">
-<span class="sig-name descname"><span class="pre">estimate_sideband_size</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sb_position</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_progressbar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_workers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#holospy.signals.hologram_image.HologramImage.estimate_sideband_size" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="holospy.signals.HologramImage.estimate_sideband_size">
+<span class="sig-name descname"><span class="pre">estimate_sideband_size</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sb_position</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_progressbar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_workers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#holospy.signals.HologramImage.estimate_sideband_size" title="Link to this definition">#</a></dt>
 <dd><p>Estimates the size of the sideband and returns its size.</p>
-<dl class="field-list simple">
+<dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>sb_position</strong> (<em>BaseSignal</em>) – The sideband position (y, x), referred to the non-shifted FFT.</p></li>
-<li><p><strong>show_progressbar</strong> (<em>None</em><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, display a progress bar. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, the default from
-the preferences settings is used.</p></li>
-<li><p><strong>num_workers</strong> (<em>None</em><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Number of worker used by dask. If None, default
-to dask default value.</p></li>
-</ul>
+<dd class="field-odd"><dl>
+<dt><strong>sb_position</strong><span class="classifier"><a class="reference external" href="https://hyperspy.org/hyperspy-doc/current/reference/api.signals/BaseSignal.html#hyperspy.api.signals.BaseSignal" title="(in HyperSpy v2.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hyperspy.api.signals.BaseSignal</span></code></a></span></dt><dd><p>The sideband position (y, x), referred to the non-shifted FFT.</p>
+</dd>
+<dt><strong>show_progressbar</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">None</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.12)"><span class="xref std std-ref">bool</span></a></span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, display a progress bar. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, the default from
+the preferences settings is used.</p>
+</dd>
+<dt><strong>num_workers</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">None</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a></span></dt><dd><p>Number of worker used by dask. If None, default
+to dask default value.</p>
+</dd>
+</dl>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>sb_size</strong> – Sideband size referred to the unshifted FFT.</p>
+<dd class="field-even"><dl class="simple">
+<dt><a class="reference external" href="https://hyperspy.org/hyperspy-doc/current/reference/api.signals/Signal1D.html#hyperspy.api.signals.Signal1D" title="(in HyperSpy v2.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hyperspy.api.signals.Signal1D</span></code></a></dt><dd><p>Sideband size referred to the unshifted FFT.</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Signal1D</p>
+</dl>
 </dd>
-<dt class="field-even">Raises<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#NotImplementedError" title="(in Python v3.12)"><strong>NotImplementedError</strong></a> – If the signal axes are non-uniform axes.</p>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#NotImplementedError" title="(in Python v3.12)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NotImplementedError</span></code></a></dt><dd><p>If the signal axes are non-uniform axes.</p>
+</dd>
+</dl>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
@@ -498,57 +561,70 @@ to dask default value.</p></li>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="holospy.signals.hologram_image.HologramImage.reconstruct_phase">
-<span class="sig-name descname"><span class="pre">reconstruct_phase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reference</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sb_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sb_smoothness</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sb_unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sb</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'lower'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sb_position</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">high_cf</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_shape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plotting</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">store_parameters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_progressbar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_workers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#holospy.signals.hologram_image.HologramImage.reconstruct_phase" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="holospy.signals.HologramImage.reconstruct_phase">
+<span class="sig-name descname"><span class="pre">reconstruct_phase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reference</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sb_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sb_smoothness</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sb_unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sb</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'lower'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sb_position</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">high_cf</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_shape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plotting</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">store_parameters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_progressbar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_workers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#holospy.signals.HologramImage.reconstruct_phase" title="Link to this definition">#</a></dt>
 <dd><p>Reconstruct electron holograms. Operates on multidimensional
 hyperspy signals. There are several usage schemes:</p>
-<blockquote>
-<div><ul class="simple">
+<ul class="simple">
 <li><p>Reconstruct 1d or Nd hologram without reference</p></li>
 <li><p>Reconstruct 1d or Nd hologram using single reference hologram</p></li>
 <li><p>Reconstruct Nd hologram using Nd reference hologram (applies each
 reference to each hologram in Nd stack)</p></li>
 </ul>
-</div></blockquote>
 <p>The reconstruction parameters (sb_position, sb_size, sb_smoothness)
 have to be 1d or to have same dimensionality as the hologram.</p>
-<dl class="field-list simple">
+<dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>reference</strong> (<em>ndarray</em><em>, </em><em>Signal2D</em><em>, </em><em>None</em>) – Vacuum reference hologram.</p></li>
-<li><p><strong>sb_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a><em>, </em><em>ndarray</em><em>, </em><em>BaseSignal</em><em>, </em><em>None</em>) – Sideband radius of the aperture in corresponding unit (see
+<dd class="field-odd"><dl>
+<dt><strong>reference</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray</span></code></a>, <a class="reference external" href="https://hyperspy.org/hyperspy-doc/current/reference/api.signals/Signal2D.html#hyperspy.api.signals.Signal2D" title="(in HyperSpy v2.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hyperspy.api.signals.Signal2D</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">None</span></code></a></span></dt><dd><p>Vacuum reference hologram.</p>
+</dd>
+<dt><strong>sb_size</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>, <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray</span></code></a>, <a class="reference external" href="https://hyperspy.org/hyperspy-doc/current/reference/api.signals/BaseSignal.html#hyperspy.api.signals.BaseSignal" title="(in HyperSpy v2.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hyperspy.api.signals.BaseSignal</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">None</span></code></a></span></dt><dd><p>Sideband radius of the aperture in corresponding unit (see
 ‘sb_unit’). If None, the radius of the aperture is set to 1/3 of
-the distance between sideband and center band.</p></li>
-<li><p><strong>sb_smoothness</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a><em>, </em><em>ndarray</em><em>, </em><em>BaseSignal</em><em>, </em><em>None</em>) – Smoothness of the aperture in the same unit as sb_size.</p></li>
-<li><p><strong>sb_unit</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a><em>, </em><em>None</em>) – Unit of the two sideband parameters ‘sb_size’ and ‘sb_smoothness’.
+the distance between sideband and center band.</p>
+</dd>
+<dt><strong>sb_smoothness</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>, <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray</span></code></a>, <a class="reference external" href="https://hyperspy.org/hyperspy-doc/current/reference/api.signals/BaseSignal.html#hyperspy.api.signals.BaseSignal" title="(in HyperSpy v2.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hyperspy.api.signals.BaseSignal</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">None</span></code></a></span></dt><dd><p>Smoothness of the aperture in the same unit as sb_size.</p>
+</dd>
+<dt><strong>sb_unit</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">None</span></code></a></span></dt><dd><p>Unit of the two sideband parameters ‘sb_size’ and ‘sb_smoothness’.
 Default: None - Sideband size given in pixels
 ‘nm’: Size and smoothness of the aperture are given in 1/nm.
-‘mrad’: Size and smoothness of the aperture are given in mrad.</p></li>
-<li><p><strong>sb</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a><em>, </em><em>None</em>) – Select which sideband is selected. ‘upper’ or ‘lower’.</p></li>
-<li><p><strong>sb_position</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.12)"><em>tuple</em></a><em>, </em><em>Signal1D</em><em>, </em><em>None</em>) – The sideband position (y, x), referred to the non-shifted FFT. If
-None, sideband is determined automatically from FFT.</p></li>
-<li><p><strong>high_cf</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a><em>, </em><em>optional</em>) – If False, the highest carrier frequency allowed for the sideband
-location is equal to half of the Nyquist frequency (Default: True).</p></li>
-<li><p><strong>output_shape</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.12)"><em>tuple</em></a><em>, </em><em>None</em>) – Choose a new output shape. Default is the shape of the input
+‘mrad’: Size and smoothness of the aperture are given in mrad.</p>
+</dd>
+<dt><strong>sb</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">None</span></code></a></span></dt><dd><p>Select which sideband is selected. ‘upper’ or ‘lower’.</p>
+</dd>
+<dt><strong>sb_position</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">tuple</span></code></a>, <a class="reference external" href="https://hyperspy.org/hyperspy-doc/current/reference/api.signals/Signal1D.html#hyperspy.api.signals.Signal1D" title="(in HyperSpy v2.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hyperspy.api.signals.Signal1D</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">None</span></code></a></span></dt><dd><p>The sideband position (y, x), referred to the non-shifted FFT. If
+None, sideband is determined automatically from FFT.</p>
+</dd>
+<dt><strong>high_cf</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.12)"><span class="xref std std-ref">bool</span></a>, optional</span></dt><dd><p>If False, the highest carrier frequency allowed for the sideband
+location is equal to half of the Nyquist frequency (Default: True).</p>
+</dd>
+<dt><strong>output_shape: tuple, None</strong></dt><dd><p>Choose a new output shape. Default is the shape of the input
 hologram. The output shape should not be larger than the input
-shape.</p></li>
-<li><p><strong>plotting</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – Shows details of the reconstruction (i.e. SB selection).</p></li>
-<li><p><strong>store_parameters</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – Store reconstruction parameters in metadata</p></li>
-<li><p><strong>show_progressbar</strong> (<em>None</em><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, display a progress bar. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, the default from
-the preferences settings is used.</p></li>
-<li><p><strong>num_workers</strong> (<em>None</em><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Number of worker used by dask. If None, default
-to dask default value.</p></li>
-</ul>
+shape.</p>
+</dd>
+<dt><strong>plotting</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.12)"><span class="xref std std-ref">bool</span></a></span></dt><dd><p>Shows details of the reconstruction (i.e. SB selection).</p>
+</dd>
+<dt><strong>store_parameters</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.12)"><span class="xref std std-ref">bool</span></a></span></dt><dd><p>Store reconstruction parameters in metadata</p>
+</dd>
+<dt><strong>show_progressbar</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">None</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.12)"><span class="xref std std-ref">bool</span></a></span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, display a progress bar. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, the default from
+the preferences settings is used.</p>
+</dd>
+<dt><strong>num_workers</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">None</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a></span></dt><dd><p>Number of worker used by dask. If None, default
+to dask default value.</p>
+</dd>
+</dl>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>wave</strong> – Reconstructed electron wave. By default object wave is divided by
+<dd class="field-even"><dl class="simple">
+<dt><a class="reference external" href="https://hyperspy.org/hyperspy-doc/current/reference/api.signals/ComplexSignal2D.html#hyperspy.api.signals.ComplexSignal2D" title="(in HyperSpy v2.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hyperspy.api.signals.ComplexSignal2D</span></code></a></dt><dd><p>Reconstructed electron wave. By default object wave is divided by
 reference wave.</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>ComplexSignal2D</p>
+</dl>
 </dd>
-<dt class="field-even">Raises<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#NotImplementedError" title="(in Python v3.12)"><strong>NotImplementedError</strong></a> – If the signal axes are non-uniform axes.</p>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#NotImplementedError" title="(in Python v3.12)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NotImplementedError</span></code></a></dt><dd><p>If the signal axes are non-uniform axes.</p>
+</dd>
+</dl>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
@@ -562,18 +638,21 @@ reference wave.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="holospy.signals.hologram_image.HologramImage.set_microscope_parameters">
-<span class="sig-name descname"><span class="pre">set_microscope_parameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">beam_energy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">biprism_voltage</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tilt_stage</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#holospy.signals.hologram_image.HologramImage.set_microscope_parameters" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="holospy.signals.HologramImage.set_microscope_parameters">
+<span class="sig-name descname"><span class="pre">set_microscope_parameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">beam_energy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">biprism_voltage</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tilt_stage</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#holospy.signals.HologramImage.set_microscope_parameters" title="Link to this definition">#</a></dt>
 <dd><p>Set the microscope parameters.</p>
 <p>If no arguments are given, raises an interactive mode to fill
 the values.</p>
-<dl class="field-list simple">
+<dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>beam_energy</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a>) – The energy of the electron beam in keV</p></li>
-<li><p><strong>biprism_voltage</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a>) – In volts</p></li>
-<li><p><strong>tilt_stage</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a>) – In degrees</p></li>
-</ul>
+<dd class="field-odd"><dl>
+<dt><strong>beam_energy</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a></span></dt><dd><p>The energy of the electron beam in keV</p>
+</dd>
+<dt><strong>biprism_voltage</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a></span></dt><dd><p>In volts</p>
+</dd>
+<dt><strong>tilt_stage</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a></span></dt><dd><p>In degrees</p>
+</dd>
+</dl>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
@@ -587,56 +666,66 @@ the values.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="holospy.signals.hologram_image.HologramImage.statistics">
-<span class="sig-name descname"><span class="pre">statistics</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sb_position</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sb</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'lower'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">high_cf</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fringe_contrast_algorithm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'statistical'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">apodization</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'hanning'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">single_values</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_progressbar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_workers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#holospy.signals.hologram_image.HologramImage.statistics" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="holospy.signals.HologramImage.statistics">
+<span class="sig-name descname"><span class="pre">statistics</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sb_position</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sb</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'lower'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">high_cf</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fringe_contrast_algorithm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'statistical'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">apodization</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'hanning'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">single_values</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_progressbar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_workers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#holospy.signals.HologramImage.statistics" title="Link to this definition">#</a></dt>
 <dd><p>Calculates following statistics for off-axis electron holograms:</p>
 <p>1. Fringe contrast using either statistical definition or
 Fourier space approach (see description of <cite>fringe_contrast_algorithm</cite> parameter)
 2. Fringe sampling (in pixels)
 3. Fringe spacing (in calibrated units)
 4. Carrier frequency (in calibrated units, radians and 1/px)</p>
-<dl class="field-list simple">
+<dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>sb_position</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.12)"><em>tuple</em></a><em>, </em><em>Signal1D</em><em>, </em><em>None</em>) – The sideband position (y, x), referred to the non-shifted FFT.
+<dd class="field-odd"><dl>
+<dt><strong>sb_position</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">tuple</span></code></a>, <a class="reference external" href="https://hyperspy.org/hyperspy-doc/current/reference/api.signals/Signal1D.html#hyperspy.api.signals.Signal1D" title="(in HyperSpy v2.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hyperspy.api.signals.Signal1D</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">None</span></code></a></span></dt><dd><p>The sideband position (y, x), referred to the non-shifted FFT.
 It has to be tuple or to have the same dimensionality as the hologram.
-If None, sideband is determined automatically from FFT.</p></li>
-<li><p><strong>sb</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a><em>, </em><em>None</em>) – Select which sideband is selected. ‘upper’, ‘lower’, ‘left’ or ‘right’.</p></li>
-<li><p><strong>high_cf</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a><em>, </em><em>optional</em>) – If False, the highest carrier frequency allowed for the sideband location is equal to
-half of the Nyquist frequency (Default: False).</p></li>
-<li><p><strong>fringe_contrast_algorithm</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – <p>Select fringe contrast algorithm between:</p>
-<ul>
-<li><p>’fourier’: fringe contrast is estimated as 2 * &lt;I(k_0)&gt; / &lt;I(0)&gt;,
+If None, sideband is determined automatically from FFT.</p>
+</dd>
+<dt><strong>sb</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">None</span></code></a></span></dt><dd><p>Select which sideband is selected. ‘upper’, ‘lower’, ‘left’ or ‘right’.</p>
+</dd>
+<dt><strong>high_cf</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.12)"><span class="xref std std-ref">bool</span></a>, optional</span></dt><dd><p>If False, the highest carrier frequency allowed for the sideband location is equal to
+half of the Nyquist frequency (Default: False).</p>
+</dd>
+<dt><strong>fringe_contrast_algorithm</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a></span></dt><dd><p>Select fringe contrast algorithm between:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">'fourier'</span></code>: fringe contrast is estimated as 2 * &lt;I(k_0)&gt; / &lt;I(0)&gt;,
 where I(k_0) is intensity of sideband and I(0) is the intensity of central band (FFT origin).
 This method delivers also reasonable estimation if the
 interference pattern do not cover full field of view.</p></li>
-<li><p>’statistical’: fringe contrast is estimated by dividing the
+<li><p><code class="docutils literal notranslate"><span class="pre">'statistical'</span></code>: fringe contrast is estimated by dividing the
 standard deviation by the mean of the hologram intensity in real
 space. This algorithm relies on regularly spaced fringes and
 covering the entire field of view.</p></li>
 </ul>
 <p>(Default: ‘statistical’)</p>
-</p></li>
-<li><p><strong>apodization</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a><em> or </em><em>None</em><em>, </em><em>optional</em>) – Used with <cite>fringe_contrast_algorithm=’fourier’</cite>. If ‘hanning’ or ‘hamming’ apodization window
+</dd>
+<dt><strong>apodization</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">None</span></code></a>, optional</span></dt><dd><p>Used with <code class="docutils literal notranslate"><span class="pre">fringe_contrast_algorithm='fourier'</span></code>. If <code class="docutils literal notranslate"><span class="pre">'hanning'</span></code> or <code class="docutils literal notranslate"><span class="pre">'hamming'</span></code> apodization window
 will be applied in real space before FFT for estimation of fringe contrast.
 Apodization is typically needed to suppress striking  due to sharp edges of the image,
-which often results in underestimation of the fringe contrast. (Default: ‘hanning’)</p></li>
-<li><p><strong>single_values</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a><em>, </em><em>optional</em>) – If True calculates statistics only for the first navigation pixels and
-returns the values as single floats (Default: True)</p></li>
-<li><p><strong>show_progressbar</strong> (<em>None</em><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, display a progress bar. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, the default from
-the preferences settings is used.</p></li>
-<li><p><strong>num_workers</strong> (<em>None</em><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Number of worker used by dask. If None, default
-to dask default value.</p></li>
-</ul>
+which often results in underestimation of the fringe contrast. (Default: ‘hanning’)</p>
+</dd>
+<dt><strong>single_values</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.12)"><span class="xref std std-ref">bool</span></a>, optional</span></dt><dd><p>If True calculates statistics only for the first navigation pixels and
+returns the values as single floats (Default: True)</p>
+</dd>
+<dt><strong>show_progressbar</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">None</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.12)"><span class="xref std std-ref">bool</span></a></span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, display a progress bar. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, the default from
+the preferences settings is used.</p>
+</dd>
+<dt><strong>num_workers</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">None</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a></span></dt><dd><p>Number of worker used by dask. If None, default
+to dask default value.</p>
+</dd>
+</dl>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Dictionary with the statistics</p>
+<dd class="field-even"><dl class="simple">
+<dt><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">dict</span></code></a></dt><dd><p>Dictionary with the statistics</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>statistics_dict</p>
+</dl>
 </dd>
-<dt class="field-even">Raises<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#NotImplementedError" title="(in Python v3.12)"><strong>NotImplementedError</strong></a> – If the signal axes are non-uniform axes.</p>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#NotImplementedError" title="(in Python v3.12)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NotImplementedError</span></code></a></dt><dd><p>If the signal axes are non-uniform axes.</p>
+</dd>
+</dl>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
@@ -657,16 +746,45 @@ to dask default value.</p></li>
 </dd></dl>
 
 <dl class="py class">
-<dt class="sig sig-object py" id="holospy.signals.hologram_image.LazyHologramImage">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">holospy.signals.hologram_image.</span></span><span class="sig-name descname"><span class="pre">LazyHologramImage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#holospy.signals.hologram_image.LazyHologramImage" title="Link to this definition">#</a></dt>
-<dd><p>Lazy signal class for holograms acquired via off-axis electron
+<dt class="sig sig-object py" id="holospy.signals.LazyHologramImage">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">holospy.signals.</span></span><span class="sig-name descname"><span class="pre">LazyHologramImage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#holospy.signals.LazyHologramImage" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://hyperspy.org/hyperspy-doc/current/reference/base_classes/signal/LazySignal.html#hyperspy._signals.lazy.LazySignal" title="(in HyperSpy v2.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">LazySignal</span></code></a>, <a class="reference internal" href="#holospy.signals.HologramImage" title="holospy.signals.hologram_image.HologramImage"><code class="xref py py-class docutils literal notranslate"><span class="pre">HologramImage</span></code></a></p>
+<p>Lazy signal class for holograms acquired via off-axis electron
 holography.</p>
 <p>The computation is delayed until explicitly requested.</p>
 <p>This class is not expected to be instantiated directly, instead use:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">da</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="n">hs</span><span class="o">.</span><span class="n">signals</span><span class="o">.</span><span class="n">HologramImage</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">as_lazy</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="n">holospy</span><span class="o">.</span><span class="n">signals</span><span class="o">.</span><span class="n">HologramImage</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">as_lazy</span><span class="p">()</span>
 </pre></div>
 </div>
+<p>Create a signal instance.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>data</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></span></dt><dd><p>The signal data. It can be an array of any dimensions.</p>
+</dd>
+<dt><strong>axes</strong><span class="classifier">[dict/axes], optional</span></dt><dd><p>List of either dictionaries or axes objects to define the axes (see
+the documentation of the <a class="reference external" href="https://hyperspy.org/hyperspy-doc/current/reference/base_classes/axes.html#hyperspy.axes.AxesManager" title="(in HyperSpy v2.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">AxesManager</span></code></a>
+class for more details).</p>
+</dd>
+<dt><strong>attributes</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">dict</span></code></a>, optional</span></dt><dd><p>A dictionary whose items are stored as attributes.</p>
+</dd>
+<dt><strong>metadata</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">dict</span></code></a>, optional</span></dt><dd><p>A dictionary containing a set of parameters
+that will to stores in the <code class="docutils literal notranslate"><span class="pre">metadata</span></code> attribute.
+Some parameters might be mandatory in some cases.</p>
+</dd>
+<dt><strong>original_metadata</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">dict</span></code></a>, optional</span></dt><dd><p>A dictionary containing a set of parameters
+that will to stores in the <code class="docutils literal notranslate"><span class="pre">original_metadata</span></code> attribute. It
+typically contains all the parameters that has been
+imported from the original data file.</p>
+</dd>
+<dt><strong>ragged</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.12)"><span class="xref std std-ref">bool</span></a> or <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">None</span></code></a>, optional</span></dt><dd><p>Define whether the signal is ragged or not. Overwrite the
+<code class="docutils literal notranslate"><span class="pre">ragged</span></code> value in the <code class="docutils literal notranslate"><span class="pre">attributes</span></code> dictionary. If None, it does
+nothing. Default is None.</p>
+</dd>
+</dl>
+</dd>
+</dl>
 </dd></dl>
 
 </section>
@@ -717,15 +835,15 @@ holography.</p>
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#holospy.signals.hologram_image.HologramImage"><code class="docutils literal notranslate"><span class="pre">HologramImage</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#holospy.signals.hologram_image.HologramImage.estimate_sideband_position"><code class="docutils literal notranslate"><span class="pre">HologramImage.estimate_sideband_position()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#holospy.signals.hologram_image.HologramImage.estimate_sideband_size"><code class="docutils literal notranslate"><span class="pre">HologramImage.estimate_sideband_size()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#holospy.signals.hologram_image.HologramImage.reconstruct_phase"><code class="docutils literal notranslate"><span class="pre">HologramImage.reconstruct_phase()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#holospy.signals.hologram_image.HologramImage.set_microscope_parameters"><code class="docutils literal notranslate"><span class="pre">HologramImage.set_microscope_parameters()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#holospy.signals.hologram_image.HologramImage.statistics"><code class="docutils literal notranslate"><span class="pre">HologramImage.statistics()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#holospy.signals.HologramImage"><code class="docutils literal notranslate"><span class="pre">HologramImage</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#holospy.signals.HologramImage.estimate_sideband_position"><code class="docutils literal notranslate"><span class="pre">estimate_sideband_position()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#holospy.signals.HologramImage.estimate_sideband_size"><code class="docutils literal notranslate"><span class="pre">estimate_sideband_size()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#holospy.signals.HologramImage.reconstruct_phase"><code class="docutils literal notranslate"><span class="pre">reconstruct_phase()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#holospy.signals.HologramImage.set_microscope_parameters"><code class="docutils literal notranslate"><span class="pre">set_microscope_parameters()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#holospy.signals.HologramImage.statistics"><code class="docutils literal notranslate"><span class="pre">statistics()</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#holospy.signals.hologram_image.LazyHologramImage"><code class="docutils literal notranslate"><span class="pre">LazyHologramImage</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#holospy.signals.LazyHologramImage"><code class="docutils literal notranslate"><span class="pre">LazyHologramImage</span></code></a></li>
 </ul>
   </nav></div>
 

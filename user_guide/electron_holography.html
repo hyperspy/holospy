@@ -427,13 +427,13 @@ document.write(`
 <p>HoloSpy provides the user with a signal class which can be used to process
 (off-axis) electron holography data:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="../api/signals.html#holospy.signals.hologram_image.HologramImage" title="holospy.signals.hologram_image.HologramImage"><code class="xref py py-class docutils literal notranslate"><span class="pre">HologramImage</span></code></a></p></li>
+<li><p><a class="reference internal" href="../api/signals.html#holospy.signals.HologramImage" title="holospy.signals.HologramImage"><code class="xref py py-class docutils literal notranslate"><span class="pre">HologramImage</span></code></a></p></li>
 </ul>
-<p>It inherits from <a class="reference external" href="https://hyperspy.org/hyperspy-doc/current/reference/api.signals/Signal2D.html#hyperspy.api.signals.Signal2D" title="(in HyperSpy v2.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">hyperspy._signals.signal2d.Signal2D</span></code></a> class and thus can
+<p>It inherits from <a class="reference external" href="https://hyperspy.org/hyperspy-doc/current/reference/api.signals/Signal2D.html#hyperspy.api.signals.Signal2D" title="(in HyperSpy v2.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">hyperspy.api.signals.Signal2D</span></code></a> class and thus can
 use all of its functionality. The usage of the class is explained in the
 following sections.</p>
-<p>To transform a <a class="reference external" href="https://hyperspy.org/hyperspy-doc/current/reference/api.signals/Signal2D.html#hyperspy.api.signals.Signal2D" title="(in HyperSpy v2.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">hyperspy._signals.signal2d.Signal2D</span></code></a> (or subclass) into a
-<a class="reference internal" href="../api/signals.html#holospy.signals.hologram_image.HologramImage" title="holospy.signals.hologram_image.HologramImage"><code class="xref py py-class docutils literal notranslate"><span class="pre">HologramImage</span></code></a> use:</p>
+<p>To transform a <a class="reference external" href="https://hyperspy.org/hyperspy-doc/current/reference/api.signals/Signal2D.html#hyperspy.api.signals.Signal2D" title="(in HyperSpy v2.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">hyperspy.api.signals.Signal2D</span></code></a> (or subclass) into a
+<a class="reference internal" href="../api/signals.html#holospy.signals.HologramImage" title="holospy.signals.HologramImage"><code class="xref py py-class docutils literal notranslate"><span class="pre">HologramImage</span></code></a> use:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">im</span><span class="o">.</span><span class="n">set_signal_type</span><span class="p">(</span><span class="s1">&#39;hologram&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -447,10 +447,10 @@ and <a class="reference internal" href="bibliography.html#joy1993"><span class="
 Fourier based reconstruction of off-axis holograms (includes
 finding a side band in FFT, isolating and filtering it, recenter and
 calculate inverse Fourier transform) can be performed using the
-<a class="reference internal" href="../api/signals.html#holospy.signals.hologram_image.HologramImage.reconstruct_phase" title="holospy.signals.hologram_image.HologramImage.reconstruct_phase"><code class="xref py py-meth docutils literal notranslate"><span class="pre">reconstruct_phase()</span></code></a> method
-which returns a <a class="reference external" href="https://hyperspy.org/hyperspy-doc/current/reference/api.signals/ComplexSignal2D.html#hyperspy.api.signals.ComplexSignal2D" title="(in HyperSpy v2.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">hyperspy._signals.complex_signal2d.ComplexSignal2D</span></code></a> class,
+<a class="reference internal" href="../api/signals.html#holospy.signals.HologramImage.reconstruct_phase" title="holospy.signals.HologramImage.reconstruct_phase"><code class="xref py py-meth docutils literal notranslate"><span class="pre">reconstruct_phase()</span></code></a> method
+which returns a <a class="reference external" href="https://hyperspy.org/hyperspy-doc/current/reference/api.signals/ComplexSignal2D.html#hyperspy.api.signals.ComplexSignal2D" title="(in HyperSpy v2.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">hyperspy.api.signals.ComplexSignal2D</span></code></a> class,
 containing the reconstructed electron wave.
-The <a class="reference internal" href="../api/signals.html#holospy.signals.hologram_image.HologramImage.reconstruct_phase" title="holospy.signals.hologram_image.HologramImage.reconstruct_phase"><code class="xref py py-meth docutils literal notranslate"><span class="pre">reconstruct_phase()</span></code></a> method
+The <a class="reference internal" href="../api/signals.html#holospy.signals.HologramImage.reconstruct_phase" title="holospy.signals.HologramImage.reconstruct_phase"><code class="xref py py-meth docutils literal notranslate"><span class="pre">reconstruct_phase()</span></code></a> method
 takes sideband position and size as parameters:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">holospy</span> <span class="k">as</span> <span class="nn">holo</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">im</span> <span class="o">=</span>  <span class="n">holo</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">Fe_needle_hologram</span><span class="p">()</span>
@@ -464,10 +464,10 @@ takes sideband position and size as parameters:</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sb_size</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">estimate_sideband_size</span><span class="p">(</span><span class="n">sb_position</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><a class="reference internal" href="../api/signals.html#holospy.signals.hologram_image.HologramImage.estimate_sideband_position" title="holospy.signals.hologram_image.HologramImage.estimate_sideband_position"><code class="xref py py-meth docutils literal notranslate"><span class="pre">estimate_sideband_position()</span></code></a>
+<p><a class="reference internal" href="../api/signals.html#holospy.signals.HologramImage.estimate_sideband_position" title="holospy.signals.HologramImage.estimate_sideband_position"><code class="xref py py-meth docutils literal notranslate"><span class="pre">estimate_sideband_position()</span></code></a>
 method searches for maximum of intensity in upper or lower part of FFT pattern
 (parameter <code class="docutils literal notranslate"><span class="pre">sb</span></code>) excluding the middle area defined by <code class="docutils literal notranslate"><span class="pre">ap_cb_radius</span></code>.
-<code class="xref py py-meth docutils literal notranslate"><span class="pre">estimate_sideband_size()</span></code> method
+<a class="reference internal" href="../api/signals.html#holospy.signals.HologramImage.estimate_sideband_size" title="holospy.signals.HologramImage.estimate_sideband_size"><code class="xref py py-meth docutils literal notranslate"><span class="pre">estimate_sideband_size()</span></code></a> method
 calculates the radius of the sideband filter as half of the distance to the
 central band which is commonly used for strong phase objects. Alternatively,
 the sideband filter radius can be recalculate as 1/3 of the distance
@@ -477,7 +477,7 @@ the sideband filter radius can be recalculate as 1/3 of the distance
 </div>
 <p>To reconstruct the hologram with a vacuum reference wave, the reference
 hologram should be provided to the method either as Hyperspy’s
-<a class="reference internal" href="../api/signals.html#holospy.signals.hologram_image.HologramImage" title="holospy.signals.hologram_image.HologramImage"><code class="xref py py-class docutils literal notranslate"><span class="pre">HologramImage</span></code></a> or as a nparray:</p>
+<a class="reference internal" href="../api/signals.html#holospy.signals.HologramImage" title="holospy.signals.hologram_image.HologramImage"><code class="xref py py-class docutils literal notranslate"><span class="pre">HologramImage</span></code></a> or as a nparray:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">reference_hologram</span> <span class="o">=</span> <span class="n">holo</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">Fe_needle_reference_hologram</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">wave_image</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">reconstruct_phase</span><span class="p">(</span><span class="n">reference_hologram</span><span class="p">,</span>
 <span class="gp">... </span>                                  <span class="n">sb_position</span><span class="o">=</span><span class="n">sb_position</span><span class="p">,</span>
@@ -509,7 +509,7 @@ than pixels (by default) by setting <code class="docutils literal notranslate"><
 <span class="gp">... </span>                                  <span class="n">sb_smoothness</span><span class="o">=</span><span class="mf">0.05</span><span class="o">*</span><span class="mi">30</span><span class="p">,</span><span class="n">sb_unit</span><span class="o">=</span><span class="s1">&#39;mrad&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Also the <a class="reference internal" href="../api/signals.html#holospy.signals.hologram_image.HologramImage.reconstruct_phase" title="holospy.signals.hologram_image.HologramImage.reconstruct_phase"><code class="xref py py-meth docutils literal notranslate"><span class="pre">reconstruct_phase()</span></code></a>
+<p>Also the <a class="reference internal" href="../api/signals.html#holospy.signals.HologramImage.reconstruct_phase" title="holospy.signals.HologramImage.reconstruct_phase"><code class="xref py py-meth docutils literal notranslate"><span class="pre">reconstruct_phase()</span></code></a>
 method can output wave images with desired size (shape). By default the shape
 of the original hologram is preserved. Though this leads to oversampling of the
 output wave images, since the information is limited by the size of the
@@ -523,11 +523,11 @@ diameter of the sideband as follows:</p>
 </pre></div>
 </div>
 <p>Note that the
-<a class="reference internal" href="../api/signals.html#holospy.signals.hologram_image.HologramImage.reconstruct_phase" title="holospy.signals.hologram_image.HologramImage.reconstruct_phase"><code class="xref py py-meth docutils literal notranslate"><span class="pre">reconstruct_phase()</span></code></a>
+<a class="reference internal" href="../api/signals.html#holospy.signals.HologramImage.reconstruct_phase" title="holospy.signals.HologramImage.reconstruct_phase"><code class="xref py py-meth docutils literal notranslate"><span class="pre">reconstruct_phase()</span></code></a>
 method can be called without parameters, which will cause their automatic
 assignment by
-<a class="reference internal" href="../api/signals.html#holospy.signals.hologram_image.HologramImage.estimate_sideband_position" title="holospy.signals.hologram_image.HologramImage.estimate_sideband_position"><code class="xref py py-meth docutils literal notranslate"><span class="pre">estimate_sideband_position()</span></code></a>
-and <a class="reference internal" href="../api/signals.html#holospy.signals.hologram_image.HologramImage.estimate_sideband_size" title="holospy.signals.hologram_image.HologramImage.estimate_sideband_size"><code class="xref py py-meth docutils literal notranslate"><span class="pre">estimate_sideband_size()</span></code></a>
+<a class="reference internal" href="../api/signals.html#holospy.signals.HologramImage.estimate_sideband_position" title="holospy.signals.HologramImage.estimate_sideband_position"><code class="xref py py-meth docutils literal notranslate"><span class="pre">estimate_sideband_position()</span></code></a>
+and <a class="reference internal" href="../api/signals.html#holospy.signals.HologramImage.estimate_sideband_size" title="holospy.signals.HologramImage.estimate_sideband_size"><code class="xref py py-meth docutils literal notranslate"><span class="pre">estimate_sideband_size()</span></code></a>
 methods. This, however, is not recommended for not experienced users.</p>
 </section>
 <section id="further-processing-of-complex-wave-and-phase">
@@ -548,7 +548,7 @@ calculated and displayed as follows:</p>
 <section id="getting-hologram-statistics">
 <h2>Getting hologram statistics<a class="headerlink" href="#getting-hologram-statistics" title="Link to this heading">#</a></h2>
 <p>There are many reasons to have an access to some parameters of holograms which describe the quality of the data.
-<a class="reference internal" href="../api/signals.html#holospy.signals.hologram_image.HologramImage.statistics" title="holospy.signals.hologram_image.HologramImage.statistics"><code class="xref py py-meth docutils literal notranslate"><span class="pre">statistics()</span></code></a> can be used to calculate carrier frequency,
+<a class="reference internal" href="../api/signals.html#holospy.signals.HologramImage.statistics" title="holospy.signals.HologramImage.statistics"><code class="xref py py-meth docutils literal notranslate"><span class="pre">statistics()</span></code></a> can be used to calculate carrier frequency,
 fringe spacing and estimate fringe contrast. The method outputs dictionary with the values listed above calculated also
 in different units. In particular fringe spacing is calculated in pixels (fringe sampling) as well as in
 calibrated units. Carrier frequency is calculated in inverse pixels or calibrated units as well as radians.
@@ -577,7 +577,7 @@ By default <code class="docutils literal notranslate"><span class="pre">apodizat
 <code class="docutils literal notranslate"><span class="pre">None</span></code> or <code class="docutils literal notranslate"><span class="pre">hamming</span></code> for no apodization or Hamming window. Please note that for experimental conditions
 especially with extreme sampling of fringes and strong contrast variation due to Fresnel effects
 the calculated fringe contrast provides only an estimate and the values may differ strongly depending on apodization.</p>
-<p>For further information see documentation of <a class="reference internal" href="../api/signals.html#holospy.signals.hologram_image.HologramImage.statistics" title="holospy.signals.hologram_image.HologramImage.statistics"><code class="xref py py-meth docutils literal notranslate"><span class="pre">statistics()</span></code></a>.</p>
+<p>For further information see documentation of <a class="reference internal" href="../api/signals.html#holospy.signals.HologramImage.statistics" title="holospy.signals.HologramImage.statistics"><code class="xref py py-meth docutils literal notranslate"><span class="pre">statistics()</span></code></a>.</p>
 </section>
 </section>
 

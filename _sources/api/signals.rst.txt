@@ -1,5 +1,11 @@
-:mod:`holospy.signals.hologram_image`
--------------------------------------
+:mod:`holospy.signals`
+----------------------
 
-.. automodule:: holospy.signals.hologram_image
+.. currentmodule:: holospy.signals
+
+.. autosummary::
+   HologramImage
+   LazyHologramImage
+
+.. automodule:: holospy.signals
    :members:

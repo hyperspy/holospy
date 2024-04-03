@@ -44,7 +44,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Contributing" href="../contributing.html" />
-    <link rel="prev" title="holospy.signals.hologram_image" href="signals.html" />
+    <link rel="prev" title="holospy.signals" href="signals.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -363,7 +363,7 @@ document.write(`
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="data.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">holospy.data</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="reconstruct.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">holospy.reconstruct</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="signals.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">holospy.signals.hologram_image</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">holospy.signals</span></code></a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">holospy.tools</span></code></a></li>
 </ul>
 </div>
@@ -426,39 +426,51 @@ document.write(`
 <span id="holospy-tools"></span><h1><a class="reference internal" href="#module-holospy.tools" title="holospy.tools"><code class="xref py py-mod docutils literal notranslate"><span class="pre">holospy.tools</span></code></a><a class="headerlink" href="#module-holospy.tools" title="Link to this heading">#</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="holospy.tools.calculate_carrier_frequency">
-<span class="sig-prename descclassname"><span class="pre">holospy.tools.</span></span><span class="sig-name descname"><span class="pre">calculate_carrier_frequency</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">holo_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sb_position</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#holospy.tools.calculate_carrier_frequency" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">holospy.tools.</span></span><span class="sig-name descname"><span class="pre">calculate_carrier_frequency</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sb_position</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#holospy.tools.calculate_carrier_frequency" title="Link to this definition">#</a></dt>
 <dd><p>Calculates fringe carrier frequency of a hologram</p>
-<dl class="field-list simple">
+<dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>holo_data</strong> (<em>ndarray</em>) – The data of the hologram.</p></li>
-<li><p><strong>sb_position</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.12)"><em>tuple</em></a>) – Position of the sideband with the reference to non-shifted FFT</p></li>
-<li><p><strong>scale</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.12)"><em>tuple</em></a>) – Scale of the axes that will be used for the calculation.</p></li>
-</ul>
+<dd class="field-odd"><dl>
+<dt><strong>data</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></span></dt><dd><p>The data of the hologram.</p>
 </dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>Carrier frequency</p>
+<dt><strong>sb_position</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">tuple</span></code></a></span></dt><dd><p>Position of the sideband with the reference to non-shifted FFT</p>
+</dd>
+<dt><strong>scale</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">tuple</span></code></a></span></dt><dd><p>Scale of the axes that will be used for the calculation.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></dt><dd><p>Carrier frequency</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="holospy.tools.estimate_fringe_contrast_fourier">
-<span class="sig-prename descclassname"><span class="pre">holospy.tools.</span></span><span class="sig-name descname"><span class="pre">estimate_fringe_contrast_fourier</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">holo_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sb_position</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">apodization</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'hanning'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#holospy.tools.estimate_fringe_contrast_fourier" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">holospy.tools.</span></span><span class="sig-name descname"><span class="pre">estimate_fringe_contrast_fourier</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sb_position</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">apodization</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'hanning'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#holospy.tools.estimate_fringe_contrast_fourier" title="Link to this definition">#</a></dt>
 <dd><p>Estimates average fringe contrast of a hologram  by dividing amplitude
 of maximum pixel of sideband by amplitude of FFT’s origin.</p>
-<dl class="field-list simple">
+<dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>holo_data</strong> (<em>ndarray</em>) – The data of the hologram.</p></li>
-<li><p><strong>sb_position</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.12)"><em>tuple</em></a>) – Position of the sideband with the reference to non-shifted FFT</p></li>
-<li><p><strong>apodization</strong> (<em>string</em><em>, </em><em>None</em>) – Use ‘hanning’, ‘hamming’ or None to apply apodization window in real space before FFT
-Apodization is typically needed to suppress the striking  due to sharp edges
-of the which often results in underestimation of the fringe contrast. (Default: ‘hanning’)</p></li>
-</ul>
+<dd class="field-odd"><dl>
+<dt><strong>data</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></span></dt><dd><p>The data of the hologram.</p>
 </dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>Fringe contrast as a float</p>
+<dt><strong>sb_position</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">tuple</span></code></a></span></dt><dd><p>Position of the sideband with the reference to non-shifted FFT</p>
+</dd>
+<dt><strong>apodization</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">None</span></code></a></span></dt><dd><p>Use ‘hanning’, ‘hamming’ or None to apply apodization window in real space before FFT
+Apodization is typically needed to suppress the striking  due to sharp edges
+of the which often results in underestimation of the fringe contrast. (Default: ‘hanning’)</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></dt><dd><p>Fringe contrast as a float</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -481,7 +493,7 @@ of the which often results in underestimation of the fringe contrast. (Default: 
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><code class="xref py py-mod docutils literal notranslate"><span class="pre">holospy.signals.hologram_image</span></code></p>
+        <p class="prev-next-title"><code class="xref py py-mod docutils literal notranslate"><span class="pre">holospy.signals</span></code></p>
       </div>
     </a>
     <a class="right-next"
