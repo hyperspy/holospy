@@ -5,7 +5,7 @@
 [![CodeQL](https://github.com/hyperspy/holospy/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/hyperspy/holospy/actions/workflows/github-code-scanning/codeql)
 [![pre-commit.ci status](https://results.pre-commit.ci/badge/github/hyperspy/holospy/main.svg)](https://results.pre-commit.ci/latest/github/hyperspy/holospy/main)
 
-[![Python Version](https://img.shields.io/pypi/pyversions/holospy.svg?style=flat)](https://pypi.python.org/pypi/lumispy)
+[![Python Version](https://img.shields.io/pypi/pyversions/holospy.svg?style=flat)](https://pypi.python.org/pypi/holospy)
 [![PyPi Version](http://img.shields.io/pypi/v/holospy.svg?style=flat)](https://pypi.python.org/pypi/holospy)
 [![Anaconda Version](https://anaconda.org/conda-forge/holospy/badges/version.svg)](https://anaconda.org/conda-forge/holospy)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
