@@ -92,6 +92,21 @@ testpaths = [
   "holospy/tests",
 ]
 
+[tool.ruff.lint]
+select = [
+    # Pyflakes
+    "F",
+    # Pycodestyle
+    "E",
+    "W",
+    # isort
+    "I"
+]
+# Rely on the formatter to define line-length
+# and avoid conflicting lint rules
+# https://docs.astral.sh/ruff/formatter/#conflicting-lint-rules
+extend-ignore = ["E501"]
+
 [tool.setuptools.packages.find]
 include = ["holospy*"]
 

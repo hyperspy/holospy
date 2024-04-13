@@ -19,26 +19,27 @@
 import importlib
 import logging
 from collections import OrderedDict
-import scipy.constants as constants
-import numpy as np
-from dask.array import Array as daArray
-from pint import UndefinedUnitError
 
 import hyperspy.api as hs
+import numpy as np
+import scipy.constants as constants
+from dask.array import Array as daArray
 from hyperspy._signals.lazy import LazySignal
+from hyperspy.docstrings.signal import (
+    LAZYSIGNAL_DOC,
+    NUM_WORKERS_ARG,
+    SHOW_PROGRESSBAR_ARG,
+)
+from pint import UndefinedUnitError
+
 from holospy.reconstruct import (
-    reconstruct,
     estimate_sideband_position,
     estimate_sideband_size,
+    reconstruct,
 )
 from holospy.tools import (
     calculate_carrier_frequency,
     estimate_fringe_contrast_fourier,
-)
-from hyperspy.docstrings.signal import (
-    SHOW_PROGRESSBAR_ARG,
-    NUM_WORKERS_ARG,
-    LAZYSIGNAL_DOC,
 )
 
 if importlib.util.find_spec("hyperspy.api_nogui") is None:

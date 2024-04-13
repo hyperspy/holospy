@@ -16,8 +16,8 @@
 # You should have received a copy of the GNU General Public License
 # along with HyperSpy. If not, see <https://www.gnu.org/licenses/#GPL>.
 
-from pathlib import Path
 import warnings
+from pathlib import Path
 
 import hyperspy.api as hs
 

@@ -16,10 +16,11 @@
 # You should have received a copy of the GNU General Public License
 # along with HyperSpy. If not, see <https://www.gnu.org/licenses/#GPL>.
 
-import numpy as np
-from scipy.fftpack import fft2, ifft2, fftshift
-import matplotlib.pyplot as plt
 import logging
+
+import matplotlib.pyplot as plt
+import numpy as np
+from scipy.fftpack import fft2, fftshift, ifft2
 
 _logger = logging.getLogger(__name__)
 
