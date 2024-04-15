@@ -24,8 +24,9 @@ import pytest
 from scipy.interpolate import RectBivariateSpline
 
 import hyperspy.api as hs
-from holospy.signals.hologram_image import HologramImage
+from holospy.signals.hologram_image import HologramImage, _ureg
 from hyperspy.decorators import lazifyTestClass
+
 
 # Set parameters outside the tests
 img_size = 256
@@ -330,3 +331,12 @@ def test_reconstruct_phase_multi(lazy):
     #   e. Beam energy is not assigned, while 'mrad' units selected
     with pytest.raises(AttributeError):
         holo_image3.reconstruct_phase(sb_size=40, sb_unit="mrad")
+
+
+def test_pint_unit_registry():
+    # Check that holospy and hyperspy share the same UnitRegistry
+    s = hs.signals.Signal1D(np.arange(10))
+    # this will not work if the UnitRegistry are not the same
+    s.axes_manager[0].scale_as_quantity = "2.5 µm"
+    s.axes_manager[0].scale_as_quantity += 2e-6 * _ureg.meter
+    assert s.axes_manager[0].scale == 4.5

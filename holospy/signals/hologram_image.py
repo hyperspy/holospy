@@ -16,6 +16,7 @@
 # You should have received a copy of the GNU General Public License
 # along with HyperSpy. If not, see <https://www.gnu.org/licenses/#GPL>.
 
+import importlib
 import logging
 from collections import OrderedDict
 import scipy.constants as constants
@@ -23,10 +24,7 @@ import numpy as np
 from dask.array import Array as daArray
 from pint import UndefinedUnitError
 
-from hyperspy.api_nogui import _ureg
-from hyperspy._signals.signal2d import Signal2D
-from hyperspy.signal import BaseSignal
-from hyperspy._signals.signal1d import Signal1D
+import hyperspy.api as hs
 from hyperspy._signals.lazy import LazySignal
 from holospy.reconstruct import (
     reconstruct,
@@ -42,6 +40,20 @@ from hyperspy.docstrings.signal import (
     NUM_WORKERS_ARG,
     LAZYSIGNAL_DOC,
 )
+
+if importlib.util.find_spec("hyperspy.api_nogui") is None:
+    # Considering the usage of the UnitRegistry in holospy,
+    # sharing the same UnitRegistry in holospy is not necessary
+    # because there is no operations between quantities defined in
+    # hyperspy and holospy but this is good practise and
+    # can be used as a reference
+    import pint
+
+    _ureg = pint.get_application_registry()
+
+else:
+    # Before hyperspy migrate to use pint default global UnitRegistry
+    from hyperspy.api_nogui import _ureg
 
 _logger = logging.getLogger(__name__)
 
@@ -70,13 +82,13 @@ def _parse_sb_position(s, reference, sb_position, sb, high_cf, num_workers=None)
 
     else:
         if (
-            isinstance(sb_position, BaseSignal)
+            isinstance(sb_position, hs.signals.BaseSignal)
             and not sb_position._signal_dimension == 1
         ):
             raise ValueError("sb_position dimension has to be 1.")
 
-        if not isinstance(sb_position, Signal1D):
-            sb_position = Signal1D(sb_position)
+        if not isinstance(sb_position, hs.signals.Signal1D):
+            sb_position = hs.signals.Signal1D(sb_position)
             if isinstance(sb_position.data, daArray):
                 sb_position = sb_position.as_lazy()
 
@@ -107,12 +119,12 @@ def _parse_sb_size(s, reference, sb_position, sb_size, num_workers=None):
                 sb_position, num_workers=num_workers
             )
     else:
-        if not isinstance(sb_size, BaseSignal):
+        if not isinstance(sb_size, hs.signals.BaseSignal):
             if isinstance(sb_size, (np.ndarray, daArray)) and sb_size.size > 1:
                 # transpose if np.array of multiple instances
-                sb_size = BaseSignal(sb_size).T
+                sb_size = hs.signals.BaseSignal(sb_size).T
             else:
-                sb_size = BaseSignal(sb_size)
+                sb_size = hs.signals.BaseSignal(sb_size)
             if isinstance(sb_size.data, daArray):
                 sb_size = sb_size.as_lazy()
     if sb_size.axes_manager.navigation_size != s.axes_manager.navigation_size:
@@ -150,7 +162,7 @@ def _estimate_fringe_contrast_statistical(signal):
     return signal.std(axes) / signal.mean(axes)
 
 
-class HologramImage(Signal2D):
+class HologramImage(hs.signals.Signal2D):
     """Signal class for holograms acquired via off-axis electron holography."""
 
     _signal_type = "hologram"
@@ -412,7 +424,7 @@ class HologramImage(Signal2D):
 
         # Parsing reference:
         if not isinstance(reference, HologramImage):
-            if isinstance(reference, Signal2D):
+            if isinstance(reference, hs.signals.Signal2D):
                 if (
                     not reference.axes_manager.navigation_shape
                     == self.axes_manager.navigation_shape
@@ -480,14 +492,14 @@ class HologramImage(Signal2D):
         if sb_smoothness is None:
             sb_smoothness = sb_size * 0.05
         else:
-            if not isinstance(sb_smoothness, BaseSignal):
+            if not isinstance(sb_smoothness, hs.signals.BaseSignal):
                 if (
                     isinstance(sb_smoothness, (np.ndarray, daArray))
                     and sb_smoothness.size > 1
                 ):
-                    sb_smoothness = BaseSignal(sb_smoothness).T
+                    sb_smoothness = hs.signals.BaseSignal(sb_smoothness).T
                 else:
-                    sb_smoothness = BaseSignal(sb_smoothness)
+                    sb_smoothness = hs.signals.BaseSignal(sb_smoothness)
                 if isinstance(sb_smoothness.data, daArray):
                     sb_smoothness = sb_smoothness.as_lazy()
 
