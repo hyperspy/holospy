@@ -1,1 +1,1 @@
-Add enable more ruff rules: isort, pyflakes, pycodestyle.
+Add/enable more ruff rules: isort, pyflakes, pycodestyle.
