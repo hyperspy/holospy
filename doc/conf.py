@@ -16,7 +16,6 @@
 
 import hyperspy.api as hs
 
-
 # Set logging level to `ERROR` to avoid exspy warning in documentation
 hs.set_log_level("ERROR")
 

@@ -19,8 +19,7 @@
 from importlib.metadata import version
 from pathlib import Path
 
-from . import data, signals, reconstruct, tools
-
+from . import data, reconstruct, signals, tools
 
 __version__ = version("holospy")
 

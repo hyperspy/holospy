@@ -18,15 +18,14 @@
 
 import gc
 
+import hyperspy.api as hs
 import matplotlib.pyplot as plt
 import numpy as np
 import pytest
+from hyperspy.decorators import lazifyTestClass
 from scipy.interpolate import RectBivariateSpline
 
-import hyperspy.api as hs
 from holospy.signals.hologram_image import HologramImage, _ureg
-from hyperspy.decorators import lazifyTestClass
-
 
 # Set parameters outside the tests
 img_size = 256

@@ -17,14 +17,12 @@
 # along with HyperSpy. If not, see <https://www.gnu.org/licenses/#GPL>.
 
 
+import hyperspy.api as hs
 import numpy as np
 import pytest
 import scipy.constants as constants
 
-import hyperspy.api as hs
-
 import holospy as holo
-
 
 # Set parameters outside the tests
 img_size = 256
