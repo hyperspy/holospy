@@ -8,6 +8,22 @@ https://holospy.readthedocs.io/en/latest/changes.html
 
 .. towncrier release notes start
 
+0.3 (2024-05-02)
+================
+
+Improved Documentation
+----------------------
+
+- Fix DOI and add more badges to readme file. (`#34 <https://github.com/hyperspy/holospy/issues/34>`_)
+
+
+Maintenance
+-----------
+
+- Use ``pint.get_application_registry`` instead of HyperSpy private API to get the handle of the ``pint.UnitRegistry``. (`#35 <https://github.com/hyperspy/holospy/issues/35>`_)
+- Add/enable more ruff rules: isort, pyflakes, pycodestyle. (`#37 <https://github.com/hyperspy/holospy/issues/37>`_)
+
+
 0.2 (2024-04-04)
 ================
 
