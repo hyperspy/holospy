@@ -429,10 +429,10 @@ document.write(`
 <ul class="simple">
 <li><p><a class="reference internal" href="../api/signals.html#holospy.signals.HologramImage" title="holospy.signals.HologramImage"><code class="xref py py-class docutils literal notranslate"><span class="pre">HologramImage</span></code></a></p></li>
 </ul>
-<p>It inherits from <a class="reference external" href="https://hyperspy.org/hyperspy-doc/current/reference/api.signals/Signal2D.html#hyperspy.api.signals.Signal2D" title="(in HyperSpy v2.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">hyperspy.api.signals.Signal2D</span></code></a> class and thus can
+<p>It inherits from <a class="reference external" href="https://hyperspy.org/hyperspy-doc/current/reference/api.signals/Signal2D.html#hyperspy.api.signals.Signal2D" title="(in HyperSpy v2.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">hyperspy.api.signals.Signal2D</span></code></a> class and thus can
 use all of its functionality. The usage of the class is explained in the
 following sections.</p>
-<p>To transform a <a class="reference external" href="https://hyperspy.org/hyperspy-doc/current/reference/api.signals/Signal2D.html#hyperspy.api.signals.Signal2D" title="(in HyperSpy v2.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">hyperspy.api.signals.Signal2D</span></code></a> (or subclass) into a
+<p>To transform a <a class="reference external" href="https://hyperspy.org/hyperspy-doc/current/reference/api.signals/Signal2D.html#hyperspy.api.signals.Signal2D" title="(in HyperSpy v2.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">hyperspy.api.signals.Signal2D</span></code></a> (or subclass) into a
 <a class="reference internal" href="../api/signals.html#holospy.signals.HologramImage" title="holospy.signals.HologramImage"><code class="xref py py-class docutils literal notranslate"><span class="pre">HologramImage</span></code></a> use:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">im</span><span class="o">.</span><span class="n">set_signal_type</span><span class="p">(</span><span class="s1">&#39;hologram&#39;</span><span class="p">)</span>
 </pre></div>
@@ -448,7 +448,7 @@ Fourier based reconstruction of off-axis holograms (includes
 finding a side band in FFT, isolating and filtering it, recenter and
 calculate inverse Fourier transform) can be performed using the
 <a class="reference internal" href="../api/signals.html#holospy.signals.HologramImage.reconstruct_phase" title="holospy.signals.HologramImage.reconstruct_phase"><code class="xref py py-meth docutils literal notranslate"><span class="pre">reconstruct_phase()</span></code></a> method
-which returns a <a class="reference external" href="https://hyperspy.org/hyperspy-doc/current/reference/api.signals/ComplexSignal2D.html#hyperspy.api.signals.ComplexSignal2D" title="(in HyperSpy v2.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">hyperspy.api.signals.ComplexSignal2D</span></code></a> class,
+which returns a <a class="reference external" href="https://hyperspy.org/hyperspy-doc/current/reference/api.signals/ComplexSignal2D.html#hyperspy.api.signals.ComplexSignal2D" title="(in HyperSpy v2.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">hyperspy.api.signals.ComplexSignal2D</span></code></a> class,
 containing the reconstructed electron wave.
 The <a class="reference internal" href="../api/signals.html#holospy.signals.HologramImage.reconstruct_phase" title="holospy.signals.HologramImage.reconstruct_phase"><code class="xref py py-meth docutils literal notranslate"><span class="pre">reconstruct_phase()</span></code></a> method
 takes sideband position and size as parameters:</p>
@@ -487,7 +487,7 @@ hologram should be provided to the method either as Hyperspy’s
 <p>Using the reconstructed wave, one can access its amplitude and phase (also
 unwrapped phase) using
 <code class="docutils literal notranslate"><span class="pre">amplitude</span></code> and <code class="docutils literal notranslate"><span class="pre">phase</span></code> properties
-(also the <a class="reference external" href="https://hyperspy.org/hyperspy-doc/current/reference/api.signals/ComplexSignal.html#hyperspy.api.signals.ComplexSignal.unwrapped_phase" title="(in HyperSpy v2.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">hyperspy.api.signals.ComplexSignal.unwrapped_phase()</span></code></a>
+(also the <a class="reference external" href="https://hyperspy.org/hyperspy-doc/current/reference/api.signals/ComplexSignal.html#hyperspy.api.signals.ComplexSignal.unwrapped_phase" title="(in HyperSpy v2.1)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">hyperspy.api.signals.ComplexSignal.unwrapped_phase()</span></code></a>
 method):</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">wave_image</span><span class="o">.</span><span class="n">unwrapped_phase</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
@@ -532,7 +532,7 @@ methods. This, however, is not recommended for not experienced users.</p>
 </section>
 <section id="further-processing-of-complex-wave-and-phase">
 <span id="holography-stats-label"></span><h2>Further processing of complex wave and phase<a class="headerlink" href="#further-processing-of-complex-wave-and-phase" title="Link to this heading">#</a></h2>
-<p>Once the complex electron wave reconstructed it <a class="reference external" href="https://hyperspy.org/hyperspy-doc/current/user_guide/signal/complex_datatype.html#complex-data-label" title="(in HyperSpy v2.0)"><span class="xref std std-ref">can be processed the same way as any other complex signal</span></a>. A useful tool to explore the complex data is <a class="reference external" href="https://hyperspy.org/hyperspy-doc/current/user_guide/signal/complex_datatype.html#complex-argand" title="(in HyperSpy v2.0)"><span class="xref std std-ref">Argand plot</span></a>, which can be
+<p>Once the complex electron wave reconstructed it <a class="reference external" href="https://hyperspy.org/hyperspy-doc/current/user_guide/signal/complex_datatype.html#complex-data-label" title="(in HyperSpy v2.1)"><span class="xref std std-ref">can be processed the same way as any other complex signal</span></a>. A useful tool to explore the complex data is <a class="reference external" href="https://hyperspy.org/hyperspy-doc/current/user_guide/signal/complex_datatype.html#complex-argand" title="(in HyperSpy v2.1)"><span class="xref std std-ref">Argand plot</span></a>, which can be
 calculated and displayed as follows:</p>
 <div class="highlight-python notranslate" id="holo-argand-example"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ad</span> <span class="o">=</span> <span class="n">wave_image</span><span class="o">.</span><span class="n">argand_diagram</span><span class="p">(</span><span class="n">display_range</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ad</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">scalebar</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
