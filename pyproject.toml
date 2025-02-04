@@ -60,7 +60,8 @@ doc = [
   "sphinx-design",
   "sphinx-favicon",
   "sphinxcontrib-towncrier",
-  "towncrier",
+  # unpin when sphinxcontrib-towncrier support more recent version to towncrier
+  "towncrier<24",
 ]
 dev = [
   "black",
