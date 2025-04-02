@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright 2016-2023 The holospy developers
+# Copyright 2016-2025 The holospy developers
 #
 # This file is part of holospy.
 #
