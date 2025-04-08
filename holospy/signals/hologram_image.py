@@ -466,8 +466,7 @@ class HologramImage(hs.signals.Signal2D):
             == self.axes_manager.signal_shape
         ):
             raise ValueError(
-                "The signal dimensions of object and reference"
-                " holograms do not match"
+                "The signal dimensions of object and reference holograms do not match"
             )
 
         # Parsing sideband position:
