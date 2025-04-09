@@ -14,6 +14,8 @@
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
 
+from datetime import datetime
+
 import hyperspy.api as hs
 
 # Set logging level to `ERROR` to avoid exspy warning in documentation
@@ -23,7 +25,7 @@ hs.set_log_level("ERROR")
 # -- Project information -----------------------------------------------------
 
 project = "HoloSpy"
-copyright = "2023, HyperSpy Developers"
+copyright = f"2023-{datetime.today().year}, HyperSpy Developers"
 author = "HyperSpy Developers"
 
 
@@ -47,6 +49,7 @@ extensions = [
 
 linkcheck_ignore = [
     "https://onlinelibrary.wiley.com",  # 403 Client Error: Forbidden for url
+    "https://doi.org/10.1063/1.4916609",  # 403 Client Error: Forbidden for url
 ]
 
 intersphinx_mapping = {
