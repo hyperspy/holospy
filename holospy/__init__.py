@@ -16,44 +16,24 @@
 # You should have received a copy of the GNU General Public License
 # along with HyperSpy. If not, see <https://www.gnu.org/licenses/#GPL>.
 
-from importlib.metadata import version
-from pathlib import Path
+"""
+Attributes
+----------
+__version__ : str
+    The version of the holospy package.
 
-from . import data, reconstruct, signals, tools
+Submodules
+----------
+data
+    Sample holography data for testing and examples.
+reconstruct
+    Functions for holographic reconstruction.
+signals
+    HoloSpy signal classes (HologramImage, LazyHologramImage).
+tools
+    Utility functions for holography analysis.
+"""
 
-__version__ = version("holospy")
+import lazy_loader
 
-# For development version, `setuptools_scm` will be used at build time
-# to get the dev version, in case of missing vcs information (git archive,
-# shallow repository), the fallback version defined in pyproject.toml will
-# be used
-
-# If we have an editable installed from a git repository try to use
-# `setuptools_scm` to find a more accurate version:
-# `importlib.metadata` will provide the version at installation
-# time and for editable version this may be different
-
-# we only do that if we have enough git history, e.g. not shallow checkout
-_root = Path(__file__).resolve().parents[1]
-if (_root / ".git").exists() and not (_root / ".git/shallow").exists():
-    try:
-        # setuptools_scm may not be installed
-        from setuptools_scm import get_version
-
-        __version__ = get_version(_root)
-    except ImportError:  # pragma: no cover
-        # setuptools_scm not install, we keep the existing __version__
-        pass
-
-
-__all__ = [
-    "__version__",
-    "data",
-    "signals",
-    "reconstruct",
-    "tools",
-]
-
-
-def __dir__():
-    return sorted(__all__)
+__getattr__, __dir__, __all__ = lazy_loader.attach_stub(__name__, __file__)
