@@ -16,21 +16,18 @@
 # You should have received a copy of the GNU General Public License
 # along with HyperSpy. If not, see <https://www.gnu.org/licenses/#GPL>.
 
-import importlib
 import logging
 from collections import OrderedDict
 
 import hyperspy.api as hs
 import numpy as np
-import scipy.constants as constants
-from dask.array import Array as daArray
-from hyperspy._signals.lazy import LazySignal
+import scipy
 from hyperspy.docstrings.signal import (
     LAZYSIGNAL_DOC,
     NUM_WORKERS_ARG,
     SHOW_PROGRESSBAR_ARG,
 )
-from pint import UndefinedUnitError
+from hyperspy.signals import LazySignal
 
 from holospy.reconstruct import (
     estimate_sideband_position,
@@ -42,21 +39,19 @@ from holospy.tools import (
     estimate_fringe_contrast_fourier,
 )
 
-if importlib.util.find_spec("hyperspy.api_nogui") is None:
-    # Considering the usage of the UnitRegistry in holospy,
-    # sharing the same UnitRegistry in holospy is not necessary
-    # because there is no operations between quantities defined in
-    # hyperspy and holospy but this is good practise and
-    # can be used as a reference
-    import pint
-
-    _ureg = pint.get_application_registry()
-
-else:
-    # Before hyperspy migrate to use pint default global UnitRegistry
-    from hyperspy.api_nogui import _ureg
-
 _logger = logging.getLogger(__name__)
+
+
+def _is_array_like(obj):
+    import dask.array as da
+
+    return isinstance(obj, (np.ndarray, da.Array))
+
+
+def _is_dask_array(obj):
+    import dask.array as da
+
+    return isinstance(obj, da.Array)
 
 
 def _first_nav_pixel_data(s):
@@ -90,7 +85,7 @@ def _parse_sb_position(s, reference, sb_position, sb, high_cf, num_workers=None)
 
         if not isinstance(sb_position, hs.signals.Signal1D):
             sb_position = hs.signals.Signal1D(sb_position)
-            if isinstance(sb_position.data, daArray):
+            if _is_dask_array(sb_position.data):
                 sb_position = sb_position.as_lazy()
 
         if not sb_position.axes_manager.signal_size == 2:
@@ -121,12 +116,12 @@ def _parse_sb_size(s, reference, sb_position, sb_size, num_workers=None):
             )
     else:
         if not isinstance(sb_size, hs.signals.BaseSignal):
-            if isinstance(sb_size, (np.ndarray, daArray)) and sb_size.size > 1:
+            if _is_array_like(sb_size) and sb_size.size > 1:
                 # transpose if np.array of multiple instances
                 sb_size = hs.signals.BaseSignal(sb_size).T
             else:
                 sb_size = hs.signals.BaseSignal(sb_size)
-            if isinstance(sb_size.data, daArray):
+            if _is_dask_array(sb_size.data):
                 sb_size = sb_size.as_lazy()
     if sb_size.axes_manager.navigation_size != s.axes_manager.navigation_size:
         if sb_size.axes_manager.navigation_size:
@@ -444,7 +439,7 @@ class HologramImage(hs.signals.Signal2D):
                 reference.set_signal_type("hologram")
             elif reference is not None:
                 reference = HologramImage(reference)
-                if isinstance(reference.data, daArray):
+                if _is_dask_array(reference.data):
                     reference = reference.as_lazy()
 
         # Testing match of navigation axes of reference and self
@@ -493,14 +488,11 @@ class HologramImage(hs.signals.Signal2D):
             sb_smoothness = sb_size * 0.05
         else:
             if not isinstance(sb_smoothness, hs.signals.BaseSignal):
-                if (
-                    isinstance(sb_smoothness, (np.ndarray, daArray))
-                    and sb_smoothness.size > 1
-                ):
+                if _is_array_like(sb_smoothness) and sb_smoothness.size > 1:
                     sb_smoothness = hs.signals.BaseSignal(sb_smoothness).T
                 else:
                     sb_smoothness = hs.signals.BaseSignal(sb_smoothness)
-                if isinstance(sb_smoothness.data, daArray):
+                if _is_dask_array(sb_smoothness.data):
                     sb_smoothness = sb_smoothness.as_lazy()
 
         if (
@@ -560,6 +552,7 @@ class HologramImage(hs.signals.Signal2D):
                     "set_microscope_parameters method"
                 )
 
+            constants = scipy.constants
             momentum = (
                 2
                 * constants.m_e
@@ -805,6 +798,7 @@ class HologramImage(hs.signals.Signal2D):
         'Fringe sampling (px)': 3.7902017241882331,
         'Carrier frequency (1 / nm)': 0.28685808994016415}
         """
+        from pint import UndefinedUnitError
 
         for axis in self.axes_manager.signal_axes:
             if not axis.is_uniform:
@@ -840,7 +834,9 @@ class HologramImage(hs.signals.Signal2D):
         fringe_sampling = np.divide(1.0, carrier_freq_px)
 
         try:
-            units = _ureg.parse_expression(str(self.axes_manager.signal_axes[0].units))
+            units = hs._ureg.parse_expression(
+                str(self.axes_manager.signal_axes[0].units)
+            )
         except UndefinedUnitError:
             raise ValueError("Signal axes units should be defined.")
 
@@ -886,6 +882,8 @@ class HologramImage(hs.signals.Signal2D):
                 "set_microscope_parameters method."
             )
 
+        constants = scipy.constants
+
         momentum = (
             2
             * constants.m_e
@@ -902,7 +900,7 @@ class HologramImage(hs.signals.Signal2D):
         )
         wavelength = constants.h / np.sqrt(momentum) * 1e9  # in nm
         carrier_freq_quantity = (
-            wavelength * _ureg("nm") * carrier_freq_units / units * _ureg("rad")
+            wavelength * hs._ureg("nm") * carrier_freq_units / units * hs._ureg("rad")
         )
         carrier_freq_mrad = carrier_freq_quantity.to("mrad").magnitude
 

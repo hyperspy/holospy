@@ -25,7 +25,7 @@ import pytest
 from hyperspy.decorators import lazifyTestClass
 from scipy.interpolate import RectBivariateSpline
 
-from holospy.signals.hologram_image import HologramImage, _ureg
+from holospy.signals.hologram_image import HologramImage
 
 # Set parameters outside the tests
 img_size = 256
@@ -337,5 +337,5 @@ def test_pint_unit_registry():
     s = hs.signals.Signal1D(np.arange(10))
     # this will not work if the UnitRegistry are not the same
     s.axes_manager[0].scale_as_quantity = "2.5 µm"
-    s.axes_manager[0].scale_as_quantity += 2e-6 * _ureg.meter
+    s.axes_manager[0].scale_as_quantity += 2e-6 * hs._ureg.meter
     assert s.axes_manager[0].scale == 4.5
