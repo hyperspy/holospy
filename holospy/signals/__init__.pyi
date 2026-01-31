@@ -16,7 +16,8 @@
 # You should have received a copy of the GNU General Public License
 # along with holospy.  If not, see <https://www.gnu.org/licenses/>.
 
-from .hologram_image import HologramImage, LazyHologramImage
+from .hologram_image import HologramImage
+from .lazy_hologram_image import LazyHologramImage
 
 __all__ = [
     "HologramImage",

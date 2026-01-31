@@ -23,11 +23,9 @@ import hyperspy.api as hs
 import numpy as np
 import scipy
 from hyperspy.docstrings.signal import (
-    LAZYSIGNAL_DOC,
     NUM_WORKERS_ARG,
     SHOW_PROGRESSBAR_ARG,
 )
-from hyperspy.signals import LazySignal
 
 from holospy.reconstruct import (
     estimate_sideband_position,
@@ -945,14 +943,3 @@ class HologramImage(hs.signals.Signal2D):
         }
 
     statistics.__doc__ %= (SHOW_PROGRESSBAR_ARG, NUM_WORKERS_ARG)
-
-
-class LazyHologramImage(LazySignal, HologramImage):
-    """
-    Lazy signal class for holograms acquired via off-axis electron
-    holography.
-    """
-
-    __doc__ += LAZYSIGNAL_DOC.replace("__BASECLASS__", "HologramImage").replace(
-        "hs", "holospy"
-    )
