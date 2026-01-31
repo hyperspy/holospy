@@ -681,9 +681,6 @@ class HologramImage(hs.signals.Signal2D):
 
         wave_image = wave_object / wave_reference
 
-        # New signal is a complex
-        wave_image.set_signal_type("complex_signal2d")
-
         wave_image.axes_manager.signal_axes[0].scale = (
             self.axes_manager.signal_axes[0].scale
             * self.axes_manager.signal_shape[0]

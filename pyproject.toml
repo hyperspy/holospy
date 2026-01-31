@@ -34,7 +34,7 @@ classifiers = [
   "Programming Language :: Python :: 3.12",
 ]
 dependencies = [
-  "hyperspy>=2.0rc0",
+  "hyperspy[image]>=2.4.0",
   "lazy_loader>=0.1",
   "numpy>=1.20.0",
   "pint>=0.10",
