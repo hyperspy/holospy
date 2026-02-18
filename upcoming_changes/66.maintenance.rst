@@ -1,0 +1,1 @@
+Update release workflow to upload release notes and artifacts to GitHub releases.

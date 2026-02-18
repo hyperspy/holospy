@@ -27,15 +27,8 @@ jobs:
       # IMPORTANT: this permission is mandatory for trusted publishing
       id-token: write
     steps:
-    - name: Download dist
-      uses: actions/download-artifact@v5
-      with:
-        name: dist
-        path: dist
-
-    - name: Display downloaded files
-      run: |
-        ls -shR
+    - name: Download distribution artefacts
+      uses: hyperspy/.github/.github/actions/download-artifact@main
 
     - uses: pypa/gh-action-pypi-publish@release/v1
       if: ${{ startsWith(github.ref, 'refs/tags/') && github.repository_owner == 'hyperspy' }}
@@ -50,8 +43,8 @@ jobs:
     name: Create GitHub Release
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v5
-      - name: Create Release
-        if: ${{ startsWith(github.ref, 'refs/tags/') && github.repository_owner == 'hyperspy' }}
-        uses: softprops/action-gh-release@aec2ec56f94eb8180ceec724245f64ef008b89f5
+      - name: Create GitHub Release
+        uses: hyperspy/.github/.github/actions/create-github-release@main
+        with:
+          changelog: CHANGES.rst
+          heading-level: '='
