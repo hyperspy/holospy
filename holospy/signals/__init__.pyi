@@ -14,18 +14,14 @@
 # GNU General Public License for more details.
 #
 # You should have received a copy of the GNU General Public License
-# along with holospy.  If not, see <http://www.gnu.org/licenses/>.
+# along with holospy.  If not, see <https://www.gnu.org/licenses/>.
 
-"""
-Modules containing the HoloSpy signals and their lazy counterparts.
+from .hologram_image import HologramImage
+from .lazy_hologram_image import LazyHologramImage
 
-HologramImage
-    For holography data
-LazyHologramImage
-    For holography data processed lazily
+__all__ = [
+    "HologramImage",
+    "LazyHologramImage",
+]
 
-"""
-
-import lazy_loader
-
-__getattr__, __dir__, __all__ = lazy_loader.attach_stub(__name__, __file__)
+def __dir__() -> list[str]: ...

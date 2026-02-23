@@ -16,12 +16,8 @@
 # You should have received a copy of the GNU General Public License
 # along with HyperSpy. If not, see <https://www.gnu.org/licenses/#GPL>.
 
-import logging
-
 import numpy as np
-from scipy.fftpack import fft2
-
-_logger = logging.getLogger(__name__)
+import scipy
 
 
 def calculate_carrier_frequency(data, sb_position, scale):
@@ -92,6 +88,6 @@ def estimate_fringe_contrast_fourier(data, sb_position, apodization="hanning"):
     else:
         data = data
 
-    fft_exp = fft2(data)
+    fft_exp = scipy.fft.fft2(data)
 
     return 2 * abs(fft_exp[tuple(sb_position)]) / abs(fft_exp[0, 0])

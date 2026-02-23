@@ -16,24 +16,18 @@
 # You should have received a copy of the GNU General Public License
 # along with HyperSpy. If not, see <https://www.gnu.org/licenses/#GPL>.
 
-"""
-Attributes
-----------
-__version__ : str
-    The version of the holospy package.
+from hyperspy.docstrings.signal import LAZYSIGNAL_DOC
+from hyperspy.signals import LazySignal
 
-Submodules
-----------
-data
-    Sample holography data for testing and examples.
-reconstruct
-    Functions for holographic reconstruction.
-signals
-    HoloSpy signal classes (HologramImage, LazyHologramImage).
-tools
-    Utility functions for holography analysis.
-"""
+from holospy.signals import HologramImage
 
-import lazy_loader
 
-__getattr__, __dir__, __all__ = lazy_loader.attach_stub(__name__, __file__)
+class LazyHologramImage(LazySignal, HologramImage):
+    """
+    Lazy signal class for holograms acquired via off-axis electron
+    holography.
+    """
+
+    __doc__ += LAZYSIGNAL_DOC.replace("__BASECLASS__", "HologramImage").replace(
+        "hs", "holospy"
+    )

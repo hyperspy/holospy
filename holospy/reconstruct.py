@@ -16,13 +16,8 @@
 # You should have received a copy of the GNU General Public License
 # along with HyperSpy. If not, see <https://www.gnu.org/licenses/#GPL>.
 
-import logging
-
-import matplotlib.pyplot as plt
 import numpy as np
-from scipy.fftpack import fft2, fftshift, ifft2
-
-_logger = logging.getLogger(__name__)
+import scipy
 
 
 def estimate_sideband_position(
@@ -61,7 +56,7 @@ def estimate_sideband_position(
     if not high_cf:  # Cut out higher frequencies, if necessary:
         ap_cb *= aperture_function(f_freq, np.max(f_freq) / (2 * np.sqrt(2)), 1e-6)
     # Imitates 0:
-    fft_holo = fft2(data) / np.prod(data.shape)
+    fft_holo = scipy.fft.fft2(data) / np.prod(data.shape)
     fft_filtered = fft_holo * ap_cb
     # Sideband position in pixels referred to unshifted FFT
     cb_position = (
@@ -158,7 +153,7 @@ def reconstruct(
     holo_size = data.shape
     f_sampling = np.divide(1, [a * b for a, b in zip(holo_size, sampling)])
 
-    fft_exp = fft2(data) / np.prod(holo_size)
+    fft_exp = scipy.fft.fft2(data) / np.prod(holo_size)
 
     f_freq = freq_array(data.shape, sampling)
 
@@ -172,8 +167,10 @@ def reconstruct(
     fft_aperture = fft_shifted * aperture
 
     if plotting:
+        import matplotlib.pyplot as plt
+
         _, axs = plt.subplots(1, 1, figsize=(4, 4))
-        axs.imshow(abs(fftshift(fft_aperture)), clim=(0, 0.1))
+        axs.imshow(abs(scipy.fft.fftshift(fft_aperture)), clim=(0, 0.1))
         axs.scatter(sb_position[1], sb_position[0], s=10, color="red", marker="x")
         axs.set_xlim(
             int(holo_size[0] / 2) - sb_size / np.mean(f_sampling),
@@ -190,9 +187,11 @@ def reconstruct(
         x_min = int(holo_size[1] / 2 - output_shape[1] / 2)
         x_max = int(holo_size[1] / 2 + output_shape[1] / 2)
 
-        fft_aperture = fftshift(fftshift(fft_aperture)[y_min:y_max, x_min:x_max])
+        fft_aperture = scipy.fft.fftshift(
+            scipy.fft.fftshift(fft_aperture)[y_min:y_max, x_min:x_max]
+        )
 
-    wav = ifft2(fft_aperture) * np.prod(data.shape)
+    wav = scipy.fft.ifft2(fft_aperture) * np.prod(data.shape)
 
     return wav
 
