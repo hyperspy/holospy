@@ -24,7 +24,7 @@ jobs:
             PYTHON_VERSION: '3.12'
 
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
@@ -64,6 +64,6 @@ jobs:
 
       - name: Upload coverage to Codecov
         if: ${{ always() }}
-        uses: codecov/codecov-action@v5
+        uses: codecov/codecov-action@v6
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
