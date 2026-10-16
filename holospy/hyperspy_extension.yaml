@@ -4,10 +4,10 @@ signals:
     signal_dimension: 2
     dtype: real
     lazy: False
-    module: holospy.signals.hologram_image
+    module: holospy.signals
   LazyHologramImage:
     signal_type: hologram
     signal_dimension: 2
     dtype: real
     lazy: True
-    module: holospy.signals.hologram_image
+    module: holospy.signals

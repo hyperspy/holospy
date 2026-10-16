@@ -67,7 +67,7 @@ the sideband filter radius can be recalculate as 1/3 of the distance
 
 To reconstruct the hologram with a vacuum reference wave, the reference
 hologram should be provided to the method either as Hyperspy's
-:py:class:`~.signals.hologram_image.HologramImage` or as a nparray:
+:py:class:`~.signals.HologramImage` or as a nparray:
 
 .. code-block:: python
 

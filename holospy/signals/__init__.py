@@ -26,13 +26,6 @@ LazyHologramImage
 
 """
 
-from .hologram_image import HologramImage, LazyHologramImage
+import lazy_loader
 
-__all__ = [
-    "HologramImage",
-    "LazyHologramImage",
-]
-
-
-def __dir__():
-    return sorted(__all__)
+__getattr__, __dir__, __all__ = lazy_loader.attach_stub(__name__, __file__)

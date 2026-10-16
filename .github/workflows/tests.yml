@@ -7,21 +7,24 @@ jobs:
     name: ${{ matrix.os }}-py${{ matrix.PYTHON_VERSION }}${{ matrix.LABEL }}
     runs-on: ${{ matrix.os }}-latest
     timeout-minutes: 30
+    defaults:
+      run:
+        shell: bash -el {0}
     env:
       MPLBACKEND: agg
     strategy:
       fail-fast: false
       matrix:
         os: [ubuntu, windows, macos]
-        PYTHON_VERSION: ['3.9', '3.10']
+        PYTHON_VERSION: ['3.11', '3.13']
         LABEL: ['']
         include:
           - os: ubuntu
-            PYTHON_VERSION: '3.8'
-          - os: ubuntu
-            PYTHON_VERSION: '3.11'
+            PYTHON_VERSION: '3.10'
           - os: ubuntu
             PYTHON_VERSION: '3.12'
+          - os: ubuntu
+            PYTHON_VERSION: '3.14'
 
     steps:
       - uses: actions/checkout@v5
@@ -29,7 +32,6 @@ jobs:
           fetch-depth: 0
 
       - name: get repository name
-        shell: bash
         run: echo "REPOSITORY_NAME=${GITHUB_REPOSITORY#*/}" >> $GITHUB_ENV
 
       - name: Fetch tags upstream
