@@ -8,6 +8,25 @@ https://holospy.readthedocs.io/en/latest/changes.html
 
 .. towncrier release notes start
 
+0.4.0 (2026-10-17)
+==================
+
+Enhancements
+------------
+
+- Add lazy import to reduce import time and reduce memory usage. (`#65 <https://github.com/hyperspy/holospy/issues/65>`_)
+
+
+Maintenance
+-----------
+
+- Update supported Python versions to 3.10, 3.11, 3.12, 3.13, 3.14; drop 3.8, 3.9. (`#65 <https://github.com/hyperspy/holospy/issues/65>`_)
+- Update release workflow to upload release notes and artifacts to GitHub releases. (`#66 <https://github.com/hyperspy/holospy/issues/66>`_)
+- Add a ``.mailmap`` file to consolidate duplicate author identities in
+  the git history, fixing contributor attribution for tools that respect
+  mailmap. (`#69 <https://github.com/hyperspy/holospy/issues/69>`_)
+
+
 0.3 (2024-05-02)
 ================
 
