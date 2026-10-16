@@ -24,7 +24,8 @@ A few sentences and/or a bulleted list to describe and motivate the change:
 ```python
 import holospy as holo
 import numpy as np
-s = holo.signals.HologramImage(np.arange(100).reshape(10,10))
+
+s = holo.signals.HologramImage(np.arange(100).reshape(10, 10))
 # Your new feature...
 ```
 
