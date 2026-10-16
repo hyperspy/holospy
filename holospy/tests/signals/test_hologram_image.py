@@ -25,7 +25,7 @@ import pytest
 from hyperspy.decorators import lazifyTestClass
 from scipy.interpolate import RectBivariateSpline
 
-from holospy.signals.hologram_image import HologramImage
+from holospy.signals._hologram_image import HologramImage
 
 # Set parameters outside the tests
 img_size = 256

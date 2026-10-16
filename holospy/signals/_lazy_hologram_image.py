@@ -19,7 +19,7 @@
 from hyperspy.docstrings.signal import LAZYSIGNAL_DOC
 from hyperspy.signals import LazySignal
 
-from holospy.signals import HologramImage
+from holospy.signals._hologram_image import HologramImage
 
 
 class LazyHologramImage(LazySignal, HologramImage):
