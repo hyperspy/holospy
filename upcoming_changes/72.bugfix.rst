@@ -1,0 +1,5 @@
+Fix incompatibility with ``pint >= 0.26.2``, which raises
+``DefinitionSyntaxError`` instead of ``UndefinedUnitError`` when parsing
+HyperSpy's ``"<undefined>"`` sentinel for unset units, causing
+``HologramImage.statistics`` to raise an unclear error instead of the
+intended ``ValueError("Signal axes units should be defined.")``.
