@@ -134,6 +134,16 @@ toc_object_entries_show_parents = "hide"
 # Also concatenate all the Markdown files into a single ``llms-full.txt``
 llms_txt_full_build = True
 
+# The Markdown translator does not know these node types yet; the nodes are
+# preserved (``llms_txt_preserve_unknown_nodes``, default) but each occurrence
+# emits an "unknown node type" warning. Silence the ones we have investigated
+# pending upstream fixes in ``sphinx-markdown-builder`` (the translator used by
+# ``sphinx-llm``):
+# - ``PassthroughTextElement`` (sphinx-design card titles and links):
+#   reported upstream at
+#   https://github.com/liran-funaro/sphinx-markdown-builder/issues/77
+llms_txt_suppress_unknown_node_warnings = ["PassthroughTextElement"]
+
 # -- Options for towncrier_draft extension -----------------------------------
 
 # Options: draft/sphinx-version/sphinx-release
