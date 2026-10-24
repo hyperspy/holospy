@@ -793,7 +793,7 @@ class HologramImage(hs.signals.Signal2D):
         'Fringe sampling (px)': 3.7902017241882331,
         'Carrier frequency (1 / nm)': 0.28685808994016415}
         """
-        from pint import UndefinedUnitError
+        import pint
 
         for axis in self.axes_manager.signal_axes:
             if not axis.is_uniform:
@@ -828,11 +828,14 @@ class HologramImage(hs.signals.Signal2D):
             )
         fringe_sampling = np.divide(1.0, carrier_freq_px)
 
+        # Pint >= 0.26.2 raises DefinitionSyntaxError (not UndefinedUnitError)
+        # for strings such as HyperSpy's "<undefined>" sentinel for unset
+        # units; PintError is the common base of both pint exceptions.
         try:
             units = hs._ureg.parse_expression(
                 str(self.axes_manager.signal_axes[0].units)
             )
-        except UndefinedUnitError:
+        except pint.PintError:
             raise ValueError("Signal axes units should be defined.")
 
         # Calculate carrier frequency in 1/units and fringe spacing in units:
