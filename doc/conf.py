@@ -40,6 +40,7 @@ extensions = [
     "numpydoc",
     "sphinx_design",
     "sphinx_favicon",
+    "sphinx_llm.txt",
     "sphinx.ext.autodoc",
     "sphinx.ext.githubpages",
     "sphinx.ext.intersphinx",
@@ -120,6 +121,18 @@ autodoc_default_options = {
     "show-inheritance": True,
 }
 toc_object_entries_show_parents = "hide"
+
+# -- Options for sphinx_llm.txt (LLM-friendly Markdown output) ----------------
+
+# Renders a Markdown version of every page alongside the HTML output and
+# generates an ``llms.txt`` index for LLMs and agents, following the
+# llms.txt standard. Each page is reachable by appending ``.md`` to its
+# HTML URL. The project description used in the index falls back to the
+# package ``Summary`` metadata (``pyproject.toml`` description).
+# See https://github.com/NVIDIA/sphinx-llm
+
+# Also concatenate all the Markdown files into a single ``llms-full.txt``
+llms_txt_full_build = True
 
 # -- Options for towncrier_draft extension -----------------------------------
 
