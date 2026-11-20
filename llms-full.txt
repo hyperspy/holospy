@@ -1,0 +1,1418 @@
+# index.html.md
+
+# Welcome to HoloSpy’s documentation!
+
+**HoloSpy** is a Python package extending the functionality for
+multi-dimensional data analysis provided by the [HyperSpy](https://hyperspy.org/) library. It is aimed at helping with the analysis of
+(off-axis) electron holography data. Originally developed as part of [HyperSpy](https://hyperspy.org/), these and other domain specific features have been
+split out into dedicated packages with the [HyperSpy 2.0
+release](https://hyperspy.org/hyperspy-doc/current/changes.html#changes-2-0).
+
+Check out the [Installation](user_guide/installation.html.md#installation) section for further information, including
+how to start using this project.
+
+#### NOTE
+This is an open-source community project: everyone is welcome to contribute.
+Please read our (see [Contributing](contributing.html.md#contributing-label)) guidelines and get started!
+
+## Learning resources
+
+ Getting Started
+
+New to holoSpy or the HyperSpy ecosystem? The getting started guide provides an
+introduction on basic usage of holoSpy and how to install it.
+
+ User Guide
+
+The user guide provides in-depth information on key concepts of holoSpy
+and how to use it along with background information and explanations.
+
+ Reference
+
+Documentation of the metadata specification and of the Application Progamming Interface (API),
+which describe how holoSpy functions work and which parameters can be used.
+
+ Tutorials
+
+Tutorials in form of Jupyter Notebooks to learn how to process
+off-axis electron holography data using holoSpy.
+
+ Contributing
+
+holoSpy and the whole HyperSpy ecosystem are a community project
+maintained for and by its users. There are many ways you can help!
+
+ Changes
+
+To learn about recent changes, check out the release notes.
+
+## Citing HoloSpy
+
+HoloSpy is maintained by the [HyperSpy community](https://github.com/hyperspy/holospy/contributors).
+
+If HoloSpy has been significant to a project that leads to an academic
+publication, please acknowledge that fact by citing it. The DOI in the
+badge below is the [Concept DOI](https://support.zenodo.org/help/en-gb/1-upload-deposit/97-what-is-doi-versioning) –
+it can be used to cite the project without referring to a specific
+version. If you are citing HoloSpy because you have used it to process data,
+please use the DOI of the specific version that you have employed. You can
+find it by clicking on the DOI badge below:
+
+[![doi: 10.5281/zenodo.10137993](https://zenodo.org/badge/doi/10.5281/zenodo.10137993.svg)](https://doi.org/10.5281/zenodo.10137993)
+
+## License
+
+HoloSpy is free software: you can redistribute it and/or modify
+it under the terms of the [GNU General Public License (GPL)](https://www.gnu.org/licenses/#GPL) as published by
+the Free Software Foundation, either version 3 of the license, or
+(at your option) any later version.
+
+HoloSpy is distributed in the hope that it will be useful,
+but **without any warranty**; without even the implied warranty of
+**merchantability** or **fitness for a particular purpose**. See the
+[GNU General Public License](https://www.gnu.org/licenses/#GPL)
+for more details.
+
+
+# api/data.html.md
+
+# [`holospy.data`](api/data.html.md#module-holospy.data)
+
+<!-- !! processed by numpydoc !! -->
+
+### holospy.data.Fe_needle_hologram()
+
+Load an object hologram image.
+
+### Notes
+
+Sample: Fe needle with YOx nanoparticle inclusions. See reference for more
+details
+
+> Migunov, V. et al. Model-independent measurement of the charge density
+> distribution along an Fe atom probe needle using off-axis electron
+> holography without mean inner potential effects. J. Appl. Phys. 117,
+> 134301 (2015). [https://doi.org/10.1063/1.4916609](https://doi.org/10.1063/1.4916609)
+
+TEM: FEI Titan G2 60-300 HOLO
+
+> Boothroyd, C. et al. FEI Titan G2 60-300 HOLO. Journal of large-scale
+> research facilities JLSRF 2, 44 (2016).
+> [https://doi.org/10.17815/jlsrf-2-70](https://doi.org/10.17815/jlsrf-2-70)
+
+Signal is loaded “read-only” to ensure data access regardless of
+install location
+
+<!-- !! processed by numpydoc !! -->
+
+### holospy.data.Fe_needle_reference_hologram()
+
+Load a reference hologram image.
+
+### Notes
+
+Sample: Fe needle with YOx nanoparticle inclusions. See reference for more
+details
+
+> Migunov, V. et al. Model-independent measurement of the charge density
+> distribution along an Fe atom probe needle using off-axis electron
+> holography without mean inner potential effects. J. Appl. Phys. 117,
+> 134301 (2015). [https://doi.org/10.1063/1.4916609](https://doi.org/10.1063/1.4916609)
+
+TEM: FEI Titan G2 60-300 HOLO
+
+> Boothroyd, C. et al. FEI Titan G2 60-300 HOLO. Journal of large-scale
+> research facilities JLSRF 2, 44 (2016).
+> [https://doi.org/10.17815/jlsrf-2-70](https://doi.org/10.17815/jlsrf-2-70)
+
+Signal is loaded “read-only” to ensure data access regardless of
+install location
+
+<!-- !! processed by numpydoc !! -->
+
+
+# api/index.html.md
+
+<a id="reference"></a>
+
+# Reference
+
+# API Reference
+
+* [`holospy.data`](api/data.html.md)
+  * [`Fe_needle_hologram()`](api/data.html.md#holospy.data.Fe_needle_hologram)
+  * [`Fe_needle_reference_hologram()`](api/data.html.md#holospy.data.Fe_needle_reference_hologram)
+* [`holospy.reconstruct`](api/reconstruct.html.md)
+  * [`aperture_function()`](api/reconstruct.html.md#holospy.reconstruct.aperture_function)
+  * [`estimate_sideband_position()`](api/reconstruct.html.md#holospy.reconstruct.estimate_sideband_position)
+  * [`estimate_sideband_size()`](api/reconstruct.html.md#holospy.reconstruct.estimate_sideband_size)
+  * [`freq_array()`](api/reconstruct.html.md#holospy.reconstruct.freq_array)
+  * [`reconstruct()`](api/reconstruct.html.md#holospy.reconstruct.reconstruct)
+* [`holospy.signals`](api/signals.html.md)
+  * [`HologramImage`](api/signals.html.md#holospy.signals.HologramImage)
+  * [`LazyHologramImage`](api/signals.html.md#holospy.signals.LazyHologramImage)
+* [`holospy.tools`](api/tools.html.md)
+  * [`calculate_carrier_frequency()`](api/tools.html.md#holospy.tools.calculate_carrier_frequency)
+  * [`estimate_fringe_contrast_fourier()`](api/tools.html.md#holospy.tools.estimate_fringe_contrast_fourier)
+
+
+# api/reconstruct.html.md
+
+# [`holospy.reconstruct`](api/reconstruct.html.md#module-holospy.reconstruct)
+
+<!-- !! processed by numpydoc !! -->
+
+### holospy.reconstruct.aperture_function(r, apradius, rsmooth)
+
+A smooth aperture function that decays from apradius-rsmooth to apradius+rsmooth.
+
+* **Parameters:**
+  **r**
+  : Array of input data (e.g. frequencies)
+
+  **apradius**
+  : Radius (center) of the smooth aperture. Decay starts at apradius - rsmooth.
+
+  **rsmooth**
+  : Smoothness in halfwidth. rsmooth = 1 will cause a decay from 1 to 0 over 2 pixel.
+* **Returns:**
+  [`numpy.ndarray`](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray)
+
+<!-- !! processed by numpydoc !! -->
+
+### holospy.reconstruct.estimate_sideband_position(data, sampling, central_band_mask_radius=None, sb='lower', high_cf=True)
+
+Finds the position of the sideband and returns its position.
+
+* **Parameters:**
+  **data**
+  : The data of the hologram.
+
+  **sampling**
+  : The sampling rate in both image directions.
+
+  **central_band_mask_radius**
+  : The aperture radius used to mask out the centerband.
+
+  **sb**
+  : Chooses which sideband is taken. ‘lower’, ‘upper’, ‘left’, or ‘right’.
+
+  **high_cf**
+  : If False, the highest carrier frequency allowed for the sideband location is equal to
+    half of the Nyquist frequency (Default: True).
+* **Returns:**
+  [`tuple`](https://docs.python.org/3/builtins/stdtypes.html#tuple)
+  : The sideband position (y, x), referred to the unshifted FFT.
+
+<!-- !! processed by numpydoc !! -->
+
+### holospy.reconstruct.estimate_sideband_size(sb_position, shape, sb_size_ratio=0.5)
+
+Estimates the size of sideband filter
+
+* **Parameters:**
+  **shape**
+  : Holographic data array
+
+  **sb_position**
+  : The sideband position (y, x), referred to the non-shifted FFT.
+
+  **sb_size_ratio**
+  : Size of sideband as a fraction of the distance to central band
+* **Returns:**
+  [`float`](https://docs.python.org/3/builtins/functions.html#float)
+  : Size of sideband filter
+
+<!-- !! processed by numpydoc !! -->
+
+### holospy.reconstruct.freq_array(shape, sampling)
+
+Makes up a frequency array.
+
+* **Parameters:**
+  **shape**
+  : The shape of the array.
+
+  **sampling**
+  : The sampling rates of the array.
+* **Returns:**
+  [`numpy.ndarray`](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray)
+  : Frequencies
+
+<!-- !! processed by numpydoc !! -->
+
+### holospy.reconstruct.reconstruct(data, sampling, sb_size, sb_position, sb_smoothness, output_shape=None, plotting=False)
+
+Core function for holographic reconstruction.
+
+* **Parameters:**
+  **data**
+  : Holographic data array
+
+  **sampling**
+  : Sampling rate of the hologram in y and x direction.
+
+  **sb_size**
+  : Size of the sideband filter in pixel.
+
+  **sb_position**
+  : Sideband position in pixel.
+
+  **sb_smoothness**
+  : Smoothness of the aperture in pixel.
+
+  **output_shape**
+  : New output shape.
+
+  **plotting**
+  : Plots the masked sideband used for reconstruction.
+* **Returns:**
+  [`numpy.ndarray`](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray)
+  : Reconstructed electron wave
+
+<!-- !! processed by numpydoc !! -->
+
+
+# api/signals.html.md
+
+# [`holospy.signals`](api/signals.html.md#module-holospy.signals)
+
+| [`HologramImage`](api/signals.html.md#holospy.signals.HologramImage)(\*args, \*\*kwargs)     | Signal class for holograms acquired via off-axis electron holography.      |
+|----------------------------------------------------------------------------------------|----------------------------------------------------------------------------|
+| [`LazyHologramImage`](api/signals.html.md#holospy.signals.LazyHologramImage)(\*args, \*\*kwargs) | Lazy signal class for holograms acquired via off-axis electron holography. |
+
+<a id="module-holospy.signals"></a>
+
+Modules containing the HoloSpy signals and their lazy counterparts.
+
+HologramImage
+: For holography data
+
+LazyHologramImage
+: For holography data processed lazily
+
+<!-- !! processed by numpydoc !! -->
+
+### *class* holospy.signals.HologramImage(\*args, \*\*kwargs)
+
+Bases: [`Signal2D`](https://hyperspy.org/hyperspy-doc/current/reference/api.signals/Signal2D.html#hyperspy.api.signals.Signal2D)
+
+Signal class for holograms acquired via off-axis electron holography.
+
+<!-- !! processed by numpydoc !! -->
+
+Create a signal instance.
+
+* **Parameters:**
+  **data**
+  : The signal data. It can be an array of any dimensions.
+
+  **axes**
+  : List of either dictionaries or axes objects to define the axes (see
+    the documentation of the [`AxesManager`](https://hyperspy.org/hyperspy-doc/current/reference/base_classes/axes.html#hyperspy.axes.AxesManager)
+    class for more details).
+
+  **attributes**
+  : A dictionary whose items are stored as attributes.
+
+  **metadata**
+  : A dictionary containing a set of parameters
+    that will to stores in the `metadata` attribute.
+    Some parameters might be mandatory in some cases.
+
+  **original_metadata**
+  : A dictionary containing a set of parameters
+    that will to stores in the `original_metadata` attribute. It
+    typically contains all the parameters that has been
+    imported from the original data file.
+
+  **ragged**
+  : Define whether the signal is ragged or not. Overwrite the
+    `ragged` value in the `attributes` dictionary. If None, it does
+    nothing. Default is None.
+
+<!-- !! processed by numpydoc !! -->
+
+#### estimate_sideband_position(ap_cb_radius=None, sb='lower', high_cf=True, show_progressbar=False, num_workers=None)
+
+Estimates the position of the sideband and returns its position.
+
+* **Parameters:**
+  **ap_cb_radius**
+  : The aperture radius used to mask out the centerband.
+
+  **sb**
+  : Chooses which sideband is taken. `'lower'` or `'upper'`
+
+  **high_cf**
+  : If False, the highest carrier frequency allowed for the sideband location is equal to
+    half of the Nyquist frequency (Default: True).
+
+  **show_progressbar**
+  : If `True`, display a progress bar. If `None`, the default from
+    the preferences settings is used.
+
+  **num_workers**
+  : Number of worker used by dask. If None, default
+    to dask default value.
+* **Returns:**
+  [`hyperspy.api.signals.Signal1D`](https://hyperspy.org/hyperspy-doc/current/reference/api.signals/Signal1D.html#hyperspy.api.signals.Signal1D)
+  : Sideband positions (y, x), referred to the unshifted FFT.
+* **Raises:**
+  [`NotImplementedError`](https://docs.python.org/3/builtins/exceptions.html#NotImplementedError)
+  : If the signal axes are non-uniform axes.
+
+### Examples
+
+```pycon
+>>> import holospy as holo
+>>> s = holo.data.Fe_needle_hologram()
+>>> sb_position = s.estimate_sideband_position()
+>>> sb_position.data
+```
+
+array([124, 452])
+
+<!-- !! processed by numpydoc !! -->
+
+#### estimate_sideband_size(sb_position, show_progressbar=False, num_workers=None)
+
+Estimates the size of the sideband and returns its size.
+
+* **Parameters:**
+  **sb_position**
+  : The sideband position (y, x), referred to the non-shifted FFT.
+
+  **show_progressbar**
+  : If `True`, display a progress bar. If `None`, the default from
+    the preferences settings is used.
+
+  **num_workers**
+  : Number of worker used by dask. If None, default
+    to dask default value.
+* **Returns:**
+  [`hyperspy.api.signals.Signal1D`](https://hyperspy.org/hyperspy-doc/current/reference/api.signals/Signal1D.html#hyperspy.api.signals.Signal1D)
+  : Sideband size referred to the unshifted FFT.
+* **Raises:**
+  [`NotImplementedError`](https://docs.python.org/3/builtins/exceptions.html#NotImplementedError)
+  : If the signal axes are non-uniform axes.
+
+### Examples
+
+```pycon
+>>> import holospy as holo
+>>> s = holo.data.Fe_needle_hologram()
+>>> sb_position = s.estimate_sideband_position()
+>>> sb_size = s.estimate_sideband_size(sb_position)
+>>> sb_size.data
+array([ 68.87670143])
+```
+
+<!-- !! processed by numpydoc !! -->
+
+#### reconstruct_phase(reference=None, sb_size=None, sb_smoothness=None, sb_unit=None, sb='lower', sb_position=None, high_cf=True, output_shape=None, plotting=False, store_parameters=True, show_progressbar=False, num_workers=None)
+
+Reconstruct electron holograms. Operates on multidimensional
+hyperspy signals. There are several usage schemes:
+
+* Reconstruct 1d or Nd hologram without reference
+* Reconstruct 1d or Nd hologram using single reference hologram
+* Reconstruct Nd hologram using Nd reference hologram (applies each
+  reference to each hologram in Nd stack)
+
+The reconstruction parameters (sb_position, sb_size, sb_smoothness)
+have to be 1d or to have same dimensionality as the hologram.
+
+* **Parameters:**
+  **reference**
+  : Vacuum reference hologram.
+
+  **sb_size**
+  : Sideband radius of the aperture in corresponding unit (see
+    ‘sb_unit’). If None, the radius of the aperture is set to 1/3 of
+    the distance between sideband and center band.
+
+  **sb_smoothness**
+  : Smoothness of the aperture in the same unit as sb_size.
+
+  **sb_unit**
+  : Unit of the two sideband parameters ‘sb_size’ and ‘sb_smoothness’.
+    Default: None - Sideband size given in pixels
+    ‘nm’: Size and smoothness of the aperture are given in 1/nm.
+    ‘mrad’: Size and smoothness of the aperture are given in mrad.
+
+  **sb**
+  : Select which sideband is selected. ‘upper’ or ‘lower’.
+
+  **sb_position**
+  : The sideband position (y, x), referred to the non-shifted FFT. If
+    None, sideband is determined automatically from FFT.
+
+  **high_cf**
+  : If False, the highest carrier frequency allowed for the sideband
+    location is equal to half of the Nyquist frequency (Default: True).
+
+  **output_shape: tuple, None**
+  : Choose a new output shape. Default is the shape of the input
+    hologram. The output shape should not be larger than the input
+    shape.
+
+  **plotting**
+  : Shows details of the reconstruction (i.e. SB selection).
+
+  **store_parameters**
+  : Store reconstruction parameters in metadata
+
+  **show_progressbar**
+  : If `True`, display a progress bar. If `None`, the default from
+    the preferences settings is used.
+
+  **num_workers**
+  : Number of worker used by dask. If None, default
+    to dask default value.
+* **Returns:**
+  [`hyperspy.api.signals.ComplexSignal2D`](https://hyperspy.org/hyperspy-doc/current/reference/api.signals/ComplexSignal2D.html#hyperspy.api.signals.ComplexSignal2D)
+  : Reconstructed electron wave. By default object wave is divided by
+    reference wave.
+* **Raises:**
+  [`NotImplementedError`](https://docs.python.org/3/builtins/exceptions.html#NotImplementedError)
+  : If the signal axes are non-uniform axes.
+
+### Examples
+
+```pycon
+>>> import holospy as holo
+>>> s = holo.data.Fe_needle_hologram()
+>>> sb_position = s.estimate_sideband_position()
+>>> sb_size = s.estimate_sideband_size(sb_position)
+>>> wave = s.reconstruct_phase(sb_position=sb_position, sb_size=sb_size)
+```
+
+<!-- !! processed by numpydoc !! -->
+
+#### set_microscope_parameters(beam_energy=None, biprism_voltage=None, tilt_stage=None)
+
+Set the microscope parameters.
+
+If no arguments are given, raises an interactive mode to fill
+the values.
+
+* **Parameters:**
+  **beam_energy**
+  : The energy of the electron beam in keV
+
+  **biprism_voltage**
+  : In volts
+
+  **tilt_stage**
+  : In degrees
+
+### Examples
+
+```pycon
+>>> s.set_microscope_parameters(beam_energy=300.)
+>>> print('Now set to %s keV' %
+>>>       s.metadata.Acquisition_instrument.
+>>>       TEM.beam_energy)
+```
+
+Now set to 300.0 keV
+
+<!-- !! processed by numpydoc !! -->
+
+#### statistics(sb_position=None, sb='lower', high_cf=False, fringe_contrast_algorithm='statistical', apodization='hanning', single_values=True, show_progressbar=False, num_workers=None)
+
+Calculates following statistics for off-axis electron holograms:
+
+1. Fringe contrast using either statistical definition or
+Fourier space approach (see description of fringe_contrast_algorithm parameter)
+2. Fringe sampling (in pixels)
+3. Fringe spacing (in calibrated units)
+4. Carrier frequency (in calibrated units, radians and 1/px)
+
+* **Parameters:**
+  **sb_position**
+  : The sideband position (y, x), referred to the non-shifted FFT.
+    It has to be tuple or to have the same dimensionality as the hologram.
+    If None, sideband is determined automatically from FFT.
+
+  **sb**
+  : Select which sideband is selected. ‘upper’, ‘lower’, ‘left’ or ‘right’.
+
+  **high_cf**
+  : If False, the highest carrier frequency allowed for the sideband location is equal to
+    half of the Nyquist frequency (Default: False).
+
+  **fringe_contrast_algorithm**
+  : Select fringe contrast algorithm between:
+    * `'fourier'`: fringe contrast is estimated as 2 \* <I(k_0)> / <I(0)>,
+      where I(k_0) is intensity of sideband and I(0) is the intensity of central band (FFT origin).
+      This method delivers also reasonable estimation if the
+      interference pattern do not cover full field of view.
+    * `'statistical'`: fringe contrast is estimated by dividing the
+      standard deviation by the mean of the hologram intensity in real
+      space. This algorithm relies on regularly spaced fringes and
+      covering the entire field of view.
+    <br/>
+    (Default: ‘statistical’)
+
+  **apodization**
+  : Used with `fringe_contrast_algorithm='fourier'`. If `'hanning'` or `'hamming'` apodization window
+    will be applied in real space before FFT for estimation of fringe contrast.
+    Apodization is typically needed to suppress striking  due to sharp edges of the image,
+    which often results in underestimation of the fringe contrast. (Default: ‘hanning’)
+
+  **single_values**
+  : If True calculates statistics only for the first navigation pixels and
+    returns the values as single floats (Default: True)
+
+  **show_progressbar**
+  : If `True`, display a progress bar. If `None`, the default from
+    the preferences settings is used.
+
+  **num_workers**
+  : Number of worker used by dask. If None, default
+    to dask default value.
+* **Returns:**
+  [`dict`](https://docs.python.org/3/builtins/stdtypes.html#dict)
+  : Dictionary with the statistics
+* **Raises:**
+  [`NotImplementedError`](https://docs.python.org/3/builtins/exceptions.html#NotImplementedError)
+  : If the signal axes are non-uniform axes.
+
+### Examples
+
+```pycon
+>>> import holospy as holo
+>>> s = holo.data.Fe_needle_reference_hologram()
+>>> sb_position = s.estimate_sideband_position(high_cf=True)
+>>> s.statistics(sb_position=sb_position)
+{'Fringe spacing (nm)': 3.4860442674236256,
+'Carrier frequency (1/px)': 0.26383819985575441,
+'Carrier frequency (mrad)': 0.56475154609203482,
+'Fringe contrast': 0.071298357213623778,
+'Fringe sampling (px)': 3.7902017241882331,
+'Carrier frequency (1 / nm)': 0.28685808994016415}
+```
+
+<!-- !! processed by numpydoc !! -->
+
+### *class* holospy.signals.LazyHologramImage(\*args, \*\*kwargs)
+
+Bases: [`LazySignal`](https://hyperspy.org/hyperspy-doc/current/reference/api.signals/LazySignal.html#hyperspy.api.signals.LazySignal), [`HologramImage`](api/signals.html.md#holospy.signals.HologramImage)
+
+Lazy signal class for holograms acquired via off-axis electron
+holography.
+
+The computation is delayed until explicitly requested.
+
+This class is not expected to be instantiated directly, instead use:
+
+```pycon
+>>> data = da.ones((10, 10))
+>>> s = holospy.signals.HologramImage(data).as_lazy()
+```
+
+<!-- !! processed by numpydoc !! -->
+
+Create a signal instance.
+
+* **Parameters:**
+  **data**
+  : The signal data. It can be an array of any dimensions.
+
+  **axes**
+  : List of either dictionaries or axes objects to define the axes (see
+    the documentation of the [`AxesManager`](https://hyperspy.org/hyperspy-doc/current/reference/base_classes/axes.html#hyperspy.axes.AxesManager)
+    class for more details).
+
+  **attributes**
+  : A dictionary whose items are stored as attributes.
+
+  **metadata**
+  : A dictionary containing a set of parameters
+    that will to stores in the `metadata` attribute.
+    Some parameters might be mandatory in some cases.
+
+  **original_metadata**
+  : A dictionary containing a set of parameters
+    that will to stores in the `original_metadata` attribute. It
+    typically contains all the parameters that has been
+    imported from the original data file.
+
+  **ragged**
+  : Define whether the signal is ragged or not. Overwrite the
+    `ragged` value in the `attributes` dictionary. If None, it does
+    nothing. Default is None.
+
+<!-- !! processed by numpydoc !! -->
+
+
+# api/tools.html.md
+
+# [`holospy.tools`](api/tools.html.md#module-holospy.tools)
+
+<!-- !! processed by numpydoc !! -->
+
+### holospy.tools.calculate_carrier_frequency(data, sb_position, scale)
+
+Calculates fringe carrier frequency of a hologram
+
+* **Parameters:**
+  **data**
+  : The data of the hologram.
+
+  **sb_position**
+  : Position of the sideband with the reference to non-shifted FFT
+
+  **scale**
+  : Scale of the axes that will be used for the calculation.
+* **Returns:**
+  [`numpy.ndarray`](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray)
+  : Carrier frequency
+
+<!-- !! processed by numpydoc !! -->
+
+### holospy.tools.estimate_fringe_contrast_fourier(data, sb_position, apodization='hanning')
+
+Estimates average fringe contrast of a hologram  by dividing amplitude
+of maximum pixel of sideband by amplitude of FFT’s origin.
+
+* **Parameters:**
+  **data**
+  : The data of the hologram.
+
+  **sb_position**
+  : Position of the sideband with the reference to non-shifted FFT
+
+  **apodization**
+  : Use ‘hanning’, ‘hamming’ or None to apply apodization window in real space before FFT
+    Apodization is typically needed to suppress the striking  due to sharp edges
+    of the which often results in underestimation of the fringe contrast. (Default: ‘hanning’)
+* **Returns:**
+  [`numpy.ndarray`](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray)
+  : Fringe contrast as a float
+
+<!-- !! processed by numpydoc !! -->
+
+
+# changes.html.md
+
+<!-- This is a stub, see the top level CHANGES.rst file for the changelog. -->
+
+# Release Notes
+
+Changelog entries for the development version are available at
+[https://holospy.readthedocs.io/en/latest/changes.html](https://holospy.readthedocs.io/en/latest/changes.html)
+
+## [UNRELEASED] (2026-11-20)
+
+### Bug Fixes
+
+- Fix incompatibility with `pint >= 0.26.2`, which raises
+  `DefinitionSyntaxError` instead of `UndefinedUnitError` when parsing
+  HyperSpy’s `"<undefined>"` sentinel for unset units, causing
+  `HologramImage.statistics` to raise an unclear error instead of the
+  intended `ValueError("Signal axes units should be defined.")`. ([#72](https://github.com/hyperspy/holospy/issues/72))
+
+### Improved Documentation
+
+- Add LLM-friendly Markdown rendering of the documentation using the [sphinx-llm](https://github.com/NVIDIA/sphinx-llm) extension: each documentation page is now also rendered as a Markdown file (`<page>.md`) alongside the HTML output, an `llms.txt` index of the Markdown files is generated for LLMs and agents, and all pages are concatenated into a single `llms-full.txt` file. ([#73](https://github.com/hyperspy/holospy/issues/73))
+
+### Maintenance
+
+- Adopt the HyperSpy AI policy: shared pre-commit hooks, compliance CI workflow and an AGENTS.md knowledge base. ([#74](https://github.com/hyperspy/holospy/issues/74))
+
+<!-- towncrier release notes start -->
+
+## 0.4.0 (2026-10-17)
+
+### Enhancements
+
+- Add lazy import to reduce import time and reduce memory usage. ([#65](https://github.com/hyperspy/holospy/issues/65))
+
+### Maintenance
+
+- Update supported Python versions to 3.10, 3.11, 3.12, 3.13, 3.14; drop 3.8, 3.9. ([#65](https://github.com/hyperspy/holospy/issues/65))
+- Update release workflow to upload release notes and artifacts to GitHub releases. ([#66](https://github.com/hyperspy/holospy/issues/66))
+- Add a `.mailmap` file to consolidate duplicate author identities in
+  the git history, fixing contributor attribution for tools that respect
+  mailmap. ([#69](https://github.com/hyperspy/holospy/issues/69))
+
+## 0.3 (2024-05-02)
+
+### Improved Documentation
+
+- Fix DOI and add more badges to readme file. ([#34](https://github.com/hyperspy/holospy/issues/34))
+
+### Maintenance
+
+- Use `pint.get_application_registry` instead of HyperSpy private API to get the handle of the `pint.UnitRegistry`. ([#35](https://github.com/hyperspy/holospy/issues/35))
+- Add/enable more ruff rules: isort, pyflakes, pycodestyle. ([#37](https://github.com/hyperspy/holospy/issues/37))
+
+## 0.2 (2024-04-04)
+
+### Deprecations
+
+- The positional arguments `holo_data` and `holo_sampling` of [`reconstruct()`](api/reconstruct.html.md#holospy.reconstruct.reconstruct) have been renamed to `data` and `sampling`, respectively. ([#26](https://github.com/hyperspy/holospy/issues/26))
+
+### Improved Documentation
+
+- Add holoSpy logo ([#26](https://github.com/hyperspy/holospy/issues/26))
+
+### Maintenance
+
+- Use ruff for linting and formatting; check NPY2011. ([#28](https://github.com/hyperspy/holospy/issues/28))
+- Fix numpy 1.25 deprecation. ([#29](https://github.com/hyperspy/holospy/issues/29))
+- Enable numpydoc and nitpicky; fix docstrings. ([#30](https://github.com/hyperspy/holospy/issues/30))
+
+## 0.1.1 (2023-12-02)
+
+### Bug Fixes
+
+- Fix getting version from metadata ([#16](https://github.com/hyperspy/holospy/issues/16))
+
+### Maintenance
+
+- Use towncrier to manage release notes and improve setting dev version ([#17](https://github.com/hyperspy/holospy/issues/17))
+
+<a id="changes-0-1"></a>
+
+## 0.1 (2023-11-15)
+
+- Add pre-commit configuration file ([#4](https://github.com/hyperspy/holospy/pull/4))
+- Format code using `black` and add workflow to check formatting ([#3](https://github.com/hyperspy/holospy/pull/3)).
+- Add GitHub workflows to tests and build packages ([#2](https://github.com/hyperspy/holospy/pull/2)).
+- Rename the `max_workers` argument to `num_workers` ([#9](https://github.com/hyperspy/holospy/pull/9))
+- Setup codecov to measure coverage ([#10](https://github.com/hyperspy/holospy/pull/10))
+- Add badges for tests, codecov and docs ([#11](https://github.com/hyperspy/holospy/pull/11))
+- Add workflow to build and push documentation ([#13](https://github.com/hyperspy/holospy/pull/13))
+- Consolidate package metadata in `pyproject.toml` ([#14](https://github.com/hyperspy/holospy/pull/14))
+- Use `setuptools_scm` to set holospy version at build time ([#14](https://github.com/hyperspy/holospy/pull/14))
+- Add package and test workflow ([#14](https://github.com/hyperspy/holospy/pull/14))
+- Add python 3.12 ([#14](https://github.com/hyperspy/holospy/pull/14))
+- Add release workflow ([#14](https://github.com/hyperspy/holospy/pull/14))
+
+## Initiation (2023-07-23)
+
+- HoloSpy was split out of the [HyperSpy repository](https://github.com/hyperspy/hyperspy) on July 23, 2023. The electron
+  holography functionalities so far developed in HyperSpy were moved to the
+  [HoloSpy repository](https://github.com/hyperspy/holospy).
+
+
+# contributing.html.md
+
+<!-- This is a stub, see the top level CONTRIBUTING.rst file for the changelog. -->
+
+<a id="contributing-label"></a>
+
+# Contributing
+
+HoloSpy is meant to be a community maintained project. We welcome contributions
+in the form of bug reports, documentation, code, feature requests, and more.
+In the following we refer to some resources to help you make useful contributions.
+
+## Issues
+
+The [issue tracker](https://github.com/hyperspy/holospy/issues) can be used to
+report bugs or propose new features. When reporting a bug, the following is
+useful:
+
+- give a minimal example demonstrating the bug,
+- copy and paste the error traceback.
+
+## Pull Requests
+
+If you want to contribute to the HoloSpy source code, you can send us a
+[pull request](https://github.com/hyperspy/holospy/pulls). Small bug fixes or
+corrections to the user guide are typically a good starting point. But don’t
+hesitate also for significant code contributions - if needed, we’ll help you
+to get the code ready to common standards.
+
+Please refer to the
+[HyperSpy developer guide](http://hyperspy.org/hyperspy-doc/current/dev_guide/intro.html)
+in order to get started and for detailed contributing guidelines.
+
+## AI-assisted contributions
+
+HoloSpy follows the HyperSpy AI policy shared by all HyperSpy repositories.
+In short: non-trivial AI-assisted changes require an accepted proposal in
+[hyperspy/hyperspy-proposals](https://github.com/hyperspy/hyperspy-proposals)
+before the implementation pull request is reviewed; every AI-assisted commit
+carries the `Assisted-by: <tool>:<model>` trailer (disclosure is the
+contributor’s responsibility) and never an AI `Co-authored-by:` trailer (a
+pre-commit hook and the `compliance` CI checks reject those). See the [Coding
+with AI assistants](https://hyperspy.org/hyperspy-doc/current/dev_guide/coding_with_ai.html)
+section of the HyperSpy developer guide for the full guidance.
+
+The [kikuchipy contributors guide](https://kikuchipy.org/en/latest/dev/index.html), another HyperSpy
+extension, also is a valuable resource that can get you started and provides useful
+guidelines.
+
+### Reviewing
+
+As quality assurance, to improve the code, and to ensure a generalized
+functionality, pull requests need to be thoroughly reviewed by at least one
+other member of the development team before being merged.
+
+## Documentation
+
+The HoloSpy documentation consists of three elements:
+
+- Docstrings following the [numpy standard](https://numpydoc.readthedocs.io/en/latest/format.html#docstring-standard)
+  that document the functionality of individual methods on [GitHub](https://github.com/hyperspy/holospy).
+- The [documentation](https://holospy.readthedocs.io) written using [Sphinx](https://www.sphinx-doc.org) and hosted on [Read the Docs](https://holospy.readthedocs.io). The source is part of the [GitHub repository](https://github.com/hyperspy/holospy/tree/main/doc).
+- Jupyter notebooks in the [HoloSpy demos repository](https://github.com/hyperspy/holospy-demos) on GitHub that provide tutorials and example
+  workflows.
+
+Improving documentation is always welcome and a good way of starting out to learn the GitHub
+functionality. You can contribute through pull requests to the respective repositories.
+
+## Code style
+
+HoloSpy follows [Style Guide for Python Code](https://www.python.org/dev/peps/pep-0008/)
+with [The Black Code style](https://black.readthedocs.io/en/stable/the_black_code_style/current_style.html).
+
+For [docstrings](https://www.python.org/dev/peps/pep-0257/), we follow the [numpydoc](https://numpydoc.readthedocs.io/en/latest/format.html#docstring-standard) standard.
+
+Package imports should be structured into three blocks with blank lines between
+them:
+
+- standard libraries (like `os` and `typing`),
+- third party packages (like `numpy` and `hyperspy`),
+- and finally `holospy` imports.
+
+## Writing tests
+
+All functionality in HoloSpy is tested via the [pytest](https://docs.pytest.org)
+framework. The tests reside in the `test` directory. Tests are short methods that call
+functions in HoloSpy and compare resulting output values with known answers.
+Please refer to the [HyperSpy development guide](https://hyperspy.org/hyperspy-doc/current/dev_guide/testing.html) for further
+information on tests.
+
+## Releasing a new version
+
+HoloSpy versioning follows [semantic versioning](https://semver.org/spec/v2.0.0.html)
+and the version number is therefore a three-part number: MAJOR.MINOR.PATCH.
+Each number will change depending on the type of changes according to the following:
+
+- MAJOR increases when making incompatible API changes,
+- MINOR increases when adding functionality in a backwards compatible manner, and
+- PATCH increases when making backwards compatible bug fixes.
+
+The process to release a new version that is pushed to [PyPI](https://pypi.org) and
+[Conda-Forge](https://conda-forge.org/) is documented in the [Releasing guide](https://github.com/hyperspy/holospy/blob/main/releasing_guide.md).
+
+
+# intro.html.md
+
+# Welcome to HoloSpy’s documentation!
+
+**HoloSpy** is a Python package extending the functionality for
+multi-dimensional data analysis provided by the [HyperSpy](https://hyperspy.org/) library. It is aimed at helping with the analysis of
+(off-axis) electron holography data. Originally developed as part of [HyperSpy](https://hyperspy.org/), these and other domain specific features have been
+split out into dedicated packages with the [HyperSpy 2.0
+release](https://hyperspy.org/hyperspy-doc/current/changes.html#changes-2-0).
+
+Check out the [Installation](user_guide/installation.html.md#installation) section for further information, including
+how to start using this project.
+
+#### NOTE
+This is an open-source community project: everyone is welcome to contribute.
+Please read our (see [Contributing](contributing.html.md#contributing-label)) guidelines and get started!
+
+## Learning resources
+
+ Getting Started
+
+New to holoSpy or the HyperSpy ecosystem? The getting started guide provides an
+introduction on basic usage of holoSpy and how to install it.
+
+ User Guide
+
+The user guide provides in-depth information on key concepts of holoSpy
+and how to use it along with background information and explanations.
+
+ Reference
+
+Documentation of the metadata specification and of the Application Progamming Interface (API),
+which describe how holoSpy functions work and which parameters can be used.
+
+ Tutorials
+
+Tutorials in form of Jupyter Notebooks to learn how to process
+off-axis electron holography data using holoSpy.
+
+ Contributing
+
+holoSpy and the whole HyperSpy ecosystem are a community project
+maintained for and by its users. There are many ways you can help!
+
+ Changes
+
+To learn about recent changes, check out the release notes.
+
+## Citing HoloSpy
+
+HoloSpy is maintained by the [HyperSpy community](https://github.com/hyperspy/holospy/contributors).
+
+If HoloSpy has been significant to a project that leads to an academic
+publication, please acknowledge that fact by citing it. The DOI in the
+badge below is the [Concept DOI](https://support.zenodo.org/help/en-gb/1-upload-deposit/97-what-is-doi-versioning) –
+it can be used to cite the project without referring to a specific
+version. If you are citing HoloSpy because you have used it to process data,
+please use the DOI of the specific version that you have employed. You can
+find it by clicking on the DOI badge below:
+
+[![doi: 10.5281/zenodo.10137993](https://zenodo.org/badge/doi/10.5281/zenodo.10137993.svg)](https://doi.org/10.5281/zenodo.10137993)
+
+## License
+
+HoloSpy is free software: you can redistribute it and/or modify
+it under the terms of the [GNU General Public License (GPL)](https://www.gnu.org/licenses/#GPL) as published by
+the Free Software Foundation, either version 3 of the license, or
+(at your option) any later version.
+
+HoloSpy is distributed in the hope that it will be useful,
+but **without any warranty**; without even the implied warranty of
+**merchantability** or **fitness for a particular purpose**. See the
+[GNU General Public License](https://www.gnu.org/licenses/#GPL)
+for more details.
+
+
+# user_guide/bibliography.html.md
+
+<a id="bibliography"></a>
+
+# Bibliography
+
+<a id="gabor1948"></a>
+
+[[Gabor1948]](user_guide/bibliography.html.md#gabor1948)
+: D. Gabor, “A new microscopic principle,”
+  *Nature* 161 (1948): 777-778 [[https://doi.org/10.1038/161777a0](https://doi.org/10.1038/161777a0)].
+
+<a id="joy1993"></a>
+
+[[Joy1993]](user_guide/bibliography.html.md#joy1993)
+: D.Joy, Y.-S. Zhang, X. Zhang, T.Hashimoto, R. Bunn,
+  L.Allard, and T. Nolan, “Practical aspects of electron holography,”
+  *Ultramicroscopy* 51.1-4 (1993): 1-14
+  [[https://doi.org/10.1016/0304-3991(93)90130-P](https://doi.org/10.1016/0304-3991(93)90130-P)].
+
+<a id="mccartney2007"></a>
+
+[[McCartney2007]](user_guide/bibliography.html.md#mccartney2007)
+: M. McCartney and D. Smith, “Electron
+  holography: phase imaging with nanometer resolution,” *Annu. Rev. Mater.
+  Res.* 37 (2007): 729-767
+  [[https://onlinelibrary.wiley.com/doi/10.1146/annurev.matsci.37.052506.084219](https://onlinelibrary.wiley.com/doi/10.1146/annurev.matsci.37.052506.084219)].
+
+<a id="tonomura1999"></a>
+
+[[Tonomura1999]](user_guide/bibliography.html.md#tonomura1999)
+: A. Tonomura, “Electron Holography,”
+  Springer Berlin Heidelberg, 1999. 78-132
+  [[https://doi.org/10.1007/978-3-540-37204-2](https://doi.org/10.1007/978-3-540-37204-2)].
+
+
+# user_guide/electron_holography.html.md
+
+<a id="electron-holography-label"></a>
+
+# Electron Holography
+
+HoloSpy provides the user with a signal class which can be used to process
+(off-axis) electron holography data:
+
+* [`HologramImage`](api/signals.html.md#holospy.signals.HologramImage)
+
+It inherits from [`hyperspy.api.signals.Signal2D`](https://hyperspy.org/hyperspy-doc/current/reference/api.signals/Signal2D.html#hyperspy.api.signals.Signal2D) class and thus can
+use all of its functionality. The usage of the class is explained in the
+following sections.
+
+To transform a [`hyperspy.api.signals.Signal2D`](https://hyperspy.org/hyperspy-doc/current/reference/api.signals/Signal2D.html#hyperspy.api.signals.Signal2D) (or subclass) into a
+[`HologramImage`](api/signals.html.md#holospy.signals.HologramImage) use:
+
+```python
+>>> im.set_signal_type('hologram')
+```
+
+## Reconstruction of holograms
+
+The detailed description of electron holography and reconstruction of holograms
+can be found in literature [[Gabor1948]](user_guide/bibliography.html.md#gabor1948),
+[[Tonomura1999]](user_guide/bibliography.html.md#tonomura1999),
+[[McCartney2007]](user_guide/bibliography.html.md#mccartney2007),
+and [[Joy1993]](user_guide/bibliography.html.md#joy1993).
+Fourier based reconstruction of off-axis holograms (includes
+finding a side band in FFT, isolating and filtering it, recenter and
+calculate inverse Fourier transform) can be performed using the
+[`reconstruct_phase()`](api/signals.html.md#holospy.signals.HologramImage.reconstruct_phase) method
+which returns a [`hyperspy.api.signals.ComplexSignal2D`](https://hyperspy.org/hyperspy-doc/current/reference/api.signals/ComplexSignal2D.html#hyperspy.api.signals.ComplexSignal2D) class,
+containing the reconstructed electron wave.
+The [`reconstruct_phase()`](api/signals.html.md#holospy.signals.HologramImage.reconstruct_phase) method
+takes sideband position and size as parameters:
+
+```python
+>>> import holospy as holo
+>>> im =  holo.datasets.Fe_needle_hologram()
+>>> wave_image = im.reconstruct_phase(sb_position=(<y>, <x>),
+...                                   sb_size=sb_radius)
+```
+
+The parameters can be found automatically by calling following methods:
+
+```python
+>>> sb_position = im.estimate_sideband_position(ap_cb_radius=None,
+...                                             sb='lower')
+>>> sb_size = im.estimate_sideband_size(sb_position)
+```
+
+[`estimate_sideband_position()`](api/signals.html.md#holospy.signals.HologramImage.estimate_sideband_position)
+method searches for maximum of intensity in upper or lower part of FFT pattern
+(parameter `sb`) excluding the middle area defined by `ap_cb_radius`.
+[`estimate_sideband_size()`](api/signals.html.md#holospy.signals.HologramImage.estimate_sideband_size) method
+calculates the radius of the sideband filter as half of the distance to the
+central band which is commonly used for strong phase objects. Alternatively,
+the sideband filter radius can be recalculate as 1/3 of the distance
+(often used for weak phase objects) for example:
+
+```python
+>>> sb_size = sb_size * 2 / 3
+```
+
+To reconstruct the hologram with a vacuum reference wave, the reference
+hologram should be provided to the method either as Hyperspy’s
+[`HologramImage`](api/signals.html.md#holospy.signals.HologramImage) or as a nparray:
+
+```python
+>>> reference_hologram = holo.datasets.Fe_needle_reference_hologram()
+>>> wave_image = im.reconstruct_phase(reference_hologram,
+...                                   sb_position=sb_position,
+...                                   sb_size=sb_size)
+```
+
+Using the reconstructed wave, one can access its amplitude and phase (also
+unwrapped phase) using
+`amplitude` and `phase` properties
+(also the [`hyperspy.api.signals.ComplexSignal.unwrapped_phase()`](https://hyperspy.org/hyperspy-doc/current/reference/api.signals/ComplexSignal.html#hyperspy.api.signals.ComplexSignal.unwrapped_phase)
+method):
+
+```python
+>>> wave_image.unwrapped_phase().plot()
+```
+
+![image](user_guide/images/holography_unwrapped_phase.png)
+
+Additionally, it is possible to change the smoothness of the sideband filter
+edge (which is by default set to 5% of the filter radius) using parameter
+`sb_smoothness`.
+
+Both `sb_size` and `sb_smoothness` can be provided in desired units rather
+than pixels (by default) by setting `sb_unit` value either to `mrad` or
+`nm` for milliradians or inverse nanometers respectively. For example:
+
+```python
+>>> wave_image = im.reconstruct_phase(reference_hologram,
+...                                   sb_position=sb_position, sb_size=30,
+...                                   sb_smoothness=0.05*30,sb_unit='mrad')
+```
+
+Also the [`reconstruct_phase()`](api/signals.html.md#holospy.signals.HologramImage.reconstruct_phase)
+method can output wave images with desired size (shape). By default the shape
+of the original hologram is preserved. Though this leads to oversampling of the
+output wave images, since the information is limited by the size of the
+sideband filter. To avoid oversampling the output shape can be set to the
+diameter of the sideband as follows:
+
+```python
+>>> out_size = int(2*sb_size.data)
+>>> wave_image = im.reconstruct_phase(reference_hologram,
+...                                   sb_position=sb_position,
+...                                   sb_size=sb_size,
+...                                   output_shape=(out_size, out_size))
+```
+
+Note that the
+[`reconstruct_phase()`](api/signals.html.md#holospy.signals.HologramImage.reconstruct_phase)
+method can be called without parameters, which will cause their automatic
+assignment by
+[`estimate_sideband_position()`](api/signals.html.md#holospy.signals.HologramImage.estimate_sideband_position)
+and [`estimate_sideband_size()`](api/signals.html.md#holospy.signals.HologramImage.estimate_sideband_size)
+methods. This, however, is not recommended for not experienced users.
+
+<a id="holography-stats-label"></a>
+
+## Further processing of complex wave and phase
+
+Once the complex electron wave reconstructed it [can be processed the same way as any other complex signal](https://hyperspy.org/hyperspy-doc/current/user_guide/signal/complex_datatype.html#complex-data-label). A useful tool to explore the complex data is [Argand plot](https://hyperspy.org/hyperspy-doc/current/user_guide/signal/complex_datatype.html#complex-argand), which can be
+calculated and displayed as follows:
+
+<a id="holo-argand-example"></a>
+```python
+>>> ad = wave_image.argand_diagram(display_range=[-3, 3])
+>>> ad.plot(scalebar=False)
+```
+
+![image](user_guide/images/holography_argand_diagram.png)
+
+## Getting hologram statistics
+
+There are many reasons to have an access to some parameters of holograms which describe the quality of the data.
+[`statistics()`](api/signals.html.md#holospy.signals.HologramImage.statistics) can be used to calculate carrier frequency,
+fringe spacing and estimate fringe contrast. The method outputs dictionary with the values listed above calculated also
+in different units. In particular fringe spacing is calculated in pixels (fringe sampling) as well as in
+calibrated units. Carrier frequency is calculated in inverse pixels or calibrated units as well as radians.
+Estimation of fringe contrast is either performed by division of standard deviation by mean value of hologram or
+in Fourier space as twice the fraction of amplitude of sideband centre and amplitude of center band (i.e. FFT origin).
+The first method is default and using it requires the fringe field to cover entire field of view; the method is
+highly sensitive to any artifacts in holograms like dud pixels,
+fresnel fringes and etc. The second method is less sensitive to the artifacts listed above and gives
+reasonable estimation of fringe contrast even if the hologram is not covering entire field of view, but it is highly
+sensitive to precise calculation of sideband position and therefore sometimes may underestimate the contrast.
+The selection between to algorithms can be done using parameter `fringe_contrast_algorithm` setting it to
+`'statistical'` or to `'fourier'`. The side band position typically provided by a `sb_position`.
+The statistics can be accessed as follows:
+
+```python
+>>> statistics = im.statistics(sb_position=sb_position)
+```
+
+Note that by default the `single_value` parameter is `True` which forces the output of single values for each
+entry of statistics dictionary calculated from first navigation pixel. (I.e. for image stacks only first image
+will be used for calculating the statistics.) Otherwise:
+
+```python
+>>> statistics = im.statistics(sb_position=sb_position, single_value=False)
+```
+
+Entries of `statistics` are Hyperspy signals containing the hologram parameters for each image in a stack.
+
+The estimation of fringe spacing using `'fourier'` method applies apodization in real space prior calculating FFT.
+By default `apodization` parameter is set to `hanning` which applies Hanning window. Other options are using either
+`None` or `hamming` for no apodization or Hamming window. Please note that for experimental conditions
+especially with extreme sampling of fringes and strong contrast variation due to Fresnel effects
+the calculated fringe contrast provides only an estimate and the values may differ strongly depending on apodization.
+
+For further information see documentation of [`statistics()`](api/signals.html.md#holospy.signals.HologramImage.statistics).
+
+
+# user_guide/index.html.md
+
+<a id="user-guide"></a>
+
+# User Guide
+
+# User Guide
+
+* [Installation](user_guide/installation.html.md)
+  * [Installation using conda](user_guide/installation.html.md#installation-using-conda)
+  * [Installation using pip](user_guide/installation.html.md#installation-using-pip)
+  * [Updating the package](user_guide/installation.html.md#updating-the-package)
+* [Electron Holography](user_guide/electron_holography.html.md)
+  * [Reconstruction of holograms](user_guide/electron_holography.html.md#reconstruction-of-holograms)
+  * [Further processing of complex wave and phase](user_guide/electron_holography.html.md#further-processing-of-complex-wave-and-phase)
+  * [Getting hologram statistics](user_guide/electron_holography.html.md#getting-hologram-statistics)
+* [HoloSpy metadata structure](user_guide/metadata_structure.html.md)
+  * [General](user_guide/metadata_structure.html.md#general)
+  * [Sample](user_guide/metadata_structure.html.md#sample)
+  * [Signal](user_guide/metadata_structure.html.md#signal)
+  * [Acquisition Instrument](user_guide/metadata_structure.html.md#acquisition-instrument)
+  * [TEM](user_guide/metadata_structure.html.md#tem)
+* [Bibliography](user_guide/bibliography.html.md)
+
+
+# user_guide/installation.html.md
+
+<a id="installation"></a>
+
+# Installation
+
+To install HoloSpy, you have the following options (independent of the operating system you use):
+
+1. HoloSpy is included in the [HyperSpy Bundle](https://hyperspy.org/hyperspy-bundle/),
+   a standalone program that includes a python distribution and all relevant libraries
+   (recommended if you do not use *python* for anything else).
+2. [Installation using conda](user_guide/installation.html.md#conda) (recommended if you are also working with other *python* packages).
+3. [Installation using pip](user_guide/installation.html.md#pip).
+4. Installing the development version from [GitHub](https://github.com/hyperspy/holospy/).
+   Refer to the appropriate section in the [HyperSpy user guide](https://hyperspy.org/hyperspy-doc/current/user_guide/install.html#install-dev) (replacing `hyperspy` by `holospy`).
+
+<a id="conda"></a>
+
+## Installation using conda
+
+Follow these 3 steps to install HoloSpy using **conda** and start using it.
+
+### 1. Creating a conda environment
+
+HoloSpy requires Python 3 and `conda` – we suggest using the Python 3 version
+of [Miniforge](https://conda-forge.org/miniforge/).
+
+We recommend creating a new environment for the HoloSpy package (or installing
+it in the [HyperSpy](https://hyperspy.org/hyperspy-doc/current/user_guide/install.html#anaconda-install)
+environment, if you have one already). To create a new environment:
+
+1. Load the miniforge prompt.
+2. Run the following command:
+
+```bash
+(base) conda create -n holospy -y
+```
+
+### 2. Installing the package in the new environment
+
+Now activate the holospy environment and install the package from `conda-forge`:
+
+```bash
+(base) conda activate holospy
+(holospy) conda install -c conda-forge holospy -y
+```
+
+Required dependencies will be installed automatically.
+
+Installation is completed! To start using it, check the next section.
+
+#### NOTE
+If you run into trouble, check the more detailed documentation in the
+[HyperSpy user guide](https://hyperspy.org/hyperspy-doc/current/user_guide/install.html#anaconda-install).
+
+### 3. Getting Started
+
+To get started using HoloSpy, especially if you are unfamiliar with Python, we
+recommend using [Jupyter notebooks](https://jupyter.org/). Having installed
+HoloSpy as above, a Jupyter notebook can be installed and opened using the following commands
+entered into an anaconda prompt (from scratch):
+
+```bash
+(base) conda activate holospy
+(holospy) conda install -c conda-forge jupyterlab -y
+(holospy) jupyter lab
+```
+
+<a id="pip"></a>
+
+## Installation using pip
+
+Alternatively, you can also find HoloSpy in the [Python Package Index (PyPI)](https://pypi.org)
+and install it using (requires `pip`):
+
+```bash
+pip install holospy
+```
+
+Required dependencies will be installed automatically.
+
+## Updating the package
+
+Using **conda**:
+
+```bash
+conda update holospy -c conda-forge
+```
+
+Using **pip**:
+
+```bash
+pip install holospy --upgrade
+```
+
+#### NOTE
+If you want to be notified about new releases, please *Watch (Releases only)* the [HoloSpy repository
+on GitHub](https://github.com/hyperspy/holospy/) (requires a GitHub account).
+
+
+# user_guide/metadata_structure.html.md
+
+<a id="metadata-structure"></a>
+
+# HoloSpy metadata structure
+
+HoloSpy extends the [HyperSpy metadata structure](https://hyperspy.org/hyperspy-doc/current/reference/metadata.html#metadata-structure)
+with conventions for metadata specific to its signal types. Refer to the
+[HyperSpy metadata documentation](https://hyperspy.org/hyperspy-doc/current/reference/metadata.html#metadata-structure)
+for general metadata fields.
+
+The metadata of any **signal objects** is stored in the metadata attribute,
+which has a tree structure. By convention, the node labels are capitalized and
+the ones for leaves are not capitalized. When a leaf contains a quantity that
+is not dimensionless, the units can be given in an extra leaf with the same
+label followed by the `_units` suffix.
+
+Besides directly accessing the metadata tree structure, e.g.
+`s.metadata.Signal.signal_type`, the HyperSpy methods
+[`set_item()`](https://hyperspy.org/hyperspy-doc/current/reference/utils/index.html#hyperspy.misc.utils.DictionaryTreeBrowser.set_item),
+[`has_item()`](https://hyperspy.org/hyperspy-doc/current/reference/utils/index.html#hyperspy.misc.utils.DictionaryTreeBrowser.has_item) and
+[`get_item()`](https://hyperspy.org/hyperspy-doc/current/reference/utils/index.html#hyperspy.misc.utils.DictionaryTreeBrowser.get_item)
+can be used to add to, search for and read from items in the metadata tree,
+respectively.
+
+The holography-specific metadata structure is represented in the following
+tree diagram. The default units are given in parentheses. Details about the
+leaves can be found in the following sections of this chapter. Note that not
+all types of leaves will apply to every type of measurement.
+
+```default
+metadata
+├── General
+│   └── # see HyperSpy
+├── Sample
+│   └── # see HyperSpy
+├── Signal
+│   ├── signal_type
+│   └── # otherwise see HyperSpy
+└── Acquisition_instrument
+    └── TEM
+        └── Biprism
+            ├── azimuth_angle (º)
+            ├── position
+            └── voltage (V)
+```
+
+## General
+
+See [HyperSpy-Metadata-General](https://hyperspy.org/hyperspy-doc/current/reference/metadata.html#general-metadata).
+
+## Sample
+
+See [HyperSpy-Metadata-Sample](https://hyperspy.org/hyperspy-doc/current/reference/metadata.html#sample-metadata).
+
+## Signal
+
+signal_type
+: type: string
+  <br/>
+  String that describes the type of signal. Currently, the only HoloSpy
+  specific signal class is `hologram`.
+
+See [HyperSpy-Metadata-Signal](https://hyperspy.org/hyperspy-doc/current/reference/metadata.html#signal-metadata) for
+additional fields.
+
+## Acquisition Instrument
+
+## TEM
+
+### Biprism
+
+This node stores parameters of biprism used in off-axis electron holography
+
+azimuth_angle (º)
+: type: Float
+  <br/>
+  Rotation angle of the biprism in degree
+
+position
+: type: Str
+  <br/>
+  Position of the biprism in microscope column, e.g. Selected area aperture
+  plane
+
+voltage
+: type: Float
+  <br/>
+  Voltage of electrostatic biprism in volts
+
+See [eXSpy TEM metadata](https://hyperspy.org/exspy/user_guide/metadata_structure.html#source-metadata) for additional fields.
+
+
