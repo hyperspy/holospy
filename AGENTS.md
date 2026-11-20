@@ -95,7 +95,7 @@ python prepare_release.py 0.5         # release prep (inside a PR)
 ## HyperSpy AI policy (ecosystem contract)
 
 Canonical source: https://github.com/hyperspy/.github/blob/main/AI-POLICY.md - do not reword
-this block; the `check-agents-policy` pre-commit hook keeps it synchronized.
+this block; the `check-agents-policy` CI script keeps it synchronized.
 
 - Non-trivial AI-assisted changes need an accepted proposal in
   https://github.com/hyperspy/hyperspy-proposals BEFORE the implementation PR is reviewed.
