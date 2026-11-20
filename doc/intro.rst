@@ -28,8 +28,10 @@ Learning resources
     :link: user_guide/installation
     :link-type: doc
 
-    :octicon:`rocket;2em;sd-text-info` Getting Started
-    ^^^
+    .. card-header::
+  
+      :octicon:`rocket;2em;sd-text-info` Getting Started
+
 
     New to holoSpy or the HyperSpy ecosystem? The getting started guide provides an
     introduction on basic usage of holoSpy and how to install it.
@@ -38,8 +40,10 @@ Learning resources
     :link: user_guide/index
     :link-type: doc
 
-    :octicon:`book;2em;sd-text-info` User Guide
-    ^^^
+    .. card-header::
+      
+      :octicon:`book;2em;sd-text-info` User Guide
+
 
     The user guide provides in-depth information on key concepts of holoSpy
     and how to use it along with background information and explanations.
@@ -48,8 +52,9 @@ Learning resources
     :link: api/index
     :link-type: doc
 
-    :octicon:`code-square;2em;sd-text-info` Reference
-    ^^^
+    .. card-header::
+      
+      :octicon:`code-square;2em;sd-text-info` Reference
 
     Documentation of the metadata specification and of the Application Progamming Interface (API),
     which describe how holoSpy functions work and which parameters can be used.
@@ -57,8 +62,9 @@ Learning resources
   .. grid-item-card::
     :link: https://github.com/hyperspy/holospy-demos
 
-    :octicon:`workflow;2em;sd-text-info` Tutorials
-    ^^^
+    .. card-header::
+      
+      :octicon:`workflow;2em;sd-text-info` Tutorials
 
     Tutorials in form of Jupyter Notebooks to learn how to process
     off-axis electron holography data using holoSpy.
@@ -67,8 +73,9 @@ Learning resources
     :link: contributing
     :link-type: doc
 
-    :octicon:`people;2em;sd-text-info` Contributing
-    ^^^
+    .. card-header::
+      
+      :octicon:`people;2em;sd-text-info` Contributing
 
     holoSpy and the whole HyperSpy ecosystem are a community project
     maintained for and by its users. There are many ways you can help!
@@ -77,8 +84,9 @@ Learning resources
     :link: changes
     :link-type: doc
 
-    :octicon:`zap;2em;sd-text-info` Changes
-    ^^^
+    .. card-header::
+      
+      :octicon:`zap;2em;sd-text-info` Changes
 
     To learn about recent changes, check out the release notes.
 
