@@ -25,7 +25,6 @@ classifiers = [
   "Topic :: Software Development :: Libraries",
   "Topic :: Scientific/Engineering",
   "Topic :: Scientific/Engineering :: Physics",
-  "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
   "Operating System :: OS Independent",
   "Programming Language :: Python :: 3.10",
   "Programming Language :: Python :: 3.11",
@@ -42,12 +41,11 @@ dependencies = [
   "scipy>=1.5.0",
 ]
 dynamic = ["version"]
+license-files = ["LICENSE"]
+license = "GPL-3.0-or-later"
 
 [project.entry-points."hyperspy.extensions"]
 holospy = "holospy"
-
-[project.license]
-file = "LICENSE"
 
 [project.optional-dependencies]
 tests = [
