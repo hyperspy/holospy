@@ -8,12 +8,24 @@ Calculates fringe carrier frequency of a hologram
 
 * **Parameters:**
   **data**
+  ```rst
+  numpy.ndarray
+  ```
+
   : The data of the hologram.
 
   **sb_position**
+  ```rst
+  python:tuple
+  ```
+
   : Position of the sideband with the reference to non-shifted FFT
 
   **scale**
+  ```rst
+  python:tuple
+  ```
+
   : Scale of the axes that will be used for the calculation.
 * **Returns:**
   [`numpy.ndarray`](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray)
@@ -28,12 +40,24 @@ of maximum pixel of sideband by amplitude of FFT’s origin.
 
 * **Parameters:**
   **data**
+  ```rst
+  numpy.ndarray
+  ```
+
   : The data of the hologram.
 
   **sb_position**
+  ```rst
+  python:tuple
+  ```
+
   : Position of the sideband with the reference to non-shifted FFT
 
   **apodization**
+  ```rst
+  python:str, python:None
+  ```
+
   : Use ‘hanning’, ‘hamming’ or None to apply apodization window in real space before FFT
     Apodization is typically needed to suppress the striking  due to sharp edges
     of the which often results in underestimation of the fringe contrast. (Default: ‘hanning’)

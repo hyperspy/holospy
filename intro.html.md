@@ -20,29 +20,63 @@ Please read our (see [Contributing](contributing.html.md#contributing-label)) gu
 New to holoSpy or the HyperSpy ecosystem? The getting started guide provides an
 introduction on basic usage of holoSpy and how to install it.
 
+```rst
+user_guide/installation
+
+Installation
+```
+
  User Guide
 
 The user guide provides in-depth information on key concepts of holoSpy
 and how to use it along with background information and explanations.
+
+```rst
+user_guide/index
+
+User Guide
+```
 
  Reference
 
 Documentation of the metadata specification and of the Application Progamming Interface (API),
 which describe how holoSpy functions work and which parameters can be used.
 
+```rst
+api/index
+
+Reference
+```
+
  Tutorials
 
 Tutorials in form of Jupyter Notebooks to learn how to process
 off-axis electron holography data using holoSpy.
+
+```rst
+https://github.com/hyperspy/holospy-demos
+```
 
  Contributing
 
 holoSpy and the whole HyperSpy ecosystem are a community project
 maintained for and by its users. There are many ways you can help!
 
+```rst
+contributing
+
+Contributing
+```
+
  Changes
 
 To learn about recent changes, check out the release notes.
+
+```rst
+changes
+
+Release Notes
+```
 
 ## Citing HoloSpy
 

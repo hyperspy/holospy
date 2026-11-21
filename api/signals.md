@@ -28,28 +28,52 @@ Create a signal instance.
 
 * **Parameters:**
   **data**
+  ```rst
+  numpy.ndarray
+  ```
+
   : The signal data. It can be an array of any dimensions.
 
   **axes**
+  ```rst
+  [dict/axes], optional
+  ```
+
   : List of either dictionaries or axes objects to define the axes (see
     the documentation of the [`AxesManager`](https://hyperspy.org/hyperspy-doc/current/reference/base_classes/axes.html#hyperspy.axes.AxesManager)
     class for more details).
 
   **attributes**
+  ```rst
+  python:dict, optional
+  ```
+
   : A dictionary whose items are stored as attributes.
 
   **metadata**
+  ```rst
+  python:dict, optional
+  ```
+
   : A dictionary containing a set of parameters
     that will to stores in the `metadata` attribute.
     Some parameters might be mandatory in some cases.
 
   **original_metadata**
+  ```rst
+  python:dict, optional
+  ```
+
   : A dictionary containing a set of parameters
     that will to stores in the `original_metadata` attribute. It
     typically contains all the parameters that has been
     imported from the original data file.
 
   **ragged**
+  ```rst
+  bool or python:None, optional
+  ```
+
   : Define whether the signal is ragged or not. Overwrite the
     `ragged` value in the `attributes` dictionary. If None, it does
     nothing. Default is None.
@@ -62,20 +86,40 @@ Estimates the position of the sideband and returns its position.
 
 * **Parameters:**
   **ap_cb_radius**
+  ```rst
+  python:float, python:None
+  ```
+
   : The aperture radius used to mask out the centerband.
 
   **sb**
+  ```rst
+  python:str, optional
+  ```
+
   : Chooses which sideband is taken. `'lower'` or `'upper'`
 
   **high_cf**
+  ```rst
+  bool, optional
+  ```
+
   : If False, the highest carrier frequency allowed for the sideband location is equal to
     half of the Nyquist frequency (Default: True).
 
   **show_progressbar**
+  ```rst
+  python:None or bool
+  ```
+
   : If `True`, display a progress bar. If `None`, the default from
     the preferences settings is used.
 
   **num_workers**
+  ```rst
+  python:None or python:int
+  ```
+
   : Number of worker used by dask. If None, default
     to dask default value.
 * **Returns:**
@@ -104,13 +148,25 @@ Estimates the size of the sideband and returns its size.
 
 * **Parameters:**
   **sb_position**
+  ```rst
+  hyperspy.api.signals.BaseSignal
+  ```
+
   : The sideband position (y, x), referred to the non-shifted FFT.
 
   **show_progressbar**
+  ```rst
+  python:None or bool
+  ```
+
   : If `True`, display a progress bar. If `None`, the default from
     the preferences settings is used.
 
   **num_workers**
+  ```rst
+  python:None or python:int
+  ```
+
   : Number of worker used by dask. If None, default
     to dask default value.
 * **Returns:**
@@ -148,30 +204,58 @@ have to be 1d or to have same dimensionality as the hologram.
 
 * **Parameters:**
   **reference**
+  ```rst
+  ndarray, hyperspy.api.signals.Signal2D, python:None
+  ```
+
   : Vacuum reference hologram.
 
   **sb_size**
+  ```rst
+  python:float, ndarray, hyperspy.api.signals.BaseSignal, python:None
+  ```
+
   : Sideband radius of the aperture in corresponding unit (see
     ‘sb_unit’). If None, the radius of the aperture is set to 1/3 of
     the distance between sideband and center band.
 
   **sb_smoothness**
+  ```rst
+  python:float, ndarray, hyperspy.api.signals.BaseSignal, python:None
+  ```
+
   : Smoothness of the aperture in the same unit as sb_size.
 
   **sb_unit**
+  ```rst
+  python:str, python:None
+  ```
+
   : Unit of the two sideband parameters ‘sb_size’ and ‘sb_smoothness’.
     Default: None - Sideband size given in pixels
     ‘nm’: Size and smoothness of the aperture are given in 1/nm.
     ‘mrad’: Size and smoothness of the aperture are given in mrad.
 
   **sb**
+  ```rst
+  python:str, python:None
+  ```
+
   : Select which sideband is selected. ‘upper’ or ‘lower’.
 
   **sb_position**
+  ```rst
+  python:tuple, hyperspy.api.signals.Signal1D, python:None
+  ```
+
   : The sideband position (y, x), referred to the non-shifted FFT. If
     None, sideband is determined automatically from FFT.
 
   **high_cf**
+  ```rst
+  bool, optional
+  ```
+
   : If False, the highest carrier frequency allowed for the sideband
     location is equal to half of the Nyquist frequency (Default: True).
 
@@ -181,16 +265,32 @@ have to be 1d or to have same dimensionality as the hologram.
     shape.
 
   **plotting**
+  ```rst
+  bool
+  ```
+
   : Shows details of the reconstruction (i.e. SB selection).
 
   **store_parameters**
+  ```rst
+  bool
+  ```
+
   : Store reconstruction parameters in metadata
 
   **show_progressbar**
+  ```rst
+  python:None or bool
+  ```
+
   : If `True`, display a progress bar. If `None`, the default from
     the preferences settings is used.
 
   **num_workers**
+  ```rst
+  python:None or python:int
+  ```
+
   : Number of worker used by dask. If None, default
     to dask default value.
 * **Returns:**
@@ -222,12 +322,24 @@ the values.
 
 * **Parameters:**
   **beam_energy**
+  ```rst
+  python:float
+  ```
+
   : The energy of the electron beam in keV
 
   **biprism_voltage**
+  ```rst
+  python:float
+  ```
+
   : In volts
 
   **tilt_stage**
+  ```rst
+  python:float
+  ```
+
   : In degrees
 
 ### Examples
@@ -255,18 +367,34 @@ Fourier space approach (see description of fringe_contrast_algorithm parameter)
 
 * **Parameters:**
   **sb_position**
+  ```rst
+  python:tuple, hyperspy.api.signals.Signal1D, python:None
+  ```
+
   : The sideband position (y, x), referred to the non-shifted FFT.
     It has to be tuple or to have the same dimensionality as the hologram.
     If None, sideband is determined automatically from FFT.
 
   **sb**
+  ```rst
+  python:str, python:None
+  ```
+
   : Select which sideband is selected. ‘upper’, ‘lower’, ‘left’ or ‘right’.
 
   **high_cf**
+  ```rst
+  bool, optional
+  ```
+
   : If False, the highest carrier frequency allowed for the sideband location is equal to
     half of the Nyquist frequency (Default: False).
 
   **fringe_contrast_algorithm**
+  ```rst
+  python:str
+  ```
+
   : Select fringe contrast algorithm between:
     * `'fourier'`: fringe contrast is estimated as 2 \* <I(k_0)> / <I(0)>,
       where I(k_0) is intensity of sideband and I(0) is the intensity of central band (FFT origin).
@@ -280,20 +408,36 @@ Fourier space approach (see description of fringe_contrast_algorithm parameter)
     (Default: ‘statistical’)
 
   **apodization**
+  ```rst
+  python:str or python:None, optional
+  ```
+
   : Used with `fringe_contrast_algorithm='fourier'`. If `'hanning'` or `'hamming'` apodization window
     will be applied in real space before FFT for estimation of fringe contrast.
     Apodization is typically needed to suppress striking  due to sharp edges of the image,
     which often results in underestimation of the fringe contrast. (Default: ‘hanning’)
 
   **single_values**
+  ```rst
+  bool, optional
+  ```
+
   : If True calculates statistics only for the first navigation pixels and
     returns the values as single floats (Default: True)
 
   **show_progressbar**
+  ```rst
+  python:None or bool
+  ```
+
   : If `True`, display a progress bar. If `None`, the default from
     the preferences settings is used.
 
   **num_workers**
+  ```rst
+  python:None or python:int
+  ```
+
   : Number of worker used by dask. If None, default
     to dask default value.
 * **Returns:**
@@ -342,28 +486,52 @@ Create a signal instance.
 
 * **Parameters:**
   **data**
+  ```rst
+  numpy.ndarray
+  ```
+
   : The signal data. It can be an array of any dimensions.
 
   **axes**
+  ```rst
+  [dict/axes], optional
+  ```
+
   : List of either dictionaries or axes objects to define the axes (see
     the documentation of the [`AxesManager`](https://hyperspy.org/hyperspy-doc/current/reference/base_classes/axes.html#hyperspy.axes.AxesManager)
     class for more details).
 
   **attributes**
+  ```rst
+  python:dict, optional
+  ```
+
   : A dictionary whose items are stored as attributes.
 
   **metadata**
+  ```rst
+  python:dict, optional
+  ```
+
   : A dictionary containing a set of parameters
     that will to stores in the `metadata` attribute.
     Some parameters might be mandatory in some cases.
 
   **original_metadata**
+  ```rst
+  python:dict, optional
+  ```
+
   : A dictionary containing a set of parameters
     that will to stores in the `original_metadata` attribute. It
     typically contains all the parameters that has been
     imported from the original data file.
 
   **ragged**
+  ```rst
+  bool or python:None, optional
+  ```
+
   : Define whether the signal is ragged or not. Overwrite the
     `ragged` value in the `attributes` dictionary. If None, it does
     nothing. Default is None.

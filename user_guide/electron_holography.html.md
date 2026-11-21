@@ -84,6 +84,9 @@ method):
 ```
 
 ![image](user_guide/images/holography_unwrapped_phase.png)
+```rst
+Unwrapped phase image.
+```
 
 Additionally, it is possible to change the smoothness of the sideband filter
 edge (which is by default set to 5% of the filter radius) using parameter
@@ -136,6 +139,9 @@ calculated and displayed as follows:
 ```
 
 ![image](user_guide/images/holography_argand_diagram.png)
+```rst
+Argand diagram of the reconstructed complex wave.
+```
 
 ## Getting hologram statistics
 
