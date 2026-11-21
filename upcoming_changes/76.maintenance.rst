@@ -1,0 +1,2 @@
+Fix how the license is specified in ``pyproject.toml`` and keep the test workflow
+from overriding the Python selected by ``actions/setup-python``.
