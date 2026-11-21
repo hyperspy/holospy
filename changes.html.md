@@ -5,7 +5,9 @@
 Changelog entries for the development version are available at
 [https://holospy.readthedocs.io/en/latest/changes.html](https://holospy.readthedocs.io/en/latest/changes.html)
 
-## [UNRELEASED] (2026-11-20)
+<!-- towncrier release notes start -->
+
+## 0.4.1 (2026-11-21)
 
 ### Bug Fixes
 
@@ -22,8 +24,8 @@ Changelog entries for the development version are available at
 ### Maintenance
 
 - Adopt the HyperSpy AI policy: shared pre-commit hooks, compliance CI workflow and an AGENTS.md knowledge base. ([#74](https://github.com/hyperspy/holospy/issues/74))
-
-<!-- towncrier release notes start -->
+- Fix how the license is specified in `pyproject.toml` and keep the test workflow
+  from overriding the Python selected by `actions/setup-python`. ([#76](https://github.com/hyperspy/holospy/issues/76))
 
 ## 0.4.0 (2026-10-17)
 
