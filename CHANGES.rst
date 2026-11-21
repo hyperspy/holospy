@@ -8,6 +8,33 @@ https://holospy.readthedocs.io/en/latest/changes.html
 
 .. towncrier release notes start
 
+0.4.1 (2026-11-21)
+==================
+
+Bug Fixes
+---------
+
+- Fix incompatibility with ``pint >= 0.26.2``, which raises
+  ``DefinitionSyntaxError`` instead of ``UndefinedUnitError`` when parsing
+  HyperSpy's ``"<undefined>"`` sentinel for unset units, causing
+  ``HologramImage.statistics`` to raise an unclear error instead of the
+  intended ``ValueError("Signal axes units should be defined.")``. (`#72 <https://github.com/hyperspy/holospy/issues/72>`_)
+
+
+Improved Documentation
+----------------------
+
+- Add LLM-friendly Markdown rendering of the documentation using the `sphinx-llm <https://github.com/NVIDIA/sphinx-llm>`_ extension: each documentation page is now also rendered as a Markdown file (``<page>.md``) alongside the HTML output, an ``llms.txt`` index of the Markdown files is generated for LLMs and agents, and all pages are concatenated into a single ``llms-full.txt`` file. (`#73 <https://github.com/hyperspy/holospy/issues/73>`_)
+
+
+Maintenance
+-----------
+
+- Adopt the HyperSpy AI policy: shared pre-commit hooks, compliance CI workflow and an AGENTS.md knowledge base. (`#74 <https://github.com/hyperspy/holospy/issues/74>`_)
+- Fix how the license is specified in ``pyproject.toml`` and keep the test workflow
+  from overriding the Python selected by ``actions/setup-python``. (`#76 <https://github.com/hyperspy/holospy/issues/76>`_)
+
+
 0.4.0 (2026-10-17)
 ==================
 
